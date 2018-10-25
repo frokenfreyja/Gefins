@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
-<html lang="en">
+<html class="grid" lang="is">
 
     <head>
         <title>Postit Notes</title>
@@ -31,9 +31,17 @@
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
                 <td><sf:textarea path="note" type="text" placeholder="Note text here"/></td>
             </tr>
+            <tr>
+                <td>Home:</td>
+                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                <td><sf:textarea path="home" type="text" placeholder="Home text here"/></td>
+            </tr>
         </table>
 
         <input type="submit" VALUE="Post It!"/>
+        <input type="submit" VALUE="Nyr takki"/>
+        
+        
 
     </sf:form>
 
@@ -56,6 +64,7 @@
                         <td><a href="/postit/${postit.name}">${postit.name}</a></td>
                         <%--The String in the note attribute--%>
                         <td>${postit.note}</td>
+                        <td>${postit.home}</td>
                     </tr>
                 </c:forEach>
             </table>

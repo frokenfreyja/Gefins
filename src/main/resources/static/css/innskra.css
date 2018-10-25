@@ -1,4 +1,3 @@
-/* setjum box-sizing: border-box; á allt */
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -23,7 +22,6 @@ main {
   overflow-x: hidden;
 }
 
-
 .headbar {
   display: flex;
   position: relative;
@@ -33,16 +31,16 @@ main {
   height: 220px;
 
 }
-  a.gefins {
-    font-size: 4.5em;
-    font-weight: bold;
-    padding-left: 0.5em;
-    padding-top: 0.7em;
-    font-family: 'Roboto Slab', serif;
-    text-decoration: none;
-    color: white;
+a.gefins {
+  font-size: 4.5em;
+  font-weight: bold;
+  padding-left: 0.5em;
+  padding-top: 0.7em;
+  font-family: 'Roboto Slab', serif;
+  text-decoration: none;
+  color: white;
 
-  }
+}
   .headbar__buttons {
     display:inline-block;
     overflow: auto;
@@ -76,6 +74,7 @@ main {
     height: 2.5em;
     font-size: 1.5em;
   }
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -84,44 +83,42 @@ main {
 }
 .col {
   padding-right: 10px;
-  padding-left: 10px; }
-  .col3-left {
-    width: 20%;
+  padding-left: 20em;
+}
+  .col-left {
+    width: 50%;
   }
-  .col9-right {
-    width: 80%;
-    display: flex;
+  .col-right {
+    width: 50%;
   }
 
-.borderfront {
-  border-right: 2px grey;
-  height: 500px;
-}
-.text {
-  margin-left: 1em;
-  margin-top: 2em;
-  font-size: 1.5em;
-}
+  .text {
+      margin-left: 1em;
+      margin-top: 2em;
+      font-size: 2em;
+    }
 
-.text_leitaeftir {
-  font-size: 2em;
-}
+  .text_leitaeftir {
+    font-size: 1.5em;
+  }
 
-.text_trengja {
-  font-size: 2em;
-}
+  .text_trengja {
+    font-size: 1.5em;
+  }
 
-.listi {
-  margin-top: 1.3em;
-  font-size: 2em;
-}
+  .nyauglysing {
+    margin-top: 1.3em;
+    margin-bottom: 1em;
+    font-size: 3em;
+  }
+  
+  .submit {
+    float: right;
+    padding-top: 2.5em;
+    padding-right: 12em;
+  }
 
-.auglysing {
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-
-.nyauglysingbutton {
+.innskrabutton {
   background-color: #4d4d4d;
   border: none;
   color: white;
@@ -134,58 +131,27 @@ main {
   cursor: pointer;
 }
 
-.nyauglysingbutton:hover {
-    background-color: whitesmoke; /* Green */
-    color: black;
+.nyskrapost {
 }
 
-  .headbar__buttoninnskra {
-    cursor: pointer;
-  }
-  .nyauglysing {
-    margin-top: 1.3em;
-    margin-bottom: 1em;
-    font-size: 3em;
-  }
-  .tafla td {
+.tafla td {
+  padding: 15px;
+  text-align: left;
+}
+
+table.formtable {
+    border: 1px black solid;
+}
+
+.formtable td {
     padding: 15px;
     text-align: left;
-  }
-
-  table.formtable {
-      border: 1px black solid;
-      margin-top: 1em;
-      min-width: 1600px;
-  }
-
-  .formtable td {
-      padding: 15px;
-      text-align: left;
-  }
-
-  table.formtable tr:nth-child(even) {
-      background-color: white;
-  }
-
-  table.formtable tr:nth-child(odd) {
-      background-color: whitesmoke;
-      text-decoration: none;
-  }
-
-a:link {
-    text-decoration: none;
-    color: black;
 }
 
-a:visited {
-    text-decoration: none;
+table.formtable tr:nth-child(even) {
+    background-color: antiquewhite;
 }
 
-a:hover {
-    text-decoration: none;
-    color: pink;
-}
-
-a:active {
-    text-decoration: underline;
+table.formtable tr:nth-child(odd) {
+    background-color: azure;
 }

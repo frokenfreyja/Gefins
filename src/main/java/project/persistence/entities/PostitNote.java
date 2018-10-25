@@ -18,15 +18,17 @@ public class PostitNote {
 
     private String name;
     private String note;
+    private String home;
 
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public PostitNote() {
     }
 
-    public PostitNote(String name, String note) {
+    public PostitNote(String name, String note, String home) {
         this.name = name;
         this.note = note;
+        this.home = home;
     }
 
     public Long getId() {
@@ -52,12 +54,20 @@ public class PostitNote {
     public void setNote(String note) {
         this.note = note;
     }
+    
+    public String getHome() {
+        return home;
+    }
+
+    public void setHome(String home) {
+        this.home = home;
+    }
 
     // This is for easier debug.
     @Override
     public String toString() {
         return String.format(
-                "Postit Note[name=%s, note=%s]",
-                name,note);
+                "Postit Note[name=%s, note=%s, home%s]",
+                name,note,home);
     }
 }

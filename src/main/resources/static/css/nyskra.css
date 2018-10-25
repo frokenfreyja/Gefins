@@ -1,0 +1,132 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.5;
+ }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0; }
+
+body {
+  max-width: 2200px;
+  margin: auto;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  max-width: 2200px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.headbar {
+  display: flex;
+  position: relative;
+  background-color: #4d4d4d;
+  color: #ffffff;
+  width: 100%;
+  height: 220px;
+
+}
+a.gefins {
+  font-size: 4.5em;
+  font-weight: bold;
+  padding-left: 0.5em;
+  padding-top: 0.7em;
+  font-family: 'Roboto Slab', serif;
+  text-decoration: none;
+  color: white;
+
+}
+  .headbar__buttons {
+    display:inline-block;
+    overflow: auto;
+    white-space: nowrap;
+    margin:0px auto;
+    padding-left: 100em;
+    padding-top: 0.6em;
+  }
+  .headbar__buttonnyskra {
+    background-color: #4d4d4d;
+    color: #ffffff;
+    border: #000000;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    width: 4.5em;
+    height: 2.5em;
+    font-size: 1.5em;
+  }
+  .headbar__buttonnyskra:hover {
+    cursor: pointer;
+  }
+  .headbar__buttoninnskra {
+    background-color: #4d4d4d;
+    color: #ffffff;
+    border: #808080;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #ffffff;
+    width: 4.5em;
+    height: 2.5em;
+    font-size: 1.5em;
+  }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.col {
+  padding-right: 10px;
+}
+  .col-left {
+    width: 50%;
+    padding-left: 20em;
+  }
+  .col-right {
+    width: 50%;
+  }
+
+.nyskrabutton {
+  background-color: #4d4d4d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.nyskrapost {
+
+}
+
+.tafla td {
+  padding: 15px;
+  text-align: left;
+}
+
+table.formtable {
+    border: 1px black solid;
+}
+
+.formtable td {
+    padding: 15px;
+    text-align: left;
+}
+
+table.formtable tr:nth-child(even) {
+    background-color: antiquewhite;
+}
+
+table.formtable tr:nth-child(odd) {
+    background-color: azure;
+}

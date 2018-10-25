@@ -72,13 +72,15 @@ public class HomeController {
         return "User";
     }
     
-    @RequestMapping(value = "/prufa", method = RequestMethod.GET)
-    public String prufa(){
+    
+    
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    public String form(){
 
         // The string "Index" that is returned here is the name of the view
         // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
-        return "Prufa";
+        return "Form";
     }
 }

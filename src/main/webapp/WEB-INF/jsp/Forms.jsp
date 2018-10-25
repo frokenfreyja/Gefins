@@ -8,9 +8,8 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-        <title>Prufa</title>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/prufa.css"/>"/>
-       <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
+        <title>Form</title>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/form.css"/>"/>
         
         <script>
         
@@ -34,12 +33,12 @@
       
       <main>
       
-      	<div class="grid">
+      <div class="grid">
           <div class="row">
           	<div class="col col3-left">
               <div class="text">
               <p class="text_leitaeftir">Leita eftir</p><br>
-              <p class="text__trengja">Flokkar</p>
+              <p class="text_trengja">Flokkar</p>
               <input type="checkbox" id="husgogn" class="checkboxes" /><label for="husgogn"> Húsgögn</label><br>
               <input type="checkbox" id="fatnadur" class="checkboxes" /><label for="fatnadur"> Fatnaður</label><br>
               <input type="checkbox" id="barnavorur" class="checkboxes" /><label for="barnavorur"> Barnavörur</label><br>
@@ -48,56 +47,48 @@
               <input type="checkbox" id="farartaeki" class="checkboxes" /><label for="farartaeki"> Farartæki</label><br>
               <input type="checkbox" id="matur" class="checkboxes" /><label for="matur"> Matur</label><br>
               <input type="checkbox" id="dyr" class="checkboxes" /><label for="dyr"> Dýr</label><br>
+              <form:checkbox path="Prufa" value="Bird watching"/>
               <div class="borderfront"></div>
               </div>
-         
             </div>
+            
             <div class="col col9-right">
-          		<div class="listi">
-                <p class="auglysing">Auglýsingar</p>
-                <form action="/formid">
-                <input type="submit" class="nyauglysingbutton" VALUE="Setja inn auglýsingu"/>
-                </form>
-                 	 <%--Choose what code to generate based on tests that we implement--%>
-    <c:choose>
-        <%--If the model has an attribute with the name `forms`--%>
-        <c:when test="${not empty forms}">
-            <%--Create a table for the Postit Notes--%>
-            <table class="formtable">
-
-                <%--For each postit note, that is in the list that was passed in the model--%>
-                <%--generate a row in the table--%>
-                <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="formid" items="${forms}">
-                    <tr>
-                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
-                        <%--Create a link based on the name attribute value--%>
-                        <td><a href="/formid/${formid.heiti}">${formid.heiti}</a></td>
-                        <%--The String in the note attribute--%>
-                        <td>${formid.lysing}</td>
-                        <td>${formid.aftimi}</td>
-                        
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:when>
-
-        <%--If all tests are false, then do this--%>
-        <c:otherwise>
-            <h3>Engar auglýsingar</h3>
-        </c:otherwise>
-    </c:choose>
-            </div>
-          </div>
-        </div>
-                </div>
-            </div>
-          </div>
-        </div>
+          	  <p class="nyauglysing">Setja inn nýja auglýsingu</p>
+          	  
+      
+      <sf:form method="POST" modelAttribute="form" action="/formid">
+      
+      <table class="tafla">
+            <tr>
+                <td> Heiti auglýsingar:</td>
+                <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
+                <td><sf:input path="heiti" type="text" placeholder=""/></td>
+            </tr>
+            <tr>
+                <td>Lýsing:</td>
+                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                <td><sf:textarea path="lysing" type="text" placeholder=""/></td>
+            </tr>
+            <tr>
+                <td>Afhendingartími:</td>
+                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                <td><sf:textarea path="aftimi" type="text" placeholder=""/></td>
+            </tr>
+           
+       </table>
+       <div class="submit">
+       <input type="submit" class="formbutton" VALUE="Í lagi"/>
+       </div>
+       </sf:form>
+       
+       </div>
+      
+      
+      	
+      
         
-       </main>
+      </main>
+       
        
     </body>
 </html>
