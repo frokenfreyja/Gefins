@@ -74,6 +74,10 @@
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
                 <td><sf:textarea path="aftimi" type="text" placeholder=""/></td>
             </tr>
+            <tr>
+                <td>Mynd:</td>
+                <td><input type="file" name="fileupload" value="fileupload" id="fileupload"></td>
+            </tr>
            
        </table>
        <div class="submit">

@@ -51,11 +51,13 @@ public class NyskraController {
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
         //model.addAttribute("nyskraningar", nyskraService.findAllReverseOrder());
         
-        //model.addAttribute("nyskraningar", nyskraning);
+        model.addAttribute("nyskraningar", nyskraning);
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("nyskraning", nyskraning);
+        //model.addAttribute("nyskraning", nyskraning);
+        
+   	 	model.addAttribute("nyskraning",new Nyskraning());
     
         return "Nyskra";
     }

@@ -25,11 +25,11 @@ main {
 
 
 .headbar {
+  width: 100%;
   display: flex;
   position: relative;
   background-color: #4d4d4d;
   color: #ffffff;
-  width: 100%;
   height: 220px;
 
 }
@@ -44,12 +44,9 @@ main {
 
   }
   .headbar__buttons {
-    display:inline-block;
-    overflow: auto;
-    white-space: nowrap;
-    margin:0px auto;
-    padding-left: 100em;
-    padding-top: 0.6em;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
   .headbar__buttonnyskra {
     background-color: #4d4d4d;
@@ -58,9 +55,9 @@ main {
     border-radius: 2px;
     text-decoration: none;
     color: #ffffff;
-    width: 4.5em;
     height: 2.5em;
     font-size: 1.5em;
+    padding: 20px;
   }
   .headbar__buttonnyskra:hover {
     cursor: pointer;
@@ -72,9 +69,9 @@ main {
     border-radius: 2px;
     text-decoration: none;
     color: #ffffff;
-    width: 4.5em;
     height: 2.5em;
     font-size: 1.5em;
+    padding: 20px;
   }
 .row {
   display: flex;
@@ -112,6 +109,7 @@ main {
 }
 
 .listi {
+  width: 100%;
   margin-top: 1.3em;
   font-size: 2em;
 }
@@ -153,14 +151,14 @@ main {
   }
 
   table.formtable {
-      border: 1px black solid;
-      margin-top: 1em;
-      min-width: 1600px;
+    width: 95%;
+    border: 1px black solid;
+    margin-top: 1em;
   }
 
   .formtable td {
-      padding: 15px;
-      text-align: left;
+    padding: 15px;
+    text-align: left;
   }
 
   table.formtable tr:nth-child(even) {

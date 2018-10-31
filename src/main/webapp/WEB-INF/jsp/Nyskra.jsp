@@ -27,7 +27,7 @@
 <div class="grid">
           <div class="row">   
             <div class="col col-left">
-<p class="nyauglysing">Nýskráning</p>
+<p class="nyskraningar">Nýskráning</p>
 <sf:form method="POST" modelAttribute="nyskraning" action="/nyskra">
       
       <table class="tafla">
@@ -80,8 +80,7 @@
                 <%--For each postit note, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-   
-                   
+
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
@@ -92,8 +91,7 @@
                         <p>${nyskra.simi}</p>
                         <p>${nyskra.heimili}</p>
                         <p>${nyskra.zip}</p>
-                   
-           
+                    
             </div>
         </c:when>
 
