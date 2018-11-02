@@ -124,31 +124,5 @@ public class ItemController {
     }
     
   
-    // Returns the view of Innskra.jsp
-    @RequestMapping(value = "/innskra", method = RequestMethod.GET)
-    public String innskra(Model model){
-    	
-    	model.addAttribute("item",new Item());
-
-        return "Innskra";
-    }
-    
-    @RequestMapping(value = "/innskra", method = RequestMethod.POST)
-    public String innskraUser(@ModelAttribute("item") Item item,
-            Model model){
-    	
-    	itemService.save(item);
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("items", itemService.findAllReverseOrder());
-       
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("item", new Item());
-    
-        return "Innskra";
-    }
-    
     
 }

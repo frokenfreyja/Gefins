@@ -36,7 +36,7 @@ public class UserController {
     @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
     public String nyskra(Model model){
     	
-    	 model.addAttribute("user",new User());
+    	 model.addAttribute("user", new User());
     	 
 
         return "Nyskra";

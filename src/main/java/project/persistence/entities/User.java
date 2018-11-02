@@ -7,7 +7,7 @@ import java.util.List;
  * Be sure to annotate any entities you have with the @Entity annotation.
  */
 @Entity
-@Table(name = "User") // If you want to specify a table name, you can do so here
+@Table(name = "UserX") // If you want to specify a table name, you can do so here
 public class User {
     // Declare that this attribute is the id
     @Id
@@ -27,7 +27,7 @@ public class User {
     public User() {
     }
     public User(String userName, String password, String phone, String email,
-            String location, int zipcode, int stars, String generalLocation) {
+            String location, int zipcode/*, int stars, String generalLocation*/) {
         
         this.userName = userName;
         this.password = password;

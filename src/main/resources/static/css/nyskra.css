@@ -89,6 +89,20 @@ a.gefins {
     width: 50%;
   }
 
+.b-zip .expandable {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 0.3s, -webkit-transform 0.3s;
+    transition: 0.3s, transform 0.3s;
+    -webkit-transform: translate3d(0,3px,0);
+    transform: translate3d(0,3px,0);
+  }
 .nyskrabutton {
   background-color: #4d4d4d;
   border: none;
