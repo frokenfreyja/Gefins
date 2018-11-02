@@ -13,13 +13,17 @@
         
         <script>
         
-      function opnaNyskra() {
-         window.open("/nyskra");
-      }
-      function opnaInnskra() {
-      	 window.open("/innskra");
-      }
-  </script>
+        function opnaNyskra() {
+            window.open("/nyskra");
+        }
+        function opnaInnskra() {
+      	    window.open("/innskra");
+        }
+        var loadFile = function(event) {
+        var image = document.getElementById('mynd');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
     </head>
     
     <body>
@@ -75,8 +79,11 @@
                 <td><sf:textarea path="aftimi" type="text" placeholder=""/></td>
             </tr>
             <tr>
-                <td>Mynd:</td>
-                <td><input type="file" name="fileupload" value="fileupload" id="fileupload"></td>
+                <td><p class="myndTakki"><label for="file" style="cursor: pointer;">Setja inn mynd</label></p></td>
+                <td>
+                    <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+                    <p><sf:input path="mynd" type="image" width="200" placeholder=""/></p>
+                </td>
             </tr>
            
        </table>
@@ -84,12 +91,7 @@
        <input type="submit" class="formbutton" VALUE="Í lagi"/>
        </div>
        </sf:form>
-       
        </div>
-      
-      
-      	
-      
         
       </main>
        

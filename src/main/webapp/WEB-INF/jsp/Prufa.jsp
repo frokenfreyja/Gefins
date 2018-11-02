@@ -78,6 +78,7 @@
                         <%--The String in the note attribute--%>
                         <td>${formid.lysing}</td>
                         <td>${formid.aftimi}</td>
+                        <td><img src="${formid.mynd}"></td>
                         
                     </tr>
                 </c:forEach>

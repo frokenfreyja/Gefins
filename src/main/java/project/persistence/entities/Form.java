@@ -1,7 +1,9 @@
 package project.persistence.entities;
 
 import javax.persistence.*;
-import java.util.List;
+import javax.swing.ImageIcon;
+
+
 
 /**
  * The class for the Form itself.
@@ -31,6 +33,7 @@ public class Form {
     private String nyttzip;
     private String notenda;
     private String passlogin;
+    private ImageIcon mynd;
    /* private List<String> flokkar;*/
    /* private boolean notaupplys;*/
 
@@ -39,7 +42,7 @@ public class Form {
     public Form() {
     }
 
-    public Form(String heiti, String lysing, String aftimi/*, String nafn, 
+    public Form(String heiti, String lysing, String aftimi, ImageIcon mynd/*, String nafn, 
     		String lykilord, String netfang, String simi, String heimili, 
     		String zip, String nyrsimi, String newheimili, String nyttzip,
     		String notenda, String passlogin*/) {
@@ -47,6 +50,7 @@ public class Form {
         this.heiti = heiti;
         this.lysing = lysing;
         this.aftimi = aftimi;
+        this.mynd = mynd;
       /*  this.nafn = nafn;
         this.lykilord = lykilord;
         this.netfang = netfang;
@@ -90,6 +94,12 @@ public class Form {
 
     public void setAftimi(String aftimi) {
         this.aftimi = aftimi;
+    }
+    public ImageIcon getMynd() {
+    	return mynd;
+    }
+    public void setMynd(ImageIcon mynd) {
+    	this.mynd = mynd;
     }
     /*
     public String getNafn() {

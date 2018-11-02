@@ -148,3 +148,16 @@ table.formtable tr:nth-child(even) {
 table.formtable tr:nth-child(odd) {
     background-color: azure;
 }
+
+.myndTakki {
+  padding: 5px 10px 5px 10px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+}
+
+.myndTakki:hover {
+  background-color: white;
+  color: black;
+  border: 2px orchid solid;
+}
