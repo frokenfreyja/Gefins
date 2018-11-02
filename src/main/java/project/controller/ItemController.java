@@ -12,36 +12,36 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.ArrayList;
-import project.persistence.entities.Form;
-import project.service.FormService;
+import project.persistence.entities.Item;
+import project.service.ItemService;
 
 @Controller
-public class FormController {
+public class ItemController {
 
     // Instance Variables
-    private FormService formService;
+    private ItemService itemService;
 
     // Dependency Injection
     @Autowired
-    public FormController(FormService formService) {
-        this.formService = formService;
+    public ItemController(ItemService itemService) {
+        this.itemService = itemService;
     }
 
     // Method that returns the correct view for the URL /postit
     // This handles the GET request for this URL
     // Notice the `method = RequestMethod.GET` part
-    @RequestMapping(value = "/formid", method = RequestMethod.GET)
-    public String formViewGet(Model model){
+    @RequestMapping(value = "/nyauglysing", method = RequestMethod.GET)
+    public String itemViewGet(Model model){
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form",new Form());
+        model.addAttribute("item",new Item());
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("forms",formService.findAllReverseOrder());
+        model.addAttribute("items",itemService.findAllReverseOrder());
         
-        return "Forms";
+        return "NyAuglysing";
     }
 
     // Method that receives the POST request on the URL /postit
@@ -50,23 +50,23 @@ public class FormController {
     // we can save the postit note because we get the data that was entered
     // into the form.
     // Notice the `method = RequestMethod.POST` part
-    @RequestMapping(value = "/formid", method = RequestMethod.POST)
-    public String formViewPost(@ModelAttribute("form") Form form,
+    @RequestMapping(value = "/nyauglysing", method = RequestMethod.POST)
+    public String formViewPost(@ModelAttribute("item") Item item,
                                      Model model){
 
         // Save the Postit Note that we received from the form
-        formService.save(form);
+        itemService.save(item);
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("forms", formService.findAllReverseOrder());
+        model.addAttribute("items", itemService.findAllReverseOrder());
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form", new Form());
+        model.addAttribute("item", new Item());
 
         // Return the view
-        return "Prufa";
+        return "Forsida";
     }
     
 
@@ -77,21 +77,7 @@ public class FormController {
     // based on the data that we have.
     // This method finds all Postit Notes posted by someone with the requested {name}
     // and returns a list with all those Postit Notes.
-    @RequestMapping(value = "/formid/{heiti}", method = RequestMethod.GET)
-    public String formGetNotesFromName(@PathVariable String heiti,
-                                             Model model){
 
-        // Get all Postit Notes with this name and add them to the model
-        model.addAttribute("forms", formService.findByHeiti(heiti));
-
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form", new Form());
-
-        // Return the view
-        return "Prufa";
-    }
     /*
     @RequestMapping(value = "/prufa", method = RequestMethod.GET)
     public String prufa(){
@@ -103,118 +89,66 @@ public class FormController {
         return "Prufa";
     }*/
     
-    @RequestMapping(value = "/prufa", method = RequestMethod.GET)
+    @RequestMapping(value = "/forsida", method = RequestMethod.GET)
     public String prufaViewGet(Model model){
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form",new Form());
+        model.addAttribute("item",new Item());
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("forms",formService.findAllReverseOrder());
+        model.addAttribute("items",itemService.findAllReverseOrder());
 
         // Return the view
-        return "Prufa";
+        return "Forsida";
     }
     
-    @RequestMapping(value = "/prufa", method = RequestMethod.POST)
-    public String prufaViewPost(@ModelAttribute("form") Form form,
+    @RequestMapping(value = "/forsida", method = RequestMethod.POST)
+    public String prufaViewPost(@ModelAttribute("item") Item item,
                                      Model model){
 
         // Save the Postit Note that we received from the form
-        formService.save(form);
+        itemService.save(item);
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("forms", formService.findAllReverseOrder());
+        model.addAttribute("items", itemService.findAllReverseOrder());
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form", new Form());
+        model.addAttribute("item", new Item());
 
         // Return the view
-        return "Prufa";
+        return "Forsida";
     }
-   /*
-    // Returns the view of Nyskra.jsp 
-    @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
-    public String nyskra(Model model){
-    	
-    	 model.addAttribute("form",new Form());
-    	 
-
-        return "Nyskra";
-    }
-    
-    @RequestMapping(value = "/nyskra", method = RequestMethod.POST)
-    public String nyskraPost(@ModelAttribute("nyskra") Form form,
-            Model model){
-    	
-    	formService.save(form);
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("forms", formService.findAllReverseOrder());
-       
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form", new Form());
-    
-        return "Nyskra";
-    }*/
     
   
     // Returns the view of Innskra.jsp
     @RequestMapping(value = "/innskra", method = RequestMethod.GET)
     public String innskra(Model model){
     	
-    	model.addAttribute("form",new Form());
+    	model.addAttribute("item",new Item());
 
         return "Innskra";
     }
     
     @RequestMapping(value = "/innskra", method = RequestMethod.POST)
-    public String innskraUser(@ModelAttribute("form") Form form,
+    public String innskraUser(@ModelAttribute("item") Item item,
             Model model){
     	
-    	formService.save(form);
+    	itemService.save(item);
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("forms", formService.findAllReverseOrder());
+        model.addAttribute("items", itemService.findAllReverseOrder());
        
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("form", new Form());
+        model.addAttribute("item", new Item());
     
         return "Innskra";
     }
     
-    /*
-    @RequestMapping(value = "/formid", method = RequestMethod.GET)
-    public String addUser(Model model) {
- 	   Form form = new Form();
- 	   List<String> preCheckedVals = new ArrayList<String>();
- 	   preCheckedVals.add("Húsgögn");
- 	   form.setFlokkar(preCheckedVals);
- 	   model.addAttribute("form", form);
- 	   List<String> flokkar = new ArrayList<String>();
- 	   flokkar.add("Húsgögn");
- 	   model.addAttribute("flokkar", flokkar);
-       return "Forms";
-    }*/
     
-  /*
-    @RequestMapping(value="/formid", method = RequestMethod.GET)
-    public ModelAndView user() {        
-        return new ModelAndView("form", "command", new Form());
-    }
-     
-    @RequestMapping(value = "/formid", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("SpringWeb")Form form, 
-       Model model) {
-       model.addAttribute("notaupplys", form.getNotaupplys());
-       return "Forms";
-    }*/
 }

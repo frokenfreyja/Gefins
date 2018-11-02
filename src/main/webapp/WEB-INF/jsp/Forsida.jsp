@@ -8,27 +8,21 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-        <title>Prufa</title>
+        <title>Forsida</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/prufa.css"/>"/>
        <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
         
         <script>
-        
-      function opnaNyskra() {
-         window.open("/nyskra");
-      }
-      function opnaInnskra() {
-      	 window.open("/innskra");
-      }
+    
   </script>
     </head>
     
     <body>
       <div class="headbar">
-      <a href="/prufa" class="gefins">GEFINS</a>
+      <a href="/forsida" class="gefins">GEFINS</a>
       <div class="headbar__buttons">
-      <button class="headbar__buttonnyskra" onclick="opnaNyskra()">Nýskrá</button>
-      <button class="headbar__buttoninnskra" onclick="opnaInnskra()">Innskrá</button>
+      <a href="nyskra" class="headbar__buttonnyskra">Nýskrá</a>
+      <a href="innskra" class="headbar__buttoninnskra">Innskrá</a>
       </div>
       </div>
       
@@ -55,30 +49,28 @@
             <div class="col col9-right">
           		<div class="listi">
                 <p class="auglysing">Auglýsingar</p>
-                <form action="/formid">
+                <form action="/nyauglysing">
                 <input type="submit" class="nyauglysingbutton" VALUE="Setja inn auglýsingu"/>
                 </form>
                  	 <%--Choose what code to generate based on tests that we implement--%>
     <c:choose>
-        <%--If the model has an attribute with the name `forms`--%>
-        <c:when test="${not empty forms}">
-            <%--Create a table for the Postit Notes--%>
+        <%--If the model has an attribute with the name `items`--%>
+        <c:when test="${not empty items}">
+            <%--Create a table for the Items--%>
             <table class="formtable">
 
-                <%--For each postit note, that is in the list that was passed in the model--%>
+                <%--For each Item, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="formid" items="${forms}">
+                <c:forEach var="nyauglysing" items="${items}">
                     <tr>
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
-                        <%--Create a link based on the name attribute value--%>
-                        <td><a href="/formid/${formid.heiti}">${formid.heiti}</a></td>
-                        <%--The String in the note attribute--%>
-                        <td>${formid.lysing}</td>
-                        <td>${formid.aftimi}</td>
-                        <td><img src="${formid.mynd}"></td>
+                        <td>${nyauglysing.itemName}</td>
+                        <td>${nyauglysing.description}</td>
+                        <td>${nyauglysing.pickupTime}</td>
+                        <td><img src="${nyauglysing.image}"></td>
                         
                     </tr>
                 </c:forEach>

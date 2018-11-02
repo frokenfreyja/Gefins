@@ -8,27 +8,15 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-        <title>Form</title>
+        <title>Ny auglysing</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/form.css"/>"/>
         
-        <script>
-        
-        function opnaNyskra() {
-            window.open("/nyskra");
-        }
-        function opnaInnskra() {
-      	    window.open("/innskra");
-        }
-        var loadFile = function(event) {
-        var image = document.getElementById('mynd');
-        image.src = URL.createObjectURL(event.target.files[0]);
-        };
-    </script>
+  
     </head>
     
     <body>
       <div class="headbar">
-      <a href="/prufa" class="gefins">GEFINS</a>
+      <a href="/forsida" class="gefins">GEFINS</a>
       <div class="headbar__buttons">
       <button class="headbar__buttonnyskra" onclick="opnaNyskra()">Nýskrá</button>
       <button class="headbar__buttoninnskra" onclick="opnaInnskra()">Innskrá</button>
@@ -60,30 +48,23 @@
           	  <p class="nyauglysing">Setja inn nýja auglýsingu</p>
           	  
       
-      <sf:form method="POST" modelAttribute="form" action="/formid">
+      <sf:form method="POST" modelAttribute="item" action="/nyauglysing">
       
       <table class="tafla">
             <tr>
                 <td> Heiti auglýsingar:</td>
                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                <td><sf:input path="heiti" type="text" placeholder=""/></td>
+                <td><sf:input path="itemName" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Lýsing:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="lysing" type="text" placeholder=""/></td>
+                <td><sf:textarea path="description" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Afhendingartími:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="aftimi" type="text" placeholder=""/></td>
-            </tr>
-            <tr>
-                <td><p class="myndTakki"><label for="file" style="cursor: pointer;">Setja inn mynd</label></p></td>
-                <td>
-                    <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-                    <p><sf:input path="mynd" type="image" width="200" placeholder=""/></p>
-                </td>
+                <td><sf:textarea path="pickupTime" type="text" placeholder=""/></td>
             </tr>
            
        </table>

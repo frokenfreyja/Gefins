@@ -15,7 +15,7 @@
     
     <body>
       <div class="headbar">
-      <a href="/prufa" class="gefins">GEFINS</a>
+      <a href="/forsida" class="gefins">GEFINS</a>
       <div class="headbar__buttons">
       <button class="headbar__buttonnyskra">Nýskrá</button>
       <button class="headbar__buttoninnskra">Innskrá</button>
@@ -28,18 +28,18 @@
           <div class="row">   
             <div class="col col-left">
 <p class="nyauglysing">Innskráning</p>
-<sf:form method="POST" modelAttribute="form" action="/innskra">
+<sf:form method="POST" modelAttribute="user" action="/innskra">
       
       <table class="tafla">
             <tr>
                 <td> Notendanafn:</td>
                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                <td><sf:input path="notenda" type="text" placeholder=""/></td>
+                <td><sf:input path="userName" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Lykilorð:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="passlogin" type="text" placeholder=""/></td>
+                <td><sf:textarea path="password" type="text" placeholder=""/></td>
             </tr>
            
        </table>

@@ -8,17 +8,17 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-        <title>Form</title>
+        <title>Nyskra</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/nyskra.css"/>"/>
         
     </head>
     
     <body>
       <div class="headbar">
-      <a href="/prufa" class="gefins">GEFINS</a>
+      <a href="/forsida" class="gefins">GEFINS</a>
       <div class="headbar__buttons">
-      <button class="headbar__buttonnyskra">Nýskrá</button>
-      <button class="headbar__buttoninnskra">Innskrá</button>
+      <a href="nyskra" class="headbar__buttonnyskra">Nýskrá</a>
+      <a href="innskra" class="headbar__buttoninnskra">Innskrá</a>
       </div>
       </div>
       
@@ -27,39 +27,39 @@
 <div class="grid">
           <div class="row">   
             <div class="col col-left">
-<p class="nyskraningar">Nýskráning</p>
-<sf:form method="POST" modelAttribute="nyskraning" action="/nyskra">
+<p class="nyauglysing">Nýskráning</p>
+<sf:form method="POST" modelAttribute="user" action="/nyskra">
       
       <table class="tafla">
             <tr>
                 <td> Nafn:</td>
                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                <td><sf:input path="nafn" type="text" placeholder=""/></td>
+                <td><sf:input path="userName" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Lykilorð:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="lykilord" type="text" placeholder=""/></td>
+                <td><sf:textarea path="password" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Netfang:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="netfang" type="text" placeholder=""/></td>
+                <td><sf:textarea path="email" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Símanúmer:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="simi" type="text" placeholder=""/></td>
+                <td><sf:textarea path="phone" type="text" maxlength="7" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Heimilisfang:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="heimili" type="text" placeholder=""/></td>
+                <td><sf:textarea path="location" type="text" placeholder=""/></td>
             </tr>
             <tr>
                 <td>Póstnúmer:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="zip" type="text" maxlength="3" placeholder=""/></td>
+                <td><sf:textarea path="zipcode" type="text" maxlength="3" placeholder=""/></td>
             </tr>
            
        </table>
@@ -73,7 +73,7 @@
         <p class="nyauglysing">Um mig</p>
        <c:choose>
         <%--If the model has an attribute with the name `forms`--%>
-        <c:when test="${not empty nyskraningar}">
+        <c:when test="${not empty userinn}">
             <%--Create a table for the Postit Notes--%>
             <div class="nyskrapost">
 
@@ -85,12 +85,12 @@
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--The String in the note attribute--%>
-                        <p>${nyskra.nafn}</p>
-                        <p>${nyskra.lykilord}</p>
-                        <p>${nyskra.netfang}</p>
-                        <p>${nyskra.simi}</p>
-                        <p>${nyskra.heimili}</p>
-                        <p>${nyskra.zip}</p>
+                        <p>${nyskra.userName}</p>
+                        <p>${nyskra.password}</p>
+                        <p>${nyskra.email}</p>
+                        <p>${nyskra.phone}</p>
+                        <p>${nyskra.location}</p>
+                        <p>${nyskra.zipcode}</p>
                     
             </div>
         </c:when>
