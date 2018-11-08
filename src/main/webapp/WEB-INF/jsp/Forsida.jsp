@@ -8,8 +8,9 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">        
         <title>Forsida</title>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/prufa.css"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/forsida.css"/>"/>
        <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
         
         <script>
@@ -18,13 +19,38 @@
     </head>
     
     <body>
-      <div class="headbar">
-      <a href="/forsida" class="gefins">GEFINS</a>
-      <div class="headbar__buttons">
-      <a href="nyskra" class="headbar__buttonnyskra">Nýskrá</a>
-      <a href="innskra" class="headbar__buttoninnskra">Innskrá</a>
+    <header id="s0">
+      <div class="header-container">
+        <div class="lg"></div>
+        <div class="layer"></div>
+        <div class="header-bg">
+          <div class="navbar">
+      <div class="nav">
+        <a href="/nyskra">Nýskrá</a>
+        <a href="/innskra">Innskrá</a>
       </div>
+          </div>
+          <div class="h-wrapper">
+            <div class="m-title">
+              <h1>GEFINS</h1>
+            </div>
+            <div class="undertitle">
+              Fyrir jörðina okkar
+            </div>
+            <div class="btn header-btn">
+              <span>Setja inn auglýsingu</span>
+              <a href="/nyauglysing"></a>
+            </div>
+                </div>
+    
+
+
+    </div>
+          </div>
+        </div>
       </div>
+    </header>
+    
       
       <main>
       
@@ -32,8 +58,12 @@
           <div class="row">
           	<div class="col col3-left">
               <div class="text">
-              <p class="text_leitaeftir">Leita eftir</p><br>
-              <p class="text__trengja">Flokkar</p>
+              <p class="text_fyrirsogn">Leita eftir</p>
+              <div class="checkbox_efra">
+              <input type="checkbox" id="husgogn" class="checkboxes" /><label for="stadsetningu"> Staðsetningu</label><br>
+              </div>
+              <p class="text_fyrirsogn">Flokkar</p>
+              <div class="checkbox_nedra">
               <input type="checkbox" id="husgogn" class="checkboxes" /><label for="husgogn"> Húsgögn</label><br>
               <input type="checkbox" id="fatnadur" class="checkboxes" /><label for="fatnadur"> Fatnaður</label><br>
               <input type="checkbox" id="barnavorur" class="checkboxes" /><label for="barnavorur"> Barnavörur</label><br>
@@ -42,6 +72,8 @@
               <input type="checkbox" id="farartaeki" class="checkboxes" /><label for="farartaeki"> Farartæki</label><br>
               <input type="checkbox" id="matur" class="checkboxes" /><label for="matur"> Matur</label><br>
               <input type="checkbox" id="dyr" class="checkboxes" /><label for="dyr"> Dýr</label><br>
+              </div>
+              
               <div class="borderfront"></div>
               </div>
          
@@ -49,10 +81,7 @@
             <div class="col col9-right">
           		<div class="listi">
                 <p class="auglysing">Auglýsingar</p>
-                <form action="/nyauglysing">
-                <input type="submit" class="nyauglysingbutton" VALUE="Setja inn auglýsingu"/>
-                </form>
-                 	 <%--Choose what code to generate based on tests that we implement--%>
+                
     <c:choose>
         <%--If the model has an attribute with the name `items`--%>
         <c:when test="${not empty items}">
@@ -62,16 +91,23 @@
                 <%--For each Item, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
+                <tr>
+   						<th>Fæst gefins</th>
+   						<th>Lýsing</th>
+   						<th>Afhendingartími</th>
+   						<th>Flokkur</th>
+ 					</tr>
                 <c:forEach var="nyauglysing" items="${items}">
-                    <tr>
+                  
+                    <tr class="rows">
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <td>${nyauglysing.itemName}</td>
                         <td>${nyauglysing.description}</td>
                         <td>${nyauglysing.pickupTime}</td>
-                        <td><img src="${nyauglysing.image}"></td>
-                        
+                        <td>${nyauglysing.tag}</td>
+                                              
                     </tr>
                 </c:forEach>
             </table>

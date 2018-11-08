@@ -22,7 +22,7 @@ public class Item {
     private String userName;
     private String pickupTime;
     private String description;
-    private ImageIcon image;
+    private ImageIcon mynd;
     private String location;
     private String generalLocation;
     private String phone;
@@ -33,19 +33,20 @@ public class Item {
     private String tag;
     private String authorized;
     
+    
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public Item() {
     }
 
-    public Item(String userName, String pickupTime, String description, ImageIcon image, String location,
+    public Item(String userName, String pickupTime, String description, ImageIcon mynd, String location,
     		String generalLocation, String phone, String itemName, String email, String users, int zipcode,
-    		String tag, String authorized ) {
+    		String tag, String authorized) {
     	
         this.userName = userName;
         this.pickupTime = pickupTime;
         this.description = description;
-        this.image = image;
+        this.mynd = mynd;
         this.location = location;
         this.generalLocation = generalLocation;
         this.phone = phone;
@@ -55,6 +56,7 @@ public class Item {
         this.zipcode = zipcode;
         this.tag = tag;
         this.authorized = authorized;
+      
     }
 
     
@@ -91,11 +93,11 @@ public class Item {
 	}
 
 	public ImageIcon getImage() {
-		return image;
+		return mynd;
 	}
 
-	public void setImage(ImageIcon image) {
-		this.image = image;
+	public void setImage(ImageIcon mynd) {
+		this.mynd = mynd;
 	}
 
 	public String getLocation() {
@@ -169,6 +171,7 @@ public class Item {
 	public void setAuthorized(String authorized) {
 		this.authorized = authorized;
 	}
+	
 
 	/*// This is for easier debug.
     @Override

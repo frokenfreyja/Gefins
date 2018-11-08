@@ -8,44 +8,61 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
+    	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">        
         <title>Ny auglysing</title>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/form.css"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/nyauglysing.css"/>"/>
         
-  
+    <script>
+    var loadFile=function(event) {
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    }
+    </script>
     </head>
     
     <body>
-      <div class="headbar">
-      <a href="/forsida" class="gefins">GEFINS</a>
-      <div class="headbar__buttons">
-      <button class="headbar__buttonnyskra" onclick="opnaNyskra()">Nýskrá</button>
-      <button class="headbar__buttoninnskra" onclick="opnaInnskra()">Innskrá</button>
+       <body>
+    <header id="s0">
+      <div class="header-container">
+        <div class="lg"></div>
+        <div class="layer"></div>
+        <div class="header-bg">
+          <div class="navbar">
+     
+        <div class="collapsible-menu">
+        <input type="checkbox" id="menu">
+        <label for="menu">Notendanafn</label>
+    	<div class="menu-content">
+        <ul>
+            <li><a href="#"></a>Mitt svæði</li>
+            <li><a href="#"></a>Stillingar</li>
+            <li><a href="#"></a>Útskrá</li>
+         </ul>
+
+</div>
       </div>
+          </div>
+          <div class="h-wrapper">
+            <div class="m-title">
+              <h1><a href="/forsida">GEFINS</a></h1>
+            </div>  
+                </div>
+    </div>
+          </div>
+        </div>
       </div>
       
       <main>
       
       <div class="grid">
           <div class="row">
-          	<div class="col col3-left">
-              <div class="text">
-              <p class="text_leitaeftir">Leita eftir</p><br>
-              <p class="text_trengja">Flokkar</p>
-              <input type="checkbox" id="husgogn" class="checkboxes" /><label for="husgogn"> Húsgögn</label><br>
-              <input type="checkbox" id="fatnadur" class="checkboxes" /><label for="fatnadur"> Fatnaður</label><br>
-              <input type="checkbox" id="barnavorur" class="checkboxes" /><label for="barnavorur"> Barnavörur</label><br>
-              <input type="checkbox" id="raftaeki" class="checkboxes" /><label for="raftaeki"> Raftæki</label><br>
-              <input type="checkbox" id="verkfaeri" class="checkboxes" /><label for="verkfaeri"> Verkfæri</label><br>
-              <input type="checkbox" id="farartaeki" class="checkboxes" /><label for="farartaeki"> Farartæki</label><br>
-              <input type="checkbox" id="matur" class="checkboxes" /><label for="matur"> Matur</label><br>
-              <input type="checkbox" id="dyr" class="checkboxes" /><label for="dyr"> Dýr</label><br>
-              <form:checkbox path="Prufa" value="Bird watching"/>
-              <div class="borderfront"></div>
-              </div>
+          	<div class="col col1-audur">
+            
+              
             </div>
             
-            <div class="col col9-right">
-          	  <p class="nyauglysing">Setja inn nýja auglýsingu</p>
+            <div class="col col2-form">
+          	  <p class="nyauglysing">Ný auglýsing</p>
           	  
       
       <sf:form method="POST" modelAttribute="item" action="/nyauglysing">
@@ -54,19 +71,38 @@
             <tr>
                 <td> Heiti auglýsingar:</td>
                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                <td><sf:input path="itemName" type="text" placeholder=""/></td>
+                <td><sf:textarea path="itemName" class="formbox" type="text" placeholder="" required="required"/></td>
+           		<td>Afhendingartími:</td>
+                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                <td><sf:textarea path="pickupTime" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>
             <tr>
                 <td>Lýsing:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="description" type="text" placeholder=""/></td>
+                <td><sf:textarea path="description" class="formbox" type="text" placeholder="" required="required"/></td>
+           	    <td>Sími:</td>
+                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                <td><sf:textarea path="phone" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>
             <tr>
-                <td>Afhendingartími:</td>
+            <td>Flokkur:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="pickupTime" type="text" placeholder=""/></td>
-            </tr>
-           
+                <td>
+                <sf:select path="tag" class="checkflokkar">
+                <sf:option value="Húsgögn">Húsgögn</sf:option>
+                <sf:option value="Fatnaður">Fatnaður</sf:option>
+                <sf:option value="Barnavörur">Barnavörur</sf:option>
+                <sf:option value="Raftæki">Raftæki</sf:option>
+                <sf:option value="Verkfæri">Verkfæri</sf:option>
+                <sf:option value="Farartæki">Farartæki</sf:option>
+                <sf:option value="Matur">Matur</sf:option>
+                <sf:option value="Dýr">Dýr</sf:option>
+         		</sf:select>
+            </td> 
+                <td>Póstnúmer:</td>
+                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                <td><sf:input path="zipcode" class="formbox" type="text" placeholder="" required="required"/></td>
+            </tr>  
        </table>
        <div class="submit">
        <input type="submit" class="formbutton" VALUE="Í lagi"/>

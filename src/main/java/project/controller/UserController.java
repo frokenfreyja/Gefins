@@ -32,35 +32,32 @@ public class UserController {
     }
 
     
-    // Returns the view of Nyskra.jsp 
+    /*
+     *  Birtir nýskráningarsíðu með 
+     *  innskráningarformi í Nyskra.jsp 
+     */
     @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
     public String nyskra(Model model){
     	
-    	 model.addAttribute("user", new User());
+    	model.addAttribute("user", new User());
     	 
-
         return "Nyskra";
     }
     
+    /*
+     * Vistum user í Database
+     */
     @RequestMapping(value = "/nyskra", method = RequestMethod.POST)
     public String nyskraPost(@ModelAttribute("nyskra") User user,
             Model model){
     	
-    	user = userService.save(user);
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        //model.addAttribute("nyskraningar", nyskraService.findAllReverseOrder());
-        
-        model.addAttribute("userinn", user);
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        //model.addAttribute("nyskraning", nyskraning);
-        
+    	user = userService.save(user);     
+        model.addAttribute("userinn", user); 
    	 	model.addAttribute("user",new User());
     
         return "Nyskra";
     }
+    
     
     @RequestMapping(value = "/innskra", method = RequestMethod.GET)
     public String innskra(Model model){
@@ -71,17 +68,11 @@ public class UserController {
     }
     
     @RequestMapping(value = "/innskra", method = RequestMethod.POST)
-    public String innskraUser(@ModelAttribute("user") User user,
+    public String innskraUser(@ModelAttribute("innskra") User user,
             Model model){
     	
-    	userService.save(user);
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("users", userService.findAllReverseOrder());
-       
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
+    	user = userService.save(user);
+        model.addAttribute("userinnskra", user);
         model.addAttribute("user", new User());
     
         return "Innskra";

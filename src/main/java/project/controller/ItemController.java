@@ -27,84 +27,55 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-    // Method that returns the correct view for the URL /postit
-    // This handles the GET request for this URL
-    // Notice the `method = RequestMethod.GET` part
+   
+    /* 
+     * Síðan þar sem sett er inn ný auglýsing
+     * Bætir Item við Database
+     * Raðar þeim í öfuga stafrófsröð þar sem nýjasta
+     * auglýsing birtist efst í auglýsingalistanum
+     * Sér um Get request fyrir URL-ið
+     */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.GET)
-    public String itemViewGet(Model model){
-
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("item",new Item());
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
+    public String itemViewGet(Model model) {	
+    	
+        
+    	model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
         
         return "NyAuglysing";
     }
 
-    // Method that receives the POST request on the URL /postit
-    // and receives the ModelAttribute("postitNote")
-    // That attribute is the attribute that is mapped to the form, so here
-    // we can save the postit note because we get the data that was entered
-    // into the form.
-    // Notice the `method = RequestMethod.POST` part
+    /*
+     * Aðferð sem tekur inn item  
+     * Vistar upplýsingarnar úr forminu í Database
+     * Birtir forsíðuna aftur 
+     * Hér hefur item verið bætt efst í listann
+     */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.POST)
-    public String formViewPost(@ModelAttribute("item") Item item,
+    public String formViewItem(@ModelAttribute("item") Item item,
                                      Model model){
-
-        // Save the Postit Note that we received from the form
         itemService.save(item);
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
         model.addAttribute("items", itemService.findAllReverseOrder());
-
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
         model.addAttribute("item", new Item());
 
-        // Return the view
         return "Forsida";
     }
     
-
-
-    // Method that returns the correct view for the URL /postit/{name}
-    // The {name} part is a Path Variable, and we can reference that in our method
-    // parameters as a @PathVariable. This enables us to create dynamic URLs that are
-    // based on the data that we have.
-    // This method finds all Postit Notes posted by someone with the requested {name}
-    // and returns a list with all those Postit Notes.
-
     /*
-    @RequestMapping(value = "/prufa", method = RequestMethod.GET)
-    public String prufa(){
-
-        // The string "Prufa" that is returned here is the name of the view
-        // (the Prufa.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
-        // If you change "Prufa" to something else, be sure you have a .jsp
-        // file that has the same name
-        return "Prufa";
-    }*/
-    
+     * Birtir listann af item á forsíðunni í öfugri röð, nýjasta efst
+     */
     @RequestMapping(value = "/forsida", method = RequestMethod.GET)
     public String prufaViewGet(Model model){
 
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("item",new Item());
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
+      //  model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
 
-        // Return the view
         return "Forsida";
     }
     
-    @RequestMapping(value = "/forsida", method = RequestMethod.POST)
+    
+    
+   /* @RequestMapping(value = "/forsida", method = RequestMethod.POST)
     public String prufaViewPost(@ModelAttribute("item") Item item,
                                      Model model){
 
@@ -112,7 +83,7 @@ public class ItemController {
         itemService.save(item);
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("items", itemService.findAllReverseOrder());
+       // model.addAttribute("items", itemService.findAllReverseOrder());
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
@@ -121,7 +92,7 @@ public class ItemController {
 
         // Return the view
         return "Forsida";
-    }
+    }*/
     
   
     
