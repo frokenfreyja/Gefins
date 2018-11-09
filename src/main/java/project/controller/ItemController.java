@@ -1,17 +1,27 @@
 package project.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-import java.util.ArrayList;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import project.persistence.entities.Item;
 import project.service.ItemService;
 
@@ -37,7 +47,6 @@ public class ItemController {
      */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.GET)
     public String itemViewGet(Model model) {	
-    	
         
     	model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
@@ -52,9 +61,26 @@ public class ItemController {
      * Hér hefur item verið bætt efst í listann
      */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.POST)
-    public String formViewItem(@ModelAttribute("item") Item item,
-                                     Model model){
-        itemService.save(item);
+    public String formViewItem(@ModelAttribute("item") Item item, Model model, @RequestParam("mynd") MultipartFile imagefile, HttpServletRequest httpServletRequest) throws IOException{
+        itemService.save(item); 
+        
+    	imagefile.getInputStream();
+    	
+    	if (item.getMynd()==null) throw new NullPointerException("unable to fetch"+imagefile);
+    	String rootDirectory = httpServletRequest.getSession().getServletContext().getRealPath("/");
+    	if(item.getMynd() != null && !item.getMynd().isEmpty())
+    		try {
+    			File path = new File(rootDirectory + "resources/images/"+imagefile.getOriginalFilename());
+    			imagefile.transferTo(path);
+    			System.out.println(path);
+    		} catch (IllegalStateException | IOException e) {
+    			e.printStackTrace();
+    		}
+    	System.out.println(imagefile);
+    	
+    	System.out.println(item.getMynd());
+
+    	model.addAttribute("mynd", imagefile.getOriginalFilename());
         model.addAttribute("items", itemService.findAllReverseOrder());
         model.addAttribute("item", new Item());
 
@@ -68,32 +94,11 @@ public class ItemController {
     public String prufaViewGet(Model model){
 
       //  model.addAttribute("item",new Item());
+    	model.addAttribute("mynd",itemService.findAllReverseOrder());
         model.addAttribute("items",itemService.findAllReverseOrder());
 
         return "Forsida";
     }
     
-    
-    
-   /* @RequestMapping(value = "/forsida", method = RequestMethod.POST)
-    public String prufaViewPost(@ModelAttribute("item") Item item,
-                                     Model model){
-
-        // Save the Postit Note that we received from the form
-        itemService.save(item);
-
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-       // model.addAttribute("items", itemService.findAllReverseOrder());
-
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("item", new Item());
-
-        // Return the view
-        return "Forsida";
-    }*/
-    
-  
     
 }

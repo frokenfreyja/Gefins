@@ -13,9 +13,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/forsida.css"/>"/>
        <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
         
-        <script>
-    
-  </script>
+
     </head>
     
     <body>
@@ -107,6 +105,7 @@
                         <td>${nyauglysing.description}</td>
                         <td>${nyauglysing.pickupTime}</td>
                         <td>${nyauglysing.tag}</td>
+                        <td><img src="${pageContext.request.contextPath}/resources/images/${mynd}"/></td>
                                               
                     </tr>
                 </c:forEach>

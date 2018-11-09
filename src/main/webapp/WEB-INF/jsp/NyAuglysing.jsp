@@ -18,6 +18,7 @@
     image.src = URL.createObjectURL(event.target.files[0]);
     }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </head>
     
     <body>
@@ -65,7 +66,7 @@
           	  <p class="nyauglysing">Ný auglýsing</p>
           	  
       
-      <sf:form method="POST" modelAttribute="item" action="/nyauglysing">
+      <sf:form method="POST" modelAttribute="item" action="/nyauglysing" enctype="multipart/form-data">
       
       <table class="tafla">
             <tr>
@@ -102,7 +103,17 @@
                 <td>Póstnúmer:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
                 <td><sf:input path="zipcode" class="formbox" type="text" placeholder="" required="required"/></td>
-            </tr>  
+            </tr>          
+            <tr>
+                <td><p class="myndTakki">
+                    <sf:label for="mynd" path="mynd" style="cursor: pointer;">Setja inn mynd</sf:label>
+                </p></td>
+                <td>
+                    <p><sf:input path="mynd" type="file" id="mynd" accept="image/*" name="mynd" onchange="loadFile(event)" style="display: none;" multiple="multiple" /></p>
+                    <p><img path="output" id="output" width="200"></p>
+                </td>
+            </tr>
+
        </table>
        <div class="submit">
        <input type="submit" class="formbutton" VALUE="Í lagi"/>
