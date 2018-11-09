@@ -10,7 +10,7 @@ html {
   margin: 0; }
 
 body {
-  max-width: 2200px;
+/*  max-width: 2200px;*/
   margin: auto;
   overflow-x: hidden;
   font-family: 'Merriweather', serif;
@@ -21,57 +21,141 @@ main {
   margin: 0 auto;
   overflow-x: hidden;
 }
-
-.headbar {
-  width: 100%;
-  display: flex;
+header {
   position: relative;
-  background-color: #4d4d4d;
-  color: #ffffff;
-  height: 220px;
-
+  z-index: 2;
 }
-a.gefins {
-  font-size: 4.5em;
-  font-weight: bold;
-  padding-left: 0.5em;
-  padding-top: 0.7em;
-  font-family: 'Roboto Slab', serif;
+
+.header-bar {
+  background: linear-gradient(to right, rgba(127, 114, 94, 0.41) 0%, rgba(128, 116, 99, 0.07) 36%, rgba(128, 116, 98, 0.33) 65%, rgb(91, 113, 106) 100%) !important;
+}
+
+.header-bg {
+  background: transparent url(../images/green2.jpg) no-repeat fixed center;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-size: 25px;
+}
+
+.layer {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  background: rgba(44, 44, 44, 0.6);
+  z-index: 1;
+}
+
+.header-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.h-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fffbf9;
+  z-index: 10;
+  position: relative;
+  height: 300px;
+/*  top: 11%;*/
+}
+
+.m-title h1 {
+  letter-spacing: 10px;
+  font-size: 100px;
+}
+.m-title h1 a {
   text-decoration: none;
   color: white;
-
 }
-  .headbar__buttons {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-  .headbar__buttonnyskra {
-    background-color: #4d4d4d;
-    color: #ffffff;
-    border: #000000;
-    border-radius: 2px;
-    text-decoration: none;
-    color: #ffffff;
-    height: 2.5em;
-    font-size: 1.5em;
-    padding: 20px;
-  }
-  .headbar__buttonnyskra:hover {
-    cursor: pointer;
-  }
-  .headbar__buttoninnskra {
-    background-color: #4d4d4d;
-    color: #ffffff;
-    border: #808080;
-    border-radius: 2px;
-    text-decoration: none;
-    color: #ffffff;
-    height: 2.5em;
-    font-size: 1.5em;
-    padding: 20px;
-  }
+.navbar {
+  height: 400px;
+  z-index: 20;
+  box-shadow: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/*
+.navbar-scrolled {
+  width: 100%;
+  top: -75px;
+  position: fixed;
+  z-index: 3;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.45s ease-in-out;
+}*/
 
+.nav {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.nav a {
+  margin: 0 30px;
+  position: relative;
+  color: black;
+}
+.nav a:hover {
+  color: #4f976d;
+}
+  .menu-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 0 0 50px;
+
+  }
+  .collapsible-menu {
+      background-color: rgb(255, 255, 255);
+      padding: 0px 30px;
+      /*border-bottom: 3px solid #CDE700;*/
+    /*  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);*/
+      z-index: 50;
+      color: white;
+      background-color: rgba(255,255,255,0);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+  }
+  .collapsible-menu ul {
+      list-style-type: none;
+      padding: 0;
+      color: white;
+      background-color: rgba(255,255,255,0);
+      font-size: 0.8em;
+  }
+  .collapsible-menu a {
+      display:block;
+      padding: 10px;
+      text-decoration: none;
+  }
+  .collapsible-menu label {
+      font-size: 25px;
+      display: block;
+      cursor: pointer;
+    /*  background: url(../images/001-menu.png) no-repeat left center;*/
+      padding: 10px 0 10px 50px;
+  }
+  input#menu {
+      display: none;
+  }
+  input:checked ~ .menu-content {
+      max-height: 100%;
+  }
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -81,14 +165,21 @@ a.gefins {
 .col {
   padding-right: 10px;
 }
+.col1-audur {
+  width: 8%;
+}
   .col-left {
     width: 50%;
     padding-left: 20em;
   }
   .col-right {
-    width: 50%;
+    width: 35%;
   }
 
+.submit {
+  padding-left: 25em;
+  padding-top: 3em;
+}
 .nyskrabutton {
   background-color: #4d4d4d;
   border: none;
@@ -101,10 +192,10 @@ a.gefins {
   margin: 4px 2px;
   cursor: pointer;
 }
-.nyauglysing, .nyskraningar {
-  margin-top: 1.3em;
-  margin-bottom: 1em;
-  font-size: 3em;
+.nyauglysing, .nyskraning {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 2.5em;
 }
 
 .tafla td {
@@ -114,6 +205,20 @@ a.gefins {
 
 table.formtable {
     border: 1px black solid;
+}
+table.tafla tr td {
+  padding: 16px;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+table.tafla tr td:nth-child(3) {
+    padding-left: 4em;
+}
+.formbox {
+  width: 300px;
+  height: 40px;
+  font-size: 18px;
 }
 
 .formtable td {
@@ -127,4 +232,12 @@ table.formtable tr:nth-child(even) {
 
 table.formtable tr:nth-child(odd) {
     background-color: azure;
+}
+.nyskrapost {
+  padding-top: 0.5em;
+}
+.nyskrapost p {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  margin-left: 1em;
 }

@@ -51,5 +51,7 @@ public class ItemServiceImplementation implements ItemService {
     public Item findOne(Long id) {
         return repository.findOne(id);
     }
+  
+    
     
 }

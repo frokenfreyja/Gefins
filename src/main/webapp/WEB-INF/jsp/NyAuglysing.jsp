@@ -21,13 +21,11 @@
     </head>
     
     <body>
-       <body>
-    <header id="s0">
+
       <div class="header-container">
-        <div class="lg"></div>
-        <div class="layer"></div>
+        
         <div class="header-bg">
-          <div class="navbar">
+          
      
         <div class="collapsible-menu">
         <input type="checkbox" id="menu">
@@ -39,7 +37,7 @@
             <li><a href="#"></a>Útskrá</li>
          </ul>
 
-</div>
+
       </div>
           </div>
           <div class="h-wrapper">
@@ -47,11 +45,9 @@
               <h1><a href="/forsida">GEFINS</a></h1>
             </div>  
                 </div>
-    </div>
-          </div>
-        </div>
-      </div>
-      
+   
+        </div>  
+                </div>
       <main>
       
       <div class="grid">
@@ -62,6 +58,7 @@
             </div>
             
             <div class="col col2-form">
+            
           	  <p class="nyauglysing">Ný auglýsing</p>
           	  
       
@@ -103,6 +100,7 @@
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
                 <td><sf:input path="zipcode" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>  
+            
        </table>
        <div class="submit">
        <input type="submit" class="formbutton" VALUE="Í lagi"/>

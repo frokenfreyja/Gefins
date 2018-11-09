@@ -26,53 +26,78 @@ function myFunction() {
 }
 </script>
     <body>
-      <div class="headbar">
-      <a href="/forsida" class="gefins">GEFINS</a>
-      <div class="headbar__buttons">
-      <a href="nyskra" class="headbar__buttonnyskra">Nýskrá</a>
-      <a href="innskra" class="headbar__buttoninnskra">Innskrá</a>
+    <div class="header-container">
+        
+        <div class="header-bg">
+          
+     
+        <div class="collapsible-menu">
+        <input type="checkbox" id="menu">
+        <label for="menu">Notendanafn</label>
+    	<div class="menu-content">
+        <ul>
+            <li><a href="#"></a>Mitt svæði</li>
+            <li><a href="#"></a>Stillingar</li>
+            <li><a href="#"></a>Útskrá</li>
+         </ul>
+
+
       </div>
-      </div>
+          </div>
+          <div class="h-wrapper">
+            <div class="m-title">
+              <h1><a href="/forsida">GEFINS</a></h1>
+            </div>  
+                </div>
+   
+        </div>  
+                </div>
+     
       
       
       <main>
 
 <div class="grid">
-          <div class="row">   
+          <div class="row">  
+            <div class="col col1-audur">
+            
+              
+            </div> 
             <div class="col col-left">
-<p class="nyauglysing">Nýskráning</p>
+            
+<p class="nyskraning">Nýskráning</p>
 <sf:form method="POST" modelAttribute="user" action="/nyskra">
       
       <table class="tafla">
             <tr>
                 <td> Nafn:</td>
                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="userName" type="text" placeholder="" required="required"/></td>
+                <td><sf:textarea path="userName" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>
             <tr>
                 <td>Lykilorð:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="password" type="text" placeholder="" required="required"/></td>
+                <td><sf:textarea path="password" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>
             <tr>
                 <td>Netfang:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="email" type="text" placeholder="" required="required"/></td>
+                <td><sf:textarea path="email" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>
             <tr>
                 <td>Símanúmer:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="phone" type="text" maxlength="7" placeholder="" required="required"/></td>
+                <td><sf:textarea path="phone" class="formbox" type="text" maxlength="7" placeholder="" required="required"/></td>
             </tr>
             <tr>
                 <td>Heimilisfang:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="location" type="text" placeholder="" required="required"/></td>
+                <td><sf:textarea path="location" class="formbox" type="text" placeholder="" required="required"/></td>
             </tr>
             <tr>
                 <td>Póstnúmer:</td>
                 <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:input path="location" type="text" maxlength="3" placeholder="" required="required"/></td>
+                <td><sf:input path="location" class="formbox" type="text" maxlength="3" placeholder="" required="required"/></td>
             </tr>
             
            
