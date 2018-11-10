@@ -14,8 +14,8 @@
         
     <script>
     var loadFile=function(event) {
-    var image = document.getElementById('output');
-    image.src = URL.createObjectURL(event.target.files[0]);
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
     }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

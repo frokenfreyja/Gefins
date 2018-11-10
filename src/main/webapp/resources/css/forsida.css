@@ -211,6 +211,7 @@ header {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
 .col {
   padding-right: 10px;
   padding-left: 10px; }
@@ -329,4 +330,13 @@ a:hover {
 
 a:active {
     text-decoration: underline;
+}
+
+.img {
+  width: 10px;
+  height: 10px;
+}
+.img img {
+  max-width: 100%;
+  max-height: 100%;
 }

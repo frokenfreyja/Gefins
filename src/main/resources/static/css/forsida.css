@@ -211,6 +211,7 @@ header {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
 .col {
   padding-right: 10px;
   padding-left: 10px; }
@@ -291,6 +292,7 @@ header {
     border-spacing: 1em;
     border-collapse: separate;
   }
+
   .rows {
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
   }
@@ -329,4 +331,17 @@ a:hover {
 
 a:active {
     text-decoration: underline;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+}
+.img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.augHeiti:hover {
+  cursor: pointer;
 }

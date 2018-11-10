@@ -93,7 +93,8 @@
    						<th>Fæst gefins</th>
    						<th>Lýsing</th>
    						<th>Afhendingartími</th>
-   						<th>Flokkur</th>
+               <th>Flokkur</th>
+               <th>Mynd</th>
  					</tr>
                 <c:forEach var="nyauglysing" items="${items}">
                   
@@ -101,12 +102,11 @@
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
-                        <td>${nyauglysing.itemName}</td>
+                        <td><div class="augHeiti">${nyauglysing.itemName}</div></td>
                         <td>${nyauglysing.description}</td>
                         <td>${nyauglysing.pickupTime}</td>
                         <td>${nyauglysing.tag}</td>
-                        <td><img src="${pageContext.request.contextPath}/resources/images/${mynd}"/></td>
-                                              
+                        <td><div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div></td>         
                     </tr>
                 </c:forEach>
             </table>
