@@ -22,6 +22,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
 
     List<User> findAllByOrderByIdDesc();
+    
+    User findByUserName(String userName);
 
     @Query(value = "SELECT p FROM Item p WHERE p.id = ?1")
     User findOne(Long id);

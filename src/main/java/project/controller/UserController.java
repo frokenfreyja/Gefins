@@ -1,5 +1,7 @@
 package project.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,7 +58,7 @@ public class UserController {
 
         return "Innskra";
     }
-    
+    /*
     @RequestMapping(value = "/innskra", method = RequestMethod.POST)
     public String innskraUser(@ModelAttribute("innskra") User user,
             Model model){
@@ -66,6 +68,18 @@ public class UserController {
         model.addAttribute("user", new User());
     
         return "Innskra";
+    }
+    */
+    // FRÁ JÖKLI
+    @RequestMapping(value = "/innskra", method = RequestMethod.POST)
+    public String innskraUser(Model model, HttpSession httpSession, User user){
+    	User currentUser = this.userService.findOneByName(user);
+    	if (user!=null) {
+    	httpSession.setAttribute("loggedInUser", currentUser.getId());
+    	
+    	return "Forsida";
+    	}
+    	return"innskra";
     }
     
    /* @RequestMapping(value = "/nyskra", method = RequestMethod.GET)

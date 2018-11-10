@@ -8,7 +8,8 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-    	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">        
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Old+Standard+TT:400,700|Oswald:400,600|Vidaloka" rel="stylesheet">       
     	<title>Forsida</title>
         <title>Nyskra</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/nyskra.css"/>"/>
@@ -26,14 +27,22 @@ function myFunction() {
 }
 </script>
     <body>
-      <div class="headbar">
-      <a href="/forsida" class="gefins">GEFINS</a>
-      <div class="headbar__buttons">
-      <a href="nyskra" class="headbar__buttonnyskra">Nýskrá</a>
-      <a href="innskra" class="headbar__buttoninnskra">Innskrá</a>
+      <header id="s0">
+              <div class="header-container">
+                <div class="header-bg">
+                  <div class="navbar">
+              <div class="nav">
+                <a href="/nyskra">Nýskrá</a>
+                <a href="/innskra">Innskrá</a>
+          </div>
+              </div>
+                  <div class="h-wrapper">
+                    <div class="m-title">
+                      <h1><a href="/forsida">GEFINS</a></h1>
+                </div>
+              </div>
+          </div>
       </div>
-      </div>
-      
       
       <main>
 
@@ -45,7 +54,7 @@ function myFunction() {
       
       <table class="tafla">
             <tr>
-                <td> Nafn:</td>
+                <td> Notendanafn:</td>
                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
                 <td><sf:textarea path="userName" type="text" placeholder="" required="required"/></td>
             </tr>
@@ -116,6 +125,37 @@ function myFunction() {
     </c:choose>
     </div>
   </main>
+  <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__row">
+                <div class="footer__col">
+                    <ul class="footer__links">
+                        <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                        <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>    
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <ul class="footer__links">
+                          <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
+                          <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>     
+                    </ul>
+                </div>
+                <div class="footer__col">
+                      <ul class="footer__links">
+                          <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
+                          <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>    
+                      </ul>
+                  </div>
+                  <div class="footer__col">
+                      <ul class="footer__links">
+                            <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
+                            <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>     
+                      </ul>
+                  </div>
+            </div>
+        </div>
+        <p class="footer__credit">© 2018 GEFINS</p>
+      </footer>
        
        
     </body>

@@ -20,6 +20,13 @@ public class UserServiceImplementation implements UserService {
     public UserServiceImplementation(UserRepository repository) {
         this.repository = repository;
     }
+    
+    @Override
+    public User findOneByName(User user) {
+    	 return repository.findByUserName(user.getUserName());
+    	
+    	
+    }
 
     @Override
     public User save(User user) {
