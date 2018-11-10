@@ -1,21 +1,13 @@
 package project.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
-
-import javax.validation.Valid;
-
-import java.util.ArrayList;
 import project.persistence.entities.User;
 import project.service.UserService;
 
@@ -67,7 +59,7 @@ public class UserController {
         return "Innskra";
     }
     
-    @RequestMapping(value = "/innskra", method = RequestMethod.POST)
+  /*  @RequestMapping(value = "/innskra", method = RequestMethod.POST)
     public String innskraUser(@ModelAttribute("innskra") User user,
             Model model){
     	
@@ -76,8 +68,18 @@ public class UserController {
         model.addAttribute("user", new User());
     
         return "Innskra";
-    }
+    }*/
     
+    @RequestMapping(value = "/innskra", method = RequestMethod.POST)
+    public String innskraUser(Model model, HttpSession httpSession, User user){
+    	User currentUser =this.userService.findOneByName(user);
+    	if (user!=null) {
+    	httpSession.setAttribute("loggedInUser", currentUser.getId());
+    	
+    	return "Forsida";
+    	}
+    	return"innskra";
+    }
    /* @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
     public ModelAndView showForm() {
         return new ModelAndView("nyskraningar", "nyskraning", new Nyskraning());

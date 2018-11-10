@@ -44,4 +44,5 @@ public interface UserService {
      * @return All {@link User}s with the {@link String name} passed
      */
     
+    User findOneByName(User user);
 }

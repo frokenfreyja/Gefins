@@ -141,7 +141,20 @@ function myFunction() {
     </c:choose>
     </div>
   </main>
-       
+        <footer>
+         
+		<div class="footer1">
+		<a href="/umgefins">Um Gefins.is</a>
+        <a href="/notkunarskilmalar">Notkunarskilmálar</a>
+        </div>
+		<div class="footer2">
+        <a href="/samband">Hafa samband</a>
+        <a href="/snidugt">Eitthvað sniðugt</a>
+		</div>
+		</div>
+		<div class="footer3">
+			<p class="footer2__bottom">© GEFINS 2018</p>
+	</footer>
        
     </body>
 </html>

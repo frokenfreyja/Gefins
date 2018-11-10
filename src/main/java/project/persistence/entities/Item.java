@@ -3,6 +3,9 @@ package project.persistence.entities;
 import javax.persistence.*;
 import javax.swing.ImageIcon;
 
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import java.util.List;
 
 /**
@@ -22,7 +25,6 @@ public class Item {
     private String userName;
     private String pickupTime;
     private String description;
-    private ImageIcon mynd;
     private String location;
     private String generalLocation;
     private String phone;
@@ -32,6 +34,12 @@ public class Item {
     private int zipcode;
     private String tag;
     private String authorized;
+    @Transient
+    private MultipartFile mynd;
+    private String myndName;
+    private byte[] myndmynd;
+    @Transient
+    private String base64imageFile;
     
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -39,7 +47,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String userName, String pickupTime, String description, ImageIcon mynd, String location,
+    public Item(String userName, String pickupTime, String description,String base64imageFile, MultipartFile mynd,byte[] myndmynd, String myndName, String location,
     		String generalLocation, String phone, String itemName, String email, String users, int zipcode,
     		String tag, String authorized) {
     	
@@ -56,18 +64,41 @@ public class Item {
         this.zipcode = zipcode;
         this.tag = tag;
         this.authorized = authorized;
+        this.myndName = myndName;
+        this.myndmynd = myndmynd;
+        this.base64imageFile = base64imageFile;
       
     }
 
     
-    public Long getId() {
+    public String getBase64imageFile() {
+		return base64imageFile;
+	}
+
+	public void setBase64imageFile(String base64imageFile) {
+		this.base64imageFile = base64imageFile;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	public byte[] getMyndMynd() {
+		return myndmynd;
+	}
+	public void setMyndMynd(byte[] myndmynd) {
+		this.myndmynd = myndmynd;
+	}
+	public String getMyndName() {
+		return myndName;
+	}
+	public void setMyndName(String myndName) {
+		this.myndName = myndName;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -92,11 +123,11 @@ public class Item {
 		this.description = description;
 	}
 
-	public ImageIcon getImage() {
+	public MultipartFile getMynd() {
 		return mynd;
 	}
 
-	public void setImage(ImageIcon mynd) {
+	public void setMynd(MultipartFile mynd) {
 		this.mynd = mynd;
 	}
 

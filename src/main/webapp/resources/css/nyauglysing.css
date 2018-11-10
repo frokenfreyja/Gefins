@@ -1,0 +1,237 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.5;
+ }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0; }
+
+body {
+  max-width: 2200px;
+  margin: auto;
+  overflow-x: hidden;
+  font-family: 'Merriweather', serif;
+}
+
+main {
+  max-width: 2200px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  font-family: 'Merriweather', serif;
+}
+
+header {
+  position: relative;
+  z-index: 2;
+}
+
+.header-bar {
+  background: linear-gradient(to right, rgba(127, 114, 94, 0.41) 0%, rgba(128, 116, 99, 0.07) 36%, rgba(128, 116, 98, 0.33) 65%, rgb(91, 113, 106) 100%) !important;
+}
+
+.header-bg {
+  background: transparent url(../images/green2.jpg) no-repeat fixed center;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-size: 25px;
+}
+
+.layer {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  background: rgba(44, 44, 44, 0.6);
+  z-index: 1;
+}
+
+.header-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.h-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fffbf9;
+  z-index: 10;
+  position: relative;
+/*  top: 11%;*/
+}
+
+.m-title h1 {
+  letter-spacing: 10px;
+  font-size: 100px;
+}
+.m-title h1 a {
+  text-decoration: none;
+  color: white;
+}
+.navbar {
+  height: 140px;
+  z-index: 20;
+  box-shadow: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/*
+.navbar-scrolled {
+  width: 100%;
+  top: -75px;
+  position: fixed;
+  z-index: 3;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.45s ease-in-out;
+}*/
+
+.nav {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.nav a {
+  margin: 0 30px;
+  position: relative;
+  color: black;
+}
+.nav a:hover {
+  color: #4f976d;
+}
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0 0 50px;
+}
+.collapsible-menu {
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px;
+    border-bottom: 3px solid #CDE700;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+.collapsible-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+.collapsible-menu a {
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.collapsible-menu label {
+    font-size: 20px;
+    display: block;
+    cursor: pointer;
+    background: url(../images/001-menu.png) no-repeat left center;
+    padding: 10px 0 10px 50px;
+}
+input#menu {
+    display: none;
+}
+input:checked ~ .menu-content {
+    max-height: 100%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.col {
+  padding-right: 10px;
+  padding-left: 10px; }
+  .col1-audur {
+    width: 23%;
+  }
+  .col2-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+.text {
+    margin-left: 1em;
+    margin-top: 2em;
+    font-size: 2em;
+  }
+
+.text_leitaeftir {
+  font-size: 1.5em;
+}
+
+.text_trengja {
+  font-size: 1.5em;
+}
+.formbox {
+  font-size: 20px;
+}
+.checkflokkar {
+  font-size: 20px;
+}
+.nyauglysing {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 2.5em;
+}
+
+.submit {
+  float: right;
+  padding-top: 3em;
+  padding-right: 26em;
+}
+
+.formbutton {
+  background-color: #4d4d4d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+table.tafla tr td {
+  padding: 20px;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+table.tafla tr td:nth-child(3) {
+    padding-left: 4em;
+}
+.formbox {
+  width: 200px;
+  font-size: 20px;
+}
+
+.myndTakki {
+  padding: 5px 10px 5px 10px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+}
+
+.myndTakki:hover {
+  background-color: white;
+  color: black;
+  border: 2px orchid solid;
+}

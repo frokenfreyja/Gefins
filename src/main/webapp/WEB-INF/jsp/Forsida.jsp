@@ -13,16 +13,13 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/forsida.css"/>"/>
        <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
         
-        <script>
-    
-  </script>
+
     </head>
     
     <body>
     <header id="s0">
       <div class="header-container">
-        <div class="lg"></div>
-        <div class="layer"></div>
+    
         <div class="header-bg">
           <div class="navbar">
       <div class="nav">
@@ -47,8 +44,7 @@
 
     </div>
           </div>
-        </div>
-      </div>
+      
     </header>
     
       
@@ -102,12 +98,12 @@
                     <tr class="rows">
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
+						<td><a href="/nyauglysing/${nyauglysing.itemName}">${nyauglysing.itemName}</a></td>
                         <td>${nyauglysing.itemName}</td>
                         <td>${nyauglysing.description}</td>
                         <td>${nyauglysing.pickupTime}</td>
                         <td>${nyauglysing.tag}</td>
-                        
+                        <td><img src="${pageContext.request.contextPath}/resources/images/${mynd}"/></td>
                                               
                     </tr>
                 </c:forEach>

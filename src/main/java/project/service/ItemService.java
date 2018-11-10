@@ -39,7 +39,7 @@ public interface ItemService {
     Item findOne(Long id);
 
 
-    
+    List<Item> findByItemName(String itemName);
 
     
 

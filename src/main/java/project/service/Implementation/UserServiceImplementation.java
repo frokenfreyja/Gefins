@@ -52,6 +52,11 @@ public class UserServiceImplementation implements UserService {
         return repository.findOne(id);
     }
 
-    
+    @Override
+    public User findOneByName(User user) {
+    	 return repository.findByuserName(user.getUserName());
+    	
+    	
+    }
 }
 
