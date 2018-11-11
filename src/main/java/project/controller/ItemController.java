@@ -62,8 +62,10 @@ public class ItemController {
      * Hér hefur item verið bætt efst í listann
      */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.POST)
-    public String formViewItem(@ModelAttribute("item") Item item, Model model, @RequestParam("mynd") MultipartFile imagefile, HttpServletRequest httpServletRequest) throws IOException{
-        itemService.save(item); 
+    public String formViewItem(@ModelAttribute("item") Item item, Model model, HttpServletRequest httpServletRequest) throws IOException{
+        
+        MultipartFile imagefile = item.getMynd();
+        String fileName;
         
     	imagefile.getInputStream();
     	
@@ -73,15 +75,16 @@ public class ItemController {
     		try {
     			File path = new File(rootDirectory + "resources/images/"+imagefile.getOriginalFilename());
     			imagefile.transferTo(path);
-    			System.out.println(path);
+
+    			fileName = imagefile.getOriginalFilename();
+    			item.setMyndName(fileName);
+    			
     		} catch (IllegalStateException | IOException e) {
     			e.printStackTrace();
     		}
-    	System.out.println(imagefile);
     	
-    	System.out.println(item.getMynd());
-
-    	model.addAttribute("mynd", imagefile.getOriginalFilename());
+        itemService.save(item); 
+        
         model.addAttribute("items", itemService.findAllReverseOrder());
         model.addAttribute("item", new Item());
         
@@ -95,8 +98,7 @@ public class ItemController {
     @RequestMapping(value = "/forsida", method = RequestMethod.GET)
     public String prufaViewGet(Model model){
 
-      //  model.addAttribute("item",new Item());
-    	model.addAttribute("mynd",itemService.findAllReverseOrder());
+        //model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
 
         return "Forsida";

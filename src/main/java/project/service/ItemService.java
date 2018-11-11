@@ -40,6 +40,8 @@ public interface ItemService {
 
 
     List<Item> findByItemName(String itemName);
+    
+    Item findOneByItemName(String itemName);
 
     
 

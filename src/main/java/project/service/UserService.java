@@ -24,7 +24,7 @@ public interface UserService {
      * @return A list of {@link User}s
      */
     List<User> findAll();
-
+    
     /**
      * Get all {@link User}s in a reverse order
      * @return A reversed list of {@link User}s

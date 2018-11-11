@@ -57,4 +57,9 @@ public class ItemServiceImplementation implements ItemService {
         return repository.findByItemName(itemName);
     }
     
+    @Override
+    public Item findOneByItemName(String itemName) {
+        return repository.findOneByItemName(itemName);
+    }
+    
 }

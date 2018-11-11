@@ -8,7 +8,8 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">        
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Old+Standard+TT:400,700|Oswald:400,600|Vidaloka" rel="stylesheet">   
         <title>Forsida</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/forsida.css"/>"/>
        <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
@@ -19,7 +20,7 @@
     <body>
     <header id="s0">
       <div class="header-container">
-    
+
         <div class="header-bg">
           <div class="navbar">
       <div class="nav">
@@ -39,12 +40,9 @@
               <a href="/nyauglysing"></a>
             </div>
                 </div>
-    
-
-
-    </div>
+              </div>
           </div>
-      
+
     </header>
     
       
@@ -91,7 +89,8 @@
    						<th>Fæst gefins</th>
    						<th>Lýsing</th>
    						<th>Afhendingartími</th>
-   						<th>Flokkur</th>
+               <th>Flokkur</th>
+               <th>Mynd</th>
  					</tr>
                 <c:forEach var="nyauglysing" items="${items}">
                   
@@ -100,11 +99,14 @@
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 						<td><a href="/nyauglysing/${nyauglysing.itemName}">${nyauglysing.itemName}</a></td>
                         <td>${nyauglysing.itemName}</td>
+
+                        <td><div class="augHeiti">${nyauglysing.itemName}</div></td>
                         <td>${nyauglysing.description}</td>
                         <td>${nyauglysing.pickupTime}</td>
                         <td>${nyauglysing.tag}</td>
-                        <td><img src="${pageContext.request.contextPath}/resources/images/${mynd}"/></td>
-                                              
+                        <td><div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div></td>   
+                        <td><a href="/nyauglysing/${nyauglysing.id}">${nyauglysing.id}</a></td>
+                             
                     </tr>
                 </c:forEach>
             </table>
@@ -119,24 +121,40 @@
           </div>
         </div>
                 </div>
-            </div>
-          </div>
-        </div>
         
        </main>
-       <footer>
-         
-		<div class="footer1">
-		<a href="/umgefins">Um Gefins.is</a>
-        <a href="/notkunarskilmalar">Notkunarskilmálar</a>
-        </div>
-		<div class="footer2">
-        <a href="/samband">Hafa samband</a>
-        <a href="/snidugt">Eitthvað sniðugt</a>
-		</div>
-		</div>
-		<div class="footer3">
-			<p class="footer2__bottom">© GEFINS 2018</p>
-	</footer>
+
+       <footer class="footer">
+          <div class="footer__grid">
+              <div class="footer__row">
+                  <div class="footer__col">
+                      <ul class="footer__links">
+                          <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                          <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>    
+                      </ul>
+                  </div>
+                  <div class="footer__col">
+                      <ul class="footer__links">
+                            <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
+                            <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>     
+                      </ul>
+                  </div>
+                  <div class="footer__col">
+                        <ul class="footer__links">
+                            <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
+                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>    
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <ul class="footer__links">
+                              <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
+                              <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>     
+                        </ul>
+                    </div>
+              </div>
+          </div>
+          <p class="footer__credit">© 2018 GEFINS</p>
+        </footer>
+      
     </body>
 </html>

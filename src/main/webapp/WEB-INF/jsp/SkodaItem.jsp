@@ -45,11 +45,18 @@
                 </div>
       
       <main>
+      <div class="grid">
+          <div class="row">
+          	<div class="col col1-audur">
+            
+              
+            </div>
+            <div class="col col-skodaitem">
  <c:choose>
         <%--If the model has an attribute with the name `items`--%>
         <c:when test="${not empty items}">
             <%--Create a table for the Items--%>
-            <table class="Itemtafla">
+            <table class="itemtafla">
 
                 <%--For each Item, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
@@ -63,16 +70,24 @@
                         <th>${nyauglysing.itemName}</th>
                      </tr>
                       <tr>
-                        <td>${nyauglysing.description}</td>
-                         </tr>
-                          <tr>
-                        <td>${nyauglysing.pickupTime}</td>
-                        <td>${nyauglysing.tag}</td>
-                        <td><img src="${pageContext.request.contextPath}/resources/images/${mynd}"/></td>
-                                              
-                    </tr>
+                        <td class="titill">Lýsing: </td>
+                        <td class="efni">${nyauglysing.description}</td>
+                        <td><div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div></td>         
+                      </tr>
+                      <tr>
+                        <td class="titill">Afhendingartími: </td>
+                        <td class="efni">${nyauglysing.pickupTime}</td>
+                      </tr>
+                      <tr>
+                        <td class="titill">Flokkur: </td>
+                        <td class="efni">${nyauglysing.tag}</td>
+                        <td class="titill">Fjöldi í röð: </td>
+                                                <td class="efni">${nyauglysing.id}</td>
+                        
+                      </tr>
                 </c:forEach>
             </table>
+            
         </c:when>
 
         <%--If all tests are false, then do this--%>
@@ -80,21 +95,48 @@
             <h3>Engar auglýsingar</h3>
         </c:otherwise>
     </c:choose>
+      <div class="submit">
+       <input type="submit" class="rodbutton" VALUE="Fara í röð"/>
+       </div>
+                </div>
+    <div class="col col1-audur">
+             
+            </div>
+             </div>
+              </div>
       </main>
-        <footer>
-         
-		<div class="footer1">
-		<a href="/umgefins">Um Gefins.is</a>
-        <a href="/notkunarskilmalar">Notkunarskilmálar</a>
-        </div>
-		<div class="footer2">
-        <a href="/samband">Hafa samband</a>
-        <a href="/snidugt">Eitthvað sniðugt</a>
-		</div>
-		</div>
-		<div class="footer3">
-			<p class="footer2__bottom">© GEFINS 2018</p>
-	</footer>
+      
+         <footer class="footer">
+          <div class="footer__grid">
+              <div class="footer__row">
+                  <div class="footer__col">
+                      <ul class="footer__links">
+                          <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                          <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>    
+                      </ul>
+                  </div>
+                  <div class="footer__col">
+                      <ul class="footer__links">
+                            <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
+                            <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>     
+                      </ul>
+                  </div>
+                  <div class="footer__col">
+                        <ul class="footer__links">
+                            <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
+                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>    
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <ul class="footer__links">
+                              <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
+                              <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>     
+                        </ul>
+                    </div>
+              </div>
+          </div>
+          <p class="footer__credit">© 2018 GEFINS</p>
+        </footer>
        
        
     </body>

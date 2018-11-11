@@ -58,8 +58,11 @@ public class UserController {
 
         return "Innskra";
     }
+
     
   /*  @RequestMapping(value = "/innskra", method = RequestMethod.POST)
+    /*
+    @RequestMapping(value = "/innskra", method = RequestMethod.POST)
     public String innskraUser(@ModelAttribute("innskra") User user,
             Model model){
     	
@@ -69,10 +72,12 @@ public class UserController {
     
         return "Innskra";
     }*/
-    
+
+   
+    // FRÁ JÖKLI
     @RequestMapping(value = "/innskra", method = RequestMethod.POST)
     public String innskraUser(Model model, HttpSession httpSession, User user){
-    	User currentUser =this.userService.findOneByName(user);
+    	User currentUser = this.userService.findOneByName(user);
     	if (user!=null) {
     	httpSession.setAttribute("loggedInUser", currentUser.getId());
     	
@@ -80,6 +85,9 @@ public class UserController {
     	}
     	return"innskra";
     }
+    
+  
+
    /* @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
     public ModelAndView showForm() {
         return new ModelAndView("nyskraningar", "nyskraning", new Nyskraning());
