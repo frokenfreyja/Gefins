@@ -86,10 +86,6 @@
                                     <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                     <%--it in the singular item var, and then just a dot followed by the attribute name--%>
                                     <td><a href="/nyauglysing/${nyauglysing.itemName}">${nyauglysing.itemName}</a></td>
-                                    <td>${nyauglysing.itemName}</td>
-                                    <td>
-                                       <div class="augHeiti">${nyauglysing.itemName}</div>
-                                    </td>
                                     <td>${nyauglysing.description}</td>
                                     <td>${nyauglysing.pickupTime}</td>
                                     <td>${nyauglysing.tag}</td>
