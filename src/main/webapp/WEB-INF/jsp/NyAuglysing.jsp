@@ -23,7 +23,7 @@
     </head>
     
     <body>
-       <body>
+    <body>
     <header id="s0">
       <div class="header-container">
         <div class="header-bg">

@@ -14,7 +14,7 @@ body {
   max-width: 2200px;
   margin: auto;
   overflow-x: hidden;
-  font-family: 'Merriweather', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -149,6 +149,8 @@ header {
   padding: 0;
   height: 70px;
   background-color: rgba(255,255,255,0.2);
+  position: fixed;
+  width: 100%;
 }
 
 .nav a {
@@ -157,7 +159,7 @@ header {
   color: white;
 }
 .nav a:hover {
-  color: #4f976d;
+  color: #05EDFF;
 }
 .row {
   display: flex;
@@ -212,6 +214,8 @@ header {
 .auglysing {
   font-size: 1.7em;
   margin-bottom: 0.6em;
+  padding: 15px 15px 15px 30px;
+  font-weight: bold;
 }
 
 .nyauglysingbutton {

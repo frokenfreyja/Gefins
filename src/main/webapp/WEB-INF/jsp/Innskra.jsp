@@ -50,43 +50,20 @@
             <tr>
                 <td>Lykilorð:</td>
                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                <td><sf:textarea path="password" type="text" placeholder=""/></td>
+                <td><sf:input path="password" type="text" placeholder=""/></td>
             </tr>
-           
        </table>
+       <div class="errorMessage">
+            <c:if test="${not empty loginError}">
+                ${loginError}
+            </c:if>
+        </div>
        <div class="submit">
        <input type="submit" class="innskrabutton" VALUE="Innskrá"/>
        </div>
        </sf:form>
         </div>
        
-       <div class="col col-right">
-       <p class="nyauglysing">Nýr notandi</p>
-       <c:choose>
-        <%--If the model has an attribute with the name `forms`--%>
-        <c:when test="${not empty userinnskra}">
-            <%--Create a table for the Postit Notes--%>
-            <div class="nyskrapost">
-
-                <%--For each postit note, that is in the list that was passed in the model--%>
-                <%--generate a row in the table--%>
-                <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-
-                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
-                        <%--The String in the note attribute--%>
-                        <p>${innskra.userName}</p>
-                        <p>${innskra.password}</p>    
-            </div>
-        </c:when>
-
-        <%--If all tests are false, then do this--%>
-        <c:otherwise>
-            
-        </c:otherwise>
-    </c:choose>
-    </div>
   </main>
   <footer class="footer">
         <div class="footer__grid">

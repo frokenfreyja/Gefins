@@ -42,12 +42,11 @@ public class UserController {
     @RequestMapping(value = "/nyskra", method = RequestMethod.POST)
     public String nyskraPost(@ModelAttribute("nyskra") User user,
             Model model){
-    	
     	user = userService.save(user);     
         model.addAttribute("userinn", user); 
    	 	model.addAttribute("user",new User());
     
-        return "Nyskra";
+        return "Innskra";
     }
     
     
@@ -70,16 +69,18 @@ public class UserController {
         return "Innskra";
     }
     */
-    // FRÁ JÖKLI
+    // FRÁ JÖKLI  
     @RequestMapping(value = "/innskra", method = RequestMethod.POST)
     public String innskraUser(Model model, HttpSession httpSession, User user){
-    	User currentUser = this.userService.findOneByName(user);
-    	if (user!=null) {
+    	User currentUser =this.userService.findOneByName(user);
+    	
+    	if (currentUser!=null && currentUser.getPassword().contentEquals(user.getPassword())) {
     	httpSession.setAttribute("loggedInUser", currentUser.getId());
     	
-    	return "Forsida";
+    	return "redirect:/forsida";
     	}
-    	return"innskra";
+    	model.addAttribute("loginError", "Notendanafn eða lykilorð er ekki rétt. Reyndu aftur.");
+    	return"Innskra";
     }
     
    /* @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
