@@ -84,7 +84,6 @@ public class ItemController {
     		}
     	
         itemService.save(item); 
-        
         model.addAttribute("items", itemService.findAllReverseOrder());
         model.addAttribute("item", new Item());
         
