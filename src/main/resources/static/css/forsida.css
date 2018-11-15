@@ -165,9 +165,48 @@ a.gefins {
 	color: white;
 }
 
+/* LEITA EFTIR STAÐSETNINGU */
+.flokkar-tree {
+  padding: 10px 20px;
+    margin-bottom: 1.5em;
+  }
+    .flokkar-tree label {
+        cursor: pointer;
+        display: block;
+    }
+.layer2, .layer3 {
+    margin-left: 20px;
+}
+.flokkar-tree-cb {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.flokkar-tree-label {
+  vertical-align: 2px;
+    font-family: sans-serif;
+    color: #5a5a5a;
+}
+.flokkar-tree-cb:checked + .flokkar-tree-label {
+    font-weight: bold;
+    color: #05EDFF;
+}
+.flokkar-tree-branches {
+  display: none;
+}
+.flokkar-tree-cb:checked + .flokkar-tree-label + .flokkar-tree-branches {
+  display: block;
+}
+.flokkar-tree-label::before {
+  content: '';
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
 
-/* Forsíðan - auglýsingalisti */
-
+/* FORSÍÐAN - AUGLÝSINGALISTI */
 .row {
 	display: flex;
 	flex-wrap: wrap;
@@ -181,12 +220,12 @@ a.gefins {
 }
 
 .col3-left {
-	width: 20%;
+	width: 25%;
 	padding-left: 3em;
 }
 
 .col9-right {
-	width: 80%;
+	width: 75%;
 	display: flex;
 }
 
@@ -199,19 +238,6 @@ a.gefins {
 
 .text_fyrirsogn {
 	font-size: 1.7em;
-}
-
-.checkbox_efra {
-	padding-top: 1em;
-	padding-bottom: 2em;
-}
-
-.checkbox_nedra {
-	padding-top: 1em;
-}
-
-.checkboxes {
-	margin-bottom: 2em;
 }
 
 .listi {

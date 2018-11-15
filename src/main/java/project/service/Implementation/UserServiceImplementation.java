@@ -49,7 +49,10 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User findOne(Long id) {
-        return repository.findOne(id);
+    	System.out.println("id: "+id);
+    	User user = repository.findOne(id);
+    	System.out.println("user: "+user);
+        return user;
     }
 
     @Override

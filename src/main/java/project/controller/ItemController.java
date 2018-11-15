@@ -9,6 +9,7 @@ import java.util.Base64;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,20 +25,25 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import project.persistence.entities.Item;
+import project.persistence.entities.User;
 import project.service.ItemService;
+import project.service.UserService;
 
 @Controller
 public class ItemController {
 
     // Instance Variables
     private ItemService itemService;
+    private UserService userService;
 
     // Dependency Injection
     @Autowired
-    public ItemController(ItemService itemService) {
-        this.itemService = itemService;
+    public ItemController(ItemService itemService, UserService userService) {
+    	this.userService= userService;
+    	this.itemService = itemService;
     }
 
+    // Instance Variables
    
     /* 
      * Síðan þar sem sett er inn ný auglýsing
@@ -47,7 +53,7 @@ public class ItemController {
      * Sér um Get request fyrir URL-ið
      */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.GET)
-    public String itemViewGet(Model model) {	
+    public String itemViewGet(Model model, Item item) {	
         
     	model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
@@ -81,14 +87,12 @@ public class ItemController {
     			
     		} catch (IllegalStateException | IOException e) {
     			e.printStackTrace();
-    		}
-    	
+    		}   	
         itemService.save(item); 
         model.addAttribute("items", itemService.findAllReverseOrder());
         model.addAttribute("item", new Item());
-        
 
-        return "Forsida";
+        return "ForsidaLoggedIn";
     }
     
     /*
@@ -103,54 +107,84 @@ public class ItemController {
         return "Forsida";
     }
     
-    @RequestMapping(value = "/mittsvaedi", method = RequestMethod.GET)
-    public String getMittSvaedi(){
+    /*
+     * Birtir listann af item á forsíðunni í öfugri röð, nýjasta efst
+     */
+    @RequestMapping(value = "/forsidaloggedin", method = RequestMethod.GET)
+    public String prufaViewGet2(Model model){
 
-        // The string "Index" that is returned here is the name of the view
-        // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
-        // If you change "Index" to something else, be sure you have a .jsp
-        // file that has the same name
-        return "Mittsvaedi";
+        //model.addAttribute("item",new Item());
+        model.addAttribute("items",itemService.findAllReverseOrder());
+
+        return "ForsidaLoggedIn";
     }
     
-    @RequestMapping(value = "/nyauglysing/{itemName}", method = RequestMethod.GET)
-    public String getUserName(@PathVariable String itemName,
-                                             Model model){
-
-
-    	model.addAttribute("item",new Item());
+    @RequestMapping(value = "/skodaitem/{itemName}", method = RequestMethod.GET)
+    public String getUserName(Model model, Item item, HttpSession httpSession) {
+    	
        
-        model.addAttribute("items", itemService.findByItemName(itemName));
-
+        Item skodaNanarItem = itemService.findOne(Long.parseLong(item.getItemName()));
+       
+        model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        
         // Return the view
         return "SkodaItem";
     }
     
-   /* @RequestMapping(value = "nyauglysing/{itemName}", method = RequestMethod.POST)
-    public String formSkodaItem(@ModelAttribute("item") Item item, String itemName, Model model, @RequestParam("mynd") MultipartFile imagefile, HttpServletRequest httpServletRequest) throws IOException{
-       itemService.save(item); */
-
-    	/*imagefile.getInputStream();
-    	
-    	if (item.getMynd()==null) throw new NullPointerException("unable to fetch"+imagefile);
-    	String rootDirectory = httpServletRequest.getSession().getServletContext().getRealPath("/");
-    	if(item.getMynd() != null && !item.getMynd().isEmpty())
-    		try {
-    			File path = new File(rootDirectory + "resources/images/"+imagefile.getOriginalFilename());
-    			imagefile.transferTo(path);
-    			System.out.println(path);
-    		} catch (IllegalStateException | IOException e) {
-    			e.printStackTrace();
-    		}
-    	System.out.println(imagefile);
-    	model.addAttribute("items", itemService.findByItemName(itemName));
-    	System.out.println(item.getMynd());
-        model.addAttribute("itemName", item.getItemName());
-    	model.addAttribute("mynd", imagefile.getOriginalFilename());
-        model.addAttribute("item", new Item());
+    /*
+     * Birtir listann af Item á forsíðunni eftir flokkum
+     */
+    @RequestMapping(value = "sortflokkar" , method = RequestMethod. GET)
+    public String selectTag(@RequestParam("flokkar") String value, Model model) 
+    {
+     
+        System.out.println(value);
+    	model.addAttribute("item",new Item());
+        model.addAttribute("items", itemService.findByTag(value));
         
+      
+      return "Forsida";
+    }
+    
+	/*
+     * Birtir listann af Item á forsíðunni eftir póstnúmeri
+     */
+    @RequestMapping(value = "sortzip" , method = RequestMethod. GET)
+    public String selectZip(@RequestParam("zip") String value, Model model) 
+    {
+     
+        System.out.println(value);
+        int zipcode = Integer.parseInt(value);	
+    	model.addAttribute("item",new Item());
+        model.addAttribute("items", itemService.findByZipcode(zipcode));
+        
+      
+      return "Forsida";
+    }
+    
+    
+    //ItemController
+	//Myspace Síðan
+    @RequestMapping(value = "/mittsvaedi", method = RequestMethod.GET)
+    public String getMittSvaedi(Model model, HttpSession httpSession){
+    	
+    	Long userId = (Long)httpSession.getAttribute("loggedInUser");
+    	System.out.println(userId);
+    	if(userId==null)
+    		return "Innskra";
+    	
+       User user = userService.findOne(userId);
+       
+       //Itemin sem Userinn er að gefa
+        model.addAttribute("myItems", itemService.findByuserName(user.getUserName()));
+       
+       //Itemin sem Userinn er að bíða eftir
+        model.addAttribute("itemsIWant", itemService.findByusers(user.getUserName()));
+    
+        return "Mittsvaedi";
+    }
+   
+    
 
-        return "SkodaItem";
-    }*/
     
 }

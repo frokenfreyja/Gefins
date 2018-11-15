@@ -8,6 +8,7 @@ import project.service.ItemService;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemServiceImplementation implements ItemService {
@@ -60,6 +61,32 @@ public class ItemServiceImplementation implements ItemService {
     @Override
     public Item findOneByItemName(String itemName) {
         return repository.findOneByItemName(itemName);
+    }
+    
+    @Override
+    public Item findByUserName(String userName) {
+    	return repository.findByUserName(userName);
+    }
+    
+    @Override
+  //ItemServiceImplementation
+  	public List<Item> findByuserName(String name) {
+      	return repository.findByuserName(name);
+    }
+    
+    @Override
+    public List<Item> findByusers(String name) {
+      	return repository.findByusers(name);
+    }
+    
+    @Override
+    public List<Item> findByTag(String tag) {
+    	return repository.findByTag(tag);
+    }
+    
+    @Override 
+    public List<Item> findByZipcode(Integer zipcode) {
+    	return repository.findByZipcode(zipcode);
     }
     
 }

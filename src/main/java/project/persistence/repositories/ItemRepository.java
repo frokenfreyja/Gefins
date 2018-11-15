@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import project.persistence.entities.Item;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * By extending the {@link JpaRepository} we have access to powerful methods.
@@ -29,5 +30,16 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     List<Item> findByItemName(String itemName);
     
     Item findOneByItemName(String itemName);
+    
+    Item findByUserName(String userName);
+    
+  //ItemRepository
+  	List<Item> findByuserName(String name);
+
+  	List<Item> findByusers(String name);
+  	
+  	List<Item> findByTag(String tag);
+  	
+  	List<Item> findByZipcode(Integer zipcode);
 
 }

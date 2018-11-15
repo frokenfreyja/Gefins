@@ -46,36 +46,34 @@
                <div class="col col-skodaitem">
                   <c:choose>
                      <%--If the model has an attribute with the name `items`--%>
-                     <c:when test="${not empty items}">
+                     <c:when test="${not empty skodaitem}">
                         <%--Create a table for the Items--%>
                         <table class="itemtafla">
                            <%--For each Item, that is in the list that was passed in the model--%>
                            <%--generate a row in the table--%>
                            <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                           <c:forEach var="nyauglysing" items="${items}">
                               <tr>
                                  <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                  <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                 <th>${nyauglysing.itemName}</th>
+                                 <th>${skodaitem.itemName}</th>
                               </tr>
                               <tr>
                                  <td class="titill">Lýsing: </td>
-                                 <td class="efni">${nyauglysing.description}</td>
+                                 <td class="efni">${skodaitem.description}</td>
                                  <td>
-                                    <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
+                                    <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${skodaitem.myndName}"/></div>
                                  </td>
                               </tr>
                               <tr>
                                  <td class="titill">Afhendingartími: </td>
-                                 <td class="efni">${nyauglysing.pickupTime}</td>
+                                 <td class="efni">${skodaitem.pickupTime}</td>
                               </tr>
                               <tr>
                                  <td class="titill">Flokkur: </td>
-                                 <td class="efni">${nyauglysing.tag}</td>
+                                 <td class="efni">${skodaitem.tag}</td>
                                  <td class="titill">Fjöldi í röð: </td>
-                                 <td class="efni">${nyauglysing.id}</td>
+                                 <td class="efni">${skodaitem.id}</td>
                               </tr>
-                           </c:forEach>
                         </table>
                      </c:when>
                      <%--If all tests are false, then do this--%>

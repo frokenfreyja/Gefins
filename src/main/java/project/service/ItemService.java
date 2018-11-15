@@ -3,6 +3,7 @@ package project.service;
 import project.persistence.entities.Item;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ItemService {
 
@@ -42,7 +43,19 @@ public interface ItemService {
     List<Item> findByItemName(String itemName);
     
     Item findOneByItemName(String itemName);
-
     
+    Item findByUserName(String userName);
+    
+    
+
+  //ItemService
+  	List<Item> findByuserName(String name);
+     
+    List<Item> findByusers(String name);
+    
+  	List<Item> findByTag(String tag);
+  	
+  	List<Item> findByZipcode(Integer zipcode);
+
 
 }

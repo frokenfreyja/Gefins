@@ -10,38 +10,45 @@
       <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Old+Standard+TT:400,700|Oswald:400,600|Vidaloka" rel="stylesheet">
       <title>Forsida</title>
       <link rel="stylesheet" type="text/css" href="
-      <c:url value="/css/forsida.css"/>
+      <c:url value="/css/forsidaloggedin.css"/>
       "/>
       <!- <link rel="stylesheet" type="text/css" href="
       <c:url value="/css/grid.css"/>
       "/> 
    </head>
    <body>
-      <script>
-         $('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
-      </script>
-      <header>
-         <div class="header-container">
-            <div class="header-bg">
-               <div class="navbar">
-                  <div class="nav">
-                     <a href="/nyskra">Nýskrá</a>
-                     <a href="/innskra">Innskrá</a>
-                  </div>
-               </div>
-               <div class="h-wrapper">
-                  <div class="m-title">
-                     <h1>GEFINS</h1>
-                  </div>
-                  <div class="undertitle">
-                     Fyrir jörðina okkar
-                  </div>
-               </div>
+    <header>
+      <div class="header-container">
+         <div class="header-bg">
+          <div class="navbar">
+            <div class="nav">
+              <div class="dropdown">
+                <button class="dropbtn">${loggedInUsername}
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/mittsvaedi">Mitt svæði</a>
+                  <a href="#">Stillingar</a>
+                  <a href="#">Útskrá</a>
+                </div>
+              </div>
+              </div> 
             </div>
+            <div class="h-wrapper">
+              <div class="m-title">
+                 <h1>GEFINS</h1>
+              </div>
+              <div class="undertitle">
+                 Fyrir jörðina okkar
+              </div>
+              <div class="btn header-btn">
+                 <span>Setja inn auglýsingu</span>
+                 <a href="/nyauglysing"></a>
+              </div>
+           </div>
          </div>
-      </header>
+      </div>
+   </header>
       <main>
          <div class="grid">
             <div class="row">
@@ -756,7 +763,6 @@
                                </label> 
                            </div>
                            </form> 
-
                      <p class="text_fyrirsogn">Flokkar</p>
                      <form id="leitaradio" action="sortflokkar">       					
                            <input type="radio" name="flokkar" value="Húsgögn" onChange="this.form.submit()"> Húsgögn<br>
@@ -769,7 +775,6 @@
                             <input type="radio" name="flokkar" value="Matur" onChange="this.form.submit()"> Matur<br>
                             <input type="radio" name="flokkar" value="Annað" onChange="this.form.submit()"> Annað <br> 														  
                          </form>
-
                   </div>
                </div>
                <div class="col col9-right">
@@ -790,16 +795,16 @@
                                  <th>Flokkur</th>
                                  <th>Mynd</th>
                               </tr>
-                              <c:forEach var="skodaitem" items="${items}">
+                              <c:forEach var="nyauglysing" items="${items}">
                                  <tr class="rows">
                                     <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                     <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                    <td><a href="/skodaitem/${skodaitem.id}">${skodaitem.itemName}</a></td>
-                                    <td>${skodaitem.description}</td>
-                                    <td>${skodaitem.pickupTime}</td>
-                                    <td>${skodaitem.tag}</td>
+                                    <td><a href="/nyauglysing/${nyauglysing.itemName}">${nyauglysing.itemName}</a></td>
+                                    <td>${nyauglysing.description}</td>
+                                    <td>${nyauglysing.pickupTime}</td>
+                                    <td>${nyauglysing.tag}</td>
                                     <td>
-                                       <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${skodaitem.myndName}"/></div>
+                                       <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
                                     </td>
                                  </tr>
                               </c:forEach>

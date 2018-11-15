@@ -54,8 +54,8 @@
             </tr>
        </table>
        <div class="errorMessage">
-            <c:if test="${not empty loginError}">
-                ${loginError}
+            <c:if test="${not empty innskraError}">
+                ${innskraError}
             </c:if>
         </div>
        <div class="submit">

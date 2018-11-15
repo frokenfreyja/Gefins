@@ -233,3 +233,9 @@ header {
 	text-align: center;
 	justify-content: center;
 }
+.errorMessage {
+  padding-top: 17px;
+  font-size: 20px;
+  color: red;
+}
+

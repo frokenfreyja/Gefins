@@ -94,6 +94,11 @@
                      </td>
                   </tr>
                </table>
+               <div class="errorMessage">
+                <c:if test="${not empty nyskraError}">
+                    ${nyskraError}
+                </c:if>
+            </div>
                <div class="submit">
                   <input type="submit" class="nyskrabutton" VALUE="Nýskrá"/>
                </div>

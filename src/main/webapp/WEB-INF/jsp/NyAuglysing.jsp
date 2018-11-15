@@ -24,20 +24,23 @@
       <header>
          <div class="header-container">
             <div class="header-bg">
-               <div class="collapsible-menu">
-                  <input type="checkbox" id="menu">
-                  <label for="menu">Notendanafn</label>
-                  <div class="menu-content">
-                     <ul>
-                        <li><a href="#"></a>Mitt svæði</li>
-                        <li><a href="#"></a>Stillingar</li>
-                        <li><a href="#"></a>Útskrá</li>
-                     </ul>
-                  </div>
-               </div>
+                  <div class="navbar">
+                        <div class="nav">
+                          <div class="dropdown">
+                            <button class="dropbtn">${loggedInUsername}
+                              <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="/mittsvaedi">Mitt svæði</a>
+                              <a href="#">Stillingar</a>
+                              <a href="#">Útskrá</a>
+                            </div>
+                          </div>
+                          </div> 
+                        </div>
                <div class="h-wrapper">
                   <div class="m-title">
-                     <h1><a href="/forsida">GEFINS</a></h1>
+                     <h1><a href="/forsidaloggedin">GEFINS</a></h1>
                   </div>
                </div>
             </div>

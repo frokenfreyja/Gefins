@@ -1,3 +1,5 @@
+/* setjum box-sizing: border-box; á allt */
+
 html {
 	box-sizing: border-box;
 	font-size: 16px;
@@ -25,7 +27,6 @@ main {
 
 
 /* Header */
-
 header {
 	position: relative;
 	z-index: 2;
@@ -33,20 +34,19 @@ header {
 
 .header-container {
 	width: 100%;
-	height: 400px;
+	height: 900px;
 	position: relative;
 }
 
 .header-bg {
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	height: 400px;
+	height: 900px;
 	background-position: center;
 	background-size: cover;
 	position: relative;
 	color: white;
 	font-size: 25px;
 }
-
 .h-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -55,21 +55,58 @@ header {
 	color: #fffbf9;
 	z-index: 10;
 	position: relative;
-	height: 0px;
 }
 
 .m-title h1 {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 600;
 	letter-spacing: 10px;
-	font-size: 120px;
-}
-
-.m-title h1 a {
-	text-decoration: none;
+	font-size: 180px;
+	margin-top: 0px;
 	color: #05EDFF;
 }
 
+.undertitle {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 600;
+	font-size: 50px;
+	color: #05EDFF;
+}
+
+.header-btn {
+	position: relative;
+	top: 80px;
+}
+
+.header-btn a {
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.btn {
+	color: black;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 600;
+	width: 240px;
+	height: 50px;
+	border-radius: 3px;
+	background: #05EDFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	font-size: 20px;
+	letter-spacing: 1px;
+	transition: all 0.1s ease;
+}
+
+.btn:hover {
+	color: white;
+	background: black!important;
+}
 
 /* NAVIGATION BAR Í HEADER */
 .navbar {
@@ -83,8 +120,8 @@ header {
   height: 70px;
   background-color: rgba(255, 255, 255, 0.2);
   justify-content: flex-end;
-	align-items: center;
-	position: fixed;
+  align-items: center;
+  position: fixed;
   width: 100%;
 }
 
@@ -144,8 +181,48 @@ header {
   display: block;
 }
 
-/* Form fyrir nýja auglýsingu */
+/* LEITA EFTIR STAÐSETNINGU */
+.flokkar-tree {
+  padding: 10px 20px;
+    margin-bottom: 1.5em;
+  }
+    .flokkar-tree label {
+        cursor: pointer;
+        display: block;
+    }
+.layer2, .layer3 {
+    margin-left: 20px;
+}
+.flokkar-tree-cb {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.flokkar-tree-label {
+  vertical-align: 2px;
+    font-family: sans-serif;
+    color: #5a5a5a;
+}
+.flokkar-tree-cb:checked + .flokkar-tree-label {
+    font-weight: bold;
+    color: #05EDFF;
+}
+.flokkar-tree-branches {
+  display: none;
+}
+.flokkar-tree-cb:checked + .flokkar-tree-label + .flokkar-tree-branches {
+  display: block;
+}
+.flokkar-tree-label::before {
+  content: '';
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
 
+/* FORSÍÐAN - AUGLÝSINGALISTI */
 .row {
 	display: flex;
 	flex-wrap: wrap;
@@ -158,83 +235,106 @@ header {
 	padding-left: 10px;
 }
 
-.col1-audur {
-	width: 23%;
+.col3-left {
+	width: 25%;
+	padding-left: 3em;
 }
 
-.col2-form {
+.col9-right {
+	width: 75%;
 	display: flex;
-	flex-direction: column;
-	width: 70%;
+}
+
+.text {
+	margin-left: 1em;
+	margin-top: 12em;
+	margin-left: 1em;
+	font-size: 1.5em;
+}
+
+.text_fyrirsogn {
+	font-size: 1.7em;
+}
+
+.listi {
+	width: 100%;
+	margin-top: 3em;
+	font-size: 1.5em;
+}
+
+.auglysing {
+	font-size: 1.7em;
+	margin-bottom: 0.6em;
+	padding: 15px 15px 15px 30px;
+	font-weight: bold;
 }
 
 .nyauglysing {
-	margin-top: 2em;
-	margin-bottom: 2em;
-	font-size: 2.5em;
-	font-weight: bold;
+	margin-top: 1.3em;
+	margin-bottom: 1em;
+	font-size: 3em;
 }
 
-.formbox {
-	width: 200px;
-	font-size: 20px;
+table.formtable {
+	width: 95%;
+	border-spacing: 1em;
+	border-collapse: separate;
+	padding-bottom: 3em;
 }
 
-.checkflokkar {
-	font-size: 20px;
+.rows {
+	box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
 
-.submit {
-	float: right;
-	padding-top: 3em;
-	padding-right: 26em;
-}
-
-.formbutton {
-	background-color: black;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 20px;
-	margin: 4px 2px;
-	cursor: pointer;
-	border-radius: 3px;
-	border-color: black;
-	font-weight: bold;
-}
-
-.formbutton:hover {
-	background-color: #05EDFF;
-	color: black;
-	border-color: #05EDFF;
-}
-
-table.tafla tr td {
-	padding: 20px 20px 20px 0;
+.formtable td {
+	padding: 15px;
 	text-align: left;
-	font-size: 1.5em;
-	font-weight: bold;
 }
 
-table.tafla tr td:nth-child(3) {
-	padding-left: 4em;
+.formtable th {
+	padding: 15px;
+	text-align: left;
 }
 
-.myndTakki {
-	padding: 5px 10px 5px 10px;
-	background-color: #000000;
-	color: white;
-	text-align: center;
-	border-radius: 3px;
-	border-color: black;
+table.formtable tr:nth-child(even) {
+	background-color: white;
 }
 
-.myndTakki:hover {
-	background-color: #05EDFF;
+table.formtable tr:nth-child(odd) {
+	background-color: white;
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
 	color: black;
-	border-color: #05EDFF;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: pink;
+}
+
+a:active {
+	text-decoration: underline;
+}
+
+.img {
+	width: 150px;
+	height: 150px;
+}
+
+.img img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.augHeiti:hover {
+	cursor: pointer;
 }
 
 
@@ -277,10 +377,10 @@ table.tafla tr td:nth-child(3) {
 }
 
 .footer__link {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", helvetica, sans-serif;
 	font-size: 24px;
 	line-height: 1.8;
-	color: white;
+	color: white !important;
 	text-decoration: none;
 	transition-timing-function: ease-in-out;
 	transition-duration: 300ms;
@@ -295,7 +395,7 @@ table.tafla tr td:nth-child(3) {
 	color: white;
 	padding-bottom: 60px;
 	margin: 0 auto;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", helvetica, sans-serif;
 	font-size: 16px;
 	text-align: center;
 	justify-content: center;

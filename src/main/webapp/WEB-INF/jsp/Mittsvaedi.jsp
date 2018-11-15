@@ -17,66 +17,131 @@
     </head>
     
     <body>
-   <div class="header-container">
-        
-        <div class="header-bg">
-          
-     
-        <div class="collapsible-menu">
-        <input type="checkbox" id="menu">
-        <label for="menu">Notendanafn</label>
-    	<div class="menu-content">
-        <ul>
-            <li><a href="#"></a>Mitt svæði</li>
-            <li><a href="#"></a>Stillingar</li>
-            <li><a href="#"></a>Útskrá</li>
-         </ul>
-
-
-      </div>
-          </div>
-          <div class="h-wrapper">
-            <div class="m-title">
-              <h1><a href="/forsida">GEFINS</a></h1>
-            </div>  
-                </div>
-   
-        </div>  
-                </div>
-      
+        <header>
+            <div class="header-container">
+               <div class="header-bg">
+                     <div class="navbar">
+                           <div class="nav">
+                             <div class="dropdown">
+                               <button class="dropbtn">${loggedInUsername}
+                                 <i class="fa fa-caret-down"></i>
+                               </button>
+                               <div class="dropdown-content">
+                                 <a href="/mittsvaedi">Mitt svæði</a>
+                                 <a href="#">Stillingar</a>
+                                 <a href="#">Útskrá</a>
+                               </div>
+                             </div>
+                             </div> 
+                           </div>
+                  <div class="h-wrapper">
+                     <div class="m-title">
+                        <h1><a href="/forsidaloggedin">GEFINS</a></h1>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
       <main>
       <div class="grid">
-          <div class="row">  
-           <div class="col col-100">
-           <h1>Mitt svæði</h1>
-           
-                 </div>
+            <div class="row">  
+            <div class="col col-100">
+                <h1>Mitt svæði</h1>
+            </div>
            
             <div class="col col-left">
-            
-<p class="minarauglysingar">Mínar auglýsingar</p>
+                <p class="minarauglysingar">Mínar auglýsingar</p>
+                <c:choose>
+                        <%--If the model has an attribute with the name `items`--%>
+                        <c:when test="${not empty myItems}">
+                           <%--Create a table for the Items--%>
+                           <table class="formtable">
+                              <c:forEach var="nyauglysing" items="${myItems}">
+                                 <tr class="rows">
+                                    <%--We can reference attributes of the Entity by just entering the name we gave--%>
+                                    <%--it in the singular item var, and then just a dot followed by the attribute name--%>
+                                    <td><a href="/mittsvaedi/${nyauglysing.id}">${nyauglysing.id}</a></td>
+                                    <td>${nyauglysing.itemName}</td>
+                                    <td>${nyauglysing.description}</td>
+                                    <td>${nyauglysing.pickupTime}</td>
+                                    <td>${nyauglysing.tag}</td>
+                                    <td>
+                                       <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
+                                    </td>
+                                 </tr>
+                              </c:forEach>
+                           </table>
+                        </c:when>
+                        <%--If all tests are false, then do this--%>
+                        <c:otherwise>
+                           <h3>Engar auglýsingar</h3>
+                        </c:otherwise>
+                     </c:choose>
+            </div>
 
-        </div>
-       
-       <div class="col col-right">
-        <p class="minarradir">Mínar raðir</p>
-     
-    </div>
+            <div class="col col-right">
+                <p class="minarradir">Mínar raðir</p>
+                <c:choose>
+                    <%--If the model has an attribute with the name `items`--%>
+                    <c:when test="${not empty itemsIWant}">
+                       <%--Create a table for the Items--%>
+                       <table class="formtable">
+
+                          <c:forEach var="nyauglysing" items="${itemsIWant}">
+                             <tr class="rows">
+                                <%--We can reference attributes of the Entity by just entering the name we gave--%>
+                                <%--it in the singular item var, and then just a dot followed by the attribute name--%>
+                                <td><a href="/nyauglysing/${nyauglysing.id}">${nyauglysing.id}</a></td>
+                                <td>${nyauglysing.itemName}</td>
+                                <td>${nyauglysing.description}</td>
+                                <td>${nyauglysing.pickupTime}</td>
+                                <td>${nyauglysing.tag}</td>
+                                <td>
+                                   <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
+                                </td>
+                             </tr>
+                          </c:forEach>
+                       </table>
+                    </c:when>
+                    <%--If all tests are false, then do this--%>
+                    <c:otherwise>
+                       <h3>Engar auglýsingar</h3>
+                    </c:otherwise>
+                 </c:choose>
+            </div>
+
       </main>
-        <footer>
-         
-		<div class="footer1">
-		<a href="/umgefins">Um Gefins.is</a>
-        <a href="/notkunarskilmalar">Notkunarskilmálar</a>
+      <footer class="footer">
+        <div class="footer__grid">
+           <div class="footer__row">
+              <div class="footer__col">
+                 <ul class="footer__links">
+                    <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                    <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>
+                 </ul>
+              </div>
+              <div class="footer__col">
+                 <ul class="footer__links">
+                    <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
+                    <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>
+                 </ul>
+              </div>
+              <div class="footer__col">
+                 <ul class="footer__links">
+                    <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
+                    <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>
+                 </ul>
+              </div>
+              <div class="footer__col">
+                 <ul class="footer__links">
+                    <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
+                    <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>
+                 </ul>
+              </div>
+           </div>
         </div>
-		<div class="footer2">
-        <a href="/samband">Hafa samband</a>
-        <a href="/snidugt">Eitthvað sniðugt</a>
-		</div>
-		</div>
-		<div class="footer3">
-			<p class="footer2__bottom">© GEFINS 2018</p>
-	</footer>
+        <p class="footer__credit">© 2018 GEFINS</p>
+     </footer>
        
        
     </body>

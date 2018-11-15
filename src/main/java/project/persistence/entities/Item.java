@@ -37,9 +37,6 @@ public class Item {
     @Transient
     private MultipartFile mynd;
     private String myndName;
-    private byte[] myndmynd;
-    @Transient
-    private String base64imageFile;
     
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -47,10 +44,11 @@ public class Item {
     public Item() {
     }
 
-    public Item(String userName, String pickupTime, String description,String base64imageFile, MultipartFile mynd,byte[] myndmynd, String myndName, String location,
+    public Item(Long id, String userName, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
     		String generalLocation, String phone, String itemName, String email, String users, int zipcode,
     		String tag, String authorized) {
     	
+    	this.id = id;
         this.userName = userName;
         this.pickupTime = pickupTime;
         this.description = description;
@@ -65,19 +63,8 @@ public class Item {
         this.tag = tag;
         this.authorized = authorized;
         this.myndName = myndName;
-        this.myndmynd = myndmynd;
-        this.base64imageFile = base64imageFile;
       
     }
-
-    
-    public String getBase64imageFile() {
-		return base64imageFile;
-	}
-
-	public void setBase64imageFile(String base64imageFile) {
-		this.base64imageFile = base64imageFile;
-	}
 
 	public Long getId() {
 		return id;
@@ -85,12 +72,6 @@ public class Item {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public byte[] getMyndMynd() {
-		return myndmynd;
-	}
-	public void setMyndMynd(byte[] myndmynd) {
-		this.myndmynd = myndmynd;
 	}
 	public String getMyndName() {
 		return myndName;
