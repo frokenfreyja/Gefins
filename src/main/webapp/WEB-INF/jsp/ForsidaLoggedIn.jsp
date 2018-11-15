@@ -29,7 +29,7 @@
                 <div class="dropdown-content">
                   <a href="/mittsvaedi">Mitt svæði</a>
                   <a href="#">Stillingar</a>
-                  <a href="#">Útskrá</a>
+                  <a href="/utskra">Útskrá</a>
                 </div>
               </div>
               </div> 
@@ -55,7 +55,7 @@
                <div class="col col3-left">
                   <div class="text">
                      <p class="text_fyrirsogn">Staðsetning</p>
-                     <form id="leitazip" action="sortzip">                    
+                     <form id="leitazip" action="sortziploggedin">                    
                      
                            <div class="flokkar-tree">
                                <label class="flokkar-tree-item layer1">
@@ -80,7 +80,7 @@
                                                    <span class="flokkar-tree-label">104 - Vogar</span>
                                                </label>
                                                <label class="flokkar-tree-item layer3">
-                                                   <input class="flokkar-tree-cb" value="105" name="zip" type="checkbox" onChange="this.form.submit()>
+                                                   <input class="flokkar-tree-cb" value="105" name="zip" type="checkbox" onChange="this.form.submit()">
                                                    <span class="flokkar-tree-label">105 - Austurbær</span>
                                                </label>
                                                <label class="flokkar-tree-item layer3">
@@ -764,7 +764,7 @@
                            </div>
                            </form> 
                      <p class="text_fyrirsogn">Flokkar</p>
-                     <form id="leitaradio" action="sortflokkar">       					
+                     <form id="leitaradio" action="sortflokkarloggedin">       					
                            <input type="radio" name="flokkar" value="Húsgögn" onChange="this.form.submit()"> Húsgögn<br>
                             <input type="radio" name="flokkar" value="Fatnaður" onChange="this.form.submit()"> Fatnaður<br>
                             <input type="radio" name="flokkar" value="Barnavörur" onChange="this.form.submit()"> Barnavörur <br>
@@ -795,16 +795,16 @@
                                  <th>Flokkur</th>
                                  <th>Mynd</th>
                               </tr>
-                              <c:forEach var="nyauglysing" items="${items}">
+                              <c:forEach var="skodaitem" items="${items}">
                                  <tr class="rows">
                                     <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                     <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                    <td><a href="/nyauglysing/${nyauglysing.itemName}">${nyauglysing.itemName}</a></td>
-                                    <td>${nyauglysing.description}</td>
-                                    <td>${nyauglysing.pickupTime}</td>
-                                    <td>${nyauglysing.tag}</td>
+                                    <td><a href="/skodaitem/${skodaitem.id}">${skodaitem.itemName}</a></td>
+                                    <td>${skodaitem.description}</td>
+                                    <td>${skodaitem.pickupTime}</td>
+                                    <td>${skodaitem.tag}</td>
                                     <td>
-                                       <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
+                                       <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${skodaitem.myndName}"/></div>
                                     </td>
                                  </tr>
                               </c:forEach>

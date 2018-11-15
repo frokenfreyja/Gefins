@@ -29,7 +29,7 @@
                                <div class="dropdown-content">
                                  <a href="/mittsvaedi">Mitt svæði</a>
                                  <a href="#">Stillingar</a>
-                                 <a href="#">Útskrá</a>
+                                 <a href="/utskra">Útskrá</a>
                                </div>
                              </div>
                              </div> 

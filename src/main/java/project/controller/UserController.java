@@ -64,20 +64,6 @@ public class UserController {
         return "Innskra";
     }
 
-    
-  /*  @RequestMapping(value = "/innskra", method = RequestMethod.POST)
-    /*
-    @RequestMapping(value = "/innskra", method = RequestMethod.POST)
-    public String innskraUser(@ModelAttribute("innskra") User user,
-            Model model){
-    	
-    	user = userService.save(user);
-        model.addAttribute("userinnskra", user);
-        model.addAttribute("user", new User());
-    
-        return "Innskra";
-    }*/
-
    
     // FRÁ JÖKLI
 
@@ -95,27 +81,15 @@ public class UserController {
     	return"Innskra";
     }
     
-  
-
-   /* @RequestMapping(value = "/nyskra", method = RequestMethod.GET)
-    public ModelAndView showForm() {
-        return new ModelAndView("nyskraningar", "nyskraning", new Nyskraning());
-    }
- 
-    @RequestMapping(value = "/nyskra", method = RequestMethod.POST)
-    public String submit(@Valid @ModelAttribute("nyskra")Nyskraning nyskraning, 
-      BindingResult result, ModelMap model) {
-        model.addAttribute("nafn", nyskraning.getNafn());
-        model.addAttribute("lykilord", nyskraning.getLykilord());
-        model.addAttribute("netfang", nyskraning.getNetfang());
-        model.addAttribute("simi", nyskraning.getSimi());
-        model.addAttribute("heimili", nyskraning.getHeimili());
-        model.addAttribute("zip", nyskraning.getzip());
-        return "Nyskra";
-    }*/
-
     
- 
+    @RequestMapping(value = "/utskra", method = RequestMethod.GET)
+    public String utskra(HttpSession session){
+    	
+    	session.removeAttribute("loggedInUser");
+    	
+    	return "redirect:/forsida";
+    }
+    
 }
 
   

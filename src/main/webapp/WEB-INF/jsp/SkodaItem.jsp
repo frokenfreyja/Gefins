@@ -7,7 +7,7 @@
    <head>
       <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-      <title>Mittsvaedi</title>
+      <title>Skoða nánar</title>
       <link rel="stylesheet" type="text/css" href="
       <c:url value="/css/skodaitem.css"/>
       "/>
@@ -16,28 +16,31 @@
       "/> 
    </head>
    <body>
-      <header>
-         <div class="header-container">
-            <div class="header-bg">
-               <div class="collapsible-menu">
-                  <input type="checkbox" id="menu">
-                  <label for="menu">Notendanafn</label>
-                  <div class="menu-content">
-                     <ul>
-                        <li><a href="#"></a>Mitt svæði</li>
-                        <li><a href="#"></a>Stillingar</li>
-                        <li><a href="#"></a>Útskrá</li>
-                     </ul>
+         <header>
+               <div class="header-container">
+                  <div class="header-bg">
+                        <div class="navbar">
+                              <div class="nav">
+                                <div class="dropdown">
+                                  <button class="dropbtn">${loggedInUsername}
+                                    <i class="fa fa-caret-down"></i>
+                                  </button>
+                                  <div class="dropdown-content">
+                                    <a href="/mittsvaedi">Mitt svæði</a>
+                                    <a href="#">Stillingar</a>
+                                    <a href="/utskra">Útskrá</a>
+                                  </div>
+                                </div>
+                                </div> 
+                              </div>
+                     <div class="h-wrapper">
+                        <div class="m-title">
+                           <h1><a href="/forsidaloggedin">GEFINS</a></h1>
+                        </div>
+                     </div>
                   </div>
                </div>
-               <div class="h-wrapper">
-                  <div class="m-title">
-                     <h1><a href="/forsida">GEFINS</a></h1>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
+            </header>
       <main>
          <div class="grid">
             <div class="row">
@@ -72,7 +75,7 @@
                                  <td class="titill">Flokkur: </td>
                                  <td class="efni">${skodaitem.tag}</td>
                                  <td class="titill">Fjöldi í röð: </td>
-                                 <td class="efni">${skodaitem.id}</td>
+                                 <td class="efni">${skodaitem.users}</td>
                               </tr>
                         </table>
                      </c:when>

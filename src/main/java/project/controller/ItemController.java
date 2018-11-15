@@ -162,6 +162,37 @@ public class ItemController {
       return "Forsida";
     }
     
+    /*
+     * Birtir listann af Item á forsíðunni eftir flokkum
+     */
+    @RequestMapping(value = "sortflokkarloggedin" , method = RequestMethod. GET)
+    public String selectTagLoggedIn(@RequestParam("flokkar") String value, Model model) 
+    {
+     
+        System.out.println(value);
+    	model.addAttribute("item",new Item());
+        model.addAttribute("items", itemService.findByTag(value));
+        
+      
+      return "ForsidaLoggedIn";
+    }
+    
+	/*
+     * Birtir listann af Item á forsíðunni eftir póstnúmeri
+     */
+    @RequestMapping(value = "sortziploggedin" , method = RequestMethod. GET)
+    public String selectZipLoggedIn(@RequestParam("zip") String value, Model model) 
+    {
+     
+        System.out.println(value);
+        int zipcode = Integer.parseInt(value);	
+    	model.addAttribute("item",new Item());
+        model.addAttribute("items", itemService.findByZipcode(zipcode));
+        
+      
+      return "ForsidaLoggedIn";
+    }
+    
     
     //ItemController
 	//Myspace Síðan

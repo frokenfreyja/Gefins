@@ -73,7 +73,7 @@
                                                    <span class="flokkar-tree-label">104 - Vogar</span>
                                                </label>
                                                <label class="flokkar-tree-item layer3">
-                                                   <input class="flokkar-tree-cb" value="105" name="zip" type="checkbox" onChange="this.form.submit()>
+                                                   <input class="flokkar-tree-cb" value="105" name="zip" type="checkbox" onChange="this.form.submit()">
                                                    <span class="flokkar-tree-label">105 - Austurbær</span>
                                                </label>
                                                <label class="flokkar-tree-item layer3">
