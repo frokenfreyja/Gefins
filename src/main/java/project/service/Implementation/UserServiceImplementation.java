@@ -60,5 +60,10 @@ public class UserServiceImplementation implements UserService {
     	 return repository.findByuserName(user.getUserName()); 	
     	
     }
+    
+    @Override
+    public List<User> findByItemId(Long id) {
+    	return repository.findByItemId(id);
+    }
 }
 

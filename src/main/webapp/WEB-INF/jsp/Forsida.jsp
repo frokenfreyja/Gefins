@@ -774,6 +774,32 @@
                </div>
                <div class="col col9-right">
                   <div class="listi">
+                        <div class="searchfield">
+                                <form object="${items}" id="leitalista" action="searchlisti" method="get">
+                                    <table class="search">
+                                        <tr>
+                                            <td class="leiticon">
+                                                <i class="fa fa-search"></i>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="leitfield" value="${search}" name="leita" placeholder=" Setjið inn leitarorð.." onChange="this.form.submit()" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                                <c:choose>
+                                    <c:when test="${not empty items}">
+                                        <c:forEach items="${items}" var="leit">
+                                            <tr>
+                                             
+                                            </tr>
+                                        </c:forEach>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <h3>Leitin skilaði engum niðurstöðum</h3>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
                      <p class="auglysing">Auglýsingar</p>
                      <c:choose>
                         <%--If the model has an attribute with the name `items`--%>

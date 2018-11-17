@@ -48,7 +48,7 @@ public interface ItemService {
     
     
 
-  //ItemService
+    //ItemService
   	List<Item> findByuserName(String name);
      
     List<Item> findByusers(String name);
@@ -56,6 +56,8 @@ public interface ItemService {
   	List<Item> findByTag(String tag);
   	
   	List<Item> findByZipcode(Integer zipcode);
+  	
+    List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description);
 
 
 }

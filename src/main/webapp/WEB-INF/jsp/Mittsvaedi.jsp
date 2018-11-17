@@ -8,8 +8,9 @@
 
     <head>
     	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">        
-        <title>Mittsvaedi</title>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Old+Standard+TT:400,700|Oswald:400,600|Vidaloka" rel="stylesheet">      
+        <title>Mitt svæði</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/mittsvaedi.css"/>"/>
        <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/> 
         
@@ -42,73 +43,68 @@
                </div>
             </div>
          </header>
-      <main>
-      <div class="grid">
-            <div class="row">  
-            <div class="col col-100">
-                <h1>Mitt svæði</h1>
+      <main class="main">
+         <div class="main__grid">
+            <div class="main__row">  
+               <h1 class="titill">Mitt svæði</h1>
             </div>
-           
-            <div class="col col-left">
-                <p class="minarauglysingar">Mínar auglýsingar</p>
-                <c:choose>
-                        <%--If the model has an attribute with the name `items`--%>
-                        <c:when test="${not empty myItems}">
-                           <%--Create a table for the Items--%>
-                           <table class="formtable">
-                              <c:forEach var="nyauglysing" items="${myItems}">
-                                 <tr class="rows">
-                                    <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                                    <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                    <td><a href="/mittsvaedi/${nyauglysing.id}">${nyauglysing.id}</a></td>
-                                    <td>${nyauglysing.itemName}</td>
-                                    <td>${nyauglysing.description}</td>
-                                    <td>${nyauglysing.pickupTime}</td>
-                                    <td>${nyauglysing.tag}</td>
-                                    <td>
-                                       <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
-                                    </td>
-                                 </tr>
-                              </c:forEach>
-                           </table>
-                        </c:when>
-                        <%--If all tests are false, then do this--%>
-                        <c:otherwise>
-                           <h3>Engar auglýsingar</h3>
-                        </c:otherwise>
-                     </c:choose>
-            </div>
-
-            <div class="col col-right">
-                <p class="minarradir">Mínar raðir</p>
-                <c:choose>
-                    <%--If the model has an attribute with the name `items`--%>
-                    <c:when test="${not empty itemsIWant}">
-                       <%--Create a table for the Items--%>
-                       <table class="formtable">
-
-                          <c:forEach var="nyauglysing" items="${itemsIWant}">
-                             <tr class="rows">
-                                <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                                <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                <td><a href="/nyauglysing/${nyauglysing.id}">${nyauglysing.id}</a></td>
-                                <td>${nyauglysing.itemName}</td>
-                                <td>${nyauglysing.description}</td>
-                                <td>${nyauglysing.pickupTime}</td>
-                                <td>${nyauglysing.tag}</td>
-                                <td>
-                                   <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${nyauglysing.myndName}"/></div>
-                                </td>
-                             </tr>
-                          </c:forEach>
-                       </table>
-                    </c:when>
-                    <%--If all tests are false, then do this--%>
-                    <c:otherwise>
-                       <h3>Engar auglýsingar</h3>
-                    </c:otherwise>
-                 </c:choose>
-            </div>
+            <div class="main__row">  
+               <div class="main__col">
+                  <h2>Mínar auglýsingar</h2>
+                  <c:choose>
+                          <c:when test="${not empty myItems}">
+                             <%--Create a table for the Items--%>
+                             <table class="formtable">
+                                <c:forEach var="myitem" items="${myItems}">
+                                   <tr class="rows">
+                                      <%--We can reference attributes of the Entity by just entering the name we gave--%>
+                                      <%--it in the singular item var, and then just a dot followed by the attribute name--%>
+                                      <td><a href="/skodaitemloggedin/${myitem.id}">${myitem.itemName}</a></td>
+                                      <td>${myitem.description}</td>
+                                      <td>${myitem.pickupTime}</td>
+                                      <td>${myitem.tag}</td>
+                                      <td>
+                                         <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${myitem.myndName}"/></div>
+                                      </td>
+                                   </tr>
+                                </c:forEach>
+                             </table>
+                          </c:when>
+                          <%--If all tests are false, then do this--%>
+                          <c:otherwise>
+                             <h3>Engar auglýsingar</h3>
+                          </c:otherwise>
+                       </c:choose>
+                  </div>
+                  <div class="main__col">
+                     <h2>Mínar raðir</h2>
+                     <c:choose>
+                           <%--If the model has an attribute with the name `items`--%>
+                           <c:when test="${not empty itemsIWant}">
+                              <%--Create a table for the Items--%>
+                              <table class="formtable">
+                              
+                                 <c:forEach var="itemwant" items="${itemsIWant}">
+                                    <tr class="rows">
+                                       <%--We can reference attributes of the Entity by just entering the name we gave--%>
+                                       <%--it in the singular item var, and then just a dot followed by the attribute name--%>
+                                       <td><a href="/skodaitemloggedin/${itemwant.id}">${itemwant.itemName}</a></td>
+                                       <td>${itemwant.description}</td>
+                                       <td>${itemwant.pickupTime}</td>
+                                       <td>${itemwant.tag}</td>
+                                       <td>
+                                          <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${itemwant.myndName}"/></div>
+                                       </td>
+                                    </tr>
+                                 </c:forEach>
+                              </table>
+                           </c:when>
+                           <%--If all tests are false, then do this--%>
+                           <c:otherwise>
+                              <h3>Engar auglýsingar</h3>
+                           </c:otherwise>
+                        </c:choose>
+                     </div>
 
       </main>
       <footer class="footer">

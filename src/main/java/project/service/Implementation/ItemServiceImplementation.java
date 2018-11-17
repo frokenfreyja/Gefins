@@ -89,4 +89,9 @@ public class ItemServiceImplementation implements ItemService {
     	return repository.findByZipcode(zipcode);
     }
     
+    @Override
+    public List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description) {
+        return repository.findByItemNameContainsOrDescriptionContains(itemname, description);
+    }
+    
 }

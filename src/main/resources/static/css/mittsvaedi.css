@@ -81,7 +81,9 @@ header {
 .nav {
   display: flex;
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.2);
+	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+	background-position: center;
+	background-size: cover;
   justify-content: flex-end;
 	align-items: center;
 	position: fixed;
@@ -144,6 +146,99 @@ header {
   display: block;
 }
 
+/* EFNI */
+.main {
+	max-width: 2000px;
+	margin: 0 auto;
+}
+
+.main__grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-bottom: 20px;
+	width: 100%;
+}
+
+.main__row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+}
+
+.main__col {
+	width: 50%;
+	padding-top: 80px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	padding-left: 60px;
+}
+.titill {
+	margin-top: 60px;
+}
+
+table.formtable {
+	width: 95%;
+	border-spacing: 1em;
+	border-collapse: separate;
+	padding-bottom: 3em;
+}
+
+.rows {
+	box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+
+.formtable td {
+	padding: 15px;
+	text-align: left;
+}
+
+.formtable th {
+	padding: 15px;
+	text-align: left;
+}
+
+table.formtable tr:nth-child(even) {
+	background-color: white;
+}
+
+table.formtable tr:nth-child(odd) {
+	background-color: white;
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: pink;
+}
+
+a:active {
+	text-decoration: underline;
+}
+
+.img {
+	width: 150px;
+	height: 150px;
+	
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img img {
+	max-width: 100%;
+	max-height: 100%;
+}
 
 
 /* FÓTUR */

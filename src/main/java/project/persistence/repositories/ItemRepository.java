@@ -33,7 +33,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     
     Item findByUserName(String userName);
     
-  //ItemRepository
+    //ItemRepository
   	List<Item> findByuserName(String name);
 
   	List<Item> findByusers(String name);
@@ -41,5 +41,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
   	List<Item> findByTag(String tag);
   	
   	List<Item> findByZipcode(Integer zipcode);
+  	
+    List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description);
 
 }
