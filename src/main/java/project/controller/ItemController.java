@@ -74,7 +74,7 @@ public class ItemController {
      * Hér hefur item verið bætt efst í listann
      */
     @RequestMapping(value = "/nyauglysing", method = RequestMethod.POST)
-    public String formViewItem(@ModelAttribute("item") Item item, Model model, HttpServletRequest httpServletRequest) throws IOException{
+    public String formViewItem(@ModelAttribute("item") Item item, Model model, HttpServletRequest httpServletRequest, HttpSession httpSession) throws IOException{
         
         MultipartFile imagefile = item.getMynd();
         String fileName;
@@ -93,7 +93,13 @@ public class ItemController {
     			
     		} catch (IllegalStateException | IOException e) {
     			e.printStackTrace();
-    		}   	
+    		} 
+    	
+
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
+        item.setUserName(userName);
+        
+        
         itemService.save(item); 
         model.addAttribute("items", itemService.findAllReverseOrder());
         model.addAttribute("item", new Item());
@@ -310,7 +316,7 @@ public class ItemController {
      */
     @RequestMapping(value = "/skodaitemloggedin/{id}", method = RequestMethod.POST)
     public String enterQueue(@ModelAttribute("item") Item item, Model model, HttpSession httpSession) {
-        System.out.println("Users fyrst: "+item.getUsers());
+
         Long userId = (Long)httpSession.getAttribute("loggedInUser");
         System.out.println("UserID: "+userId);
         

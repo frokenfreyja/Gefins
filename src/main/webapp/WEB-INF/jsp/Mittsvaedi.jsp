@@ -77,7 +77,7 @@
                        </c:choose>
                   </div>
                   <div class="main__col">
-                     <h2>Mínar raðir</h2>
+                     <h2>Hlutir sem ég er í röð fyrir</h2>
                      <c:choose>
                            <%--If the model has an attribute with the name `items`--%>
                            <c:when test="${not empty itemsIWant}">

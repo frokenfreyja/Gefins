@@ -64,14 +64,8 @@ public class ItemServiceImplementation implements ItemService {
     }
     
     @Override
-    public Item findByUserName(String userName) {
-    	return repository.findByUserName(userName);
-    }
-    
-    @Override
-  //ItemServiceImplementation
-  	public List<Item> findByuserName(String name) {
-      	return repository.findByuserName(name);
+  	public List<Item> findByuserName(String userName) {
+      	return repository.findByuserName(userName);
     }
     
     @Override

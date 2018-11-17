@@ -44,12 +44,9 @@ public interface ItemService {
     
     Item findOneByItemName(String itemName);
     
-    Item findByUserName(String userName);
-    
-    
 
     //ItemService
-  	List<Item> findByuserName(String name);
+  	List<Item> findByuserName(String userName);
      
     List<Item> findByusers(String name);
     
