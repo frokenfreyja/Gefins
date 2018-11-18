@@ -46,6 +46,8 @@ public interface UserService {
     
     User findOneByName(User user);
     
+    User findByuserName(String userName);
+    
     /**
      * Find all users that are in queue for item
      * @param id

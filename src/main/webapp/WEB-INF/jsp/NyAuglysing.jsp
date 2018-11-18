@@ -32,7 +32,7 @@
                             </button>
                             <div class="dropdown-content">
                               <a href="/mittsvaedi">Mitt svæði</a>
-                              <a href="#">Stillingar</a>
+                              <a href="/settings">Stillingar</a>
                               <a href="/utskra">Útskrá</a>
                             </div>
                           </div>
@@ -80,6 +80,11 @@
                         </td>
                      </tr>
                      <tr>
+                        <td>Heimilisfang:</td>
+                        <td>
+                           <sf:textarea path="location" class="formbox" type="text" placeholder="" required="required"/>
+                        </td>
+
                         <td>Flokkur:</td>
                         <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
                         <td>
@@ -94,24 +99,26 @@
                               <sf:option value="Dýr">Dýr</sf:option>
                            </sf:select>
                         </td>
-                        <td>Póstnúmer:</td>
-                        <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                        <td>
-                           <sf:input path="zipcode" class="formbox" type="text" placeholder="" required="required"/>
-                        </td>
                      </tr>
                      <tr>
-                        <td>
-                           <p class="myndTakki">
-                              <sf:label for="mynd" path="mynd" style="cursor: pointer;">Setja inn mynd</sf:label>
-                           </p>
-                        </td>
-                        <td>
-                           <p>
-                              <sf:input path="mynd" type="file" id="mynd" accept="image/*" name="mynd" onchange="loadFile(event)" style="display: none;" multiple="multiple" />
-                           </p>
-                           <p><img path="output" id="output" width="200"></p>
-                        </td>
+                           <td>Póstnúmer:</td>
+                           <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                           <td>
+                              <sf:textarea path="zipcode" class="formbox" type="text" placeholder="" required="required"/>
+                           </td>
+                     </tr>
+                     <tr>
+                           <td>
+                                 <p class="myndTakki">
+                                    <sf:label for="mynd" path="mynd" style="cursor: pointer;">Setja inn mynd</sf:label>
+                                 </p>
+                              </td>
+                              <td>
+                                 <p>
+                                    <sf:input path="mynd" type="file" id="mynd" accept="image/*" name="mynd" onchange="loadFile(event)" style="display: none;" multiple="multiple" />
+                                 </p>
+                                 <p><img path="output" id="output" width="200"></p>
+                              </td>
                      </tr>
                   </table>
                   <div class="submit">

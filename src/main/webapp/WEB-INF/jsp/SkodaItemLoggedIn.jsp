@@ -29,7 +29,7 @@
                                   </button>
                                   <div class="dropdown-content">
                                     <a href="/mittsvaedi">Mitt svæði</a>
-                                    <a href="#">Stillingar</a>
+                                    <a href="/settings">Stillingar</a>
                                     <a href="/utskra">Útskrá</a>
                                   </div>
                                 </div>
@@ -86,7 +86,7 @@
                         <h3>Engar auglýsingar</h3>
                      </c:otherwise>
                   </c:choose>
-                  <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png"/>${loggedInUsername}</div>
+                  <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png"/>${skodaitem.userName}</div>
                   
                   <sf:form method="POST" modelAttribute="item" action="/skodaitemloggedin/${skodaitem.id}">
                   <div class="submit">

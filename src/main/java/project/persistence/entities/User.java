@@ -101,19 +101,14 @@ public class User {
     public void setStars(int stars) {
         this.stars = stars;
     }
+    
     public String getGeneralLocation() {
         return generalLocation;
     }
     public void setGeneralLocation(int zipcode) {
         this.generalLocation = getGL(zipcode);
     }
-    // This is for easier debug.
-   /* @Override
-    public String toString() {
-        return String.format(
-                "Postit Note[heiti=%s, lysing=%s, aftimi%s]",
-                heiti,lysing,aftimi);
-    }*/
+
 }
 
 

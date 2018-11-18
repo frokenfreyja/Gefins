@@ -78,7 +78,7 @@
                                  <h3>Engar auglýsingar</h3>
                               </c:otherwise>
                            </c:choose>
-                           <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png"/>${loggedInUsername}</div>
+                           <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png"/>${skodaitem.userName}</div>
                         </div>
                         <div class="main__col">
                         </div>

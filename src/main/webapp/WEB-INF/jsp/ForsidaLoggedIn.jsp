@@ -33,7 +33,7 @@
                 </button>
                 <div class="dropdown-content">
                   <a href="/mittsvaedi">Mitt svæði</a>
-                  <a href="#">Stillingar</a>
+                  <a href="/settings">Stillingar</a>
                   <a href="/utskra">Útskrá</a>
                 </div>
               </div>
@@ -820,7 +820,7 @@
                               <%--generate a row in the table--%>
                               <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
                               <tr>
-                                 <th>Fæst gefins</th>
+                                 <th>Gefins</th>
                                  <th>Lýsing</th>
                                  <th>Afhendingartími</th>
                                  <th>Flokkur</th>

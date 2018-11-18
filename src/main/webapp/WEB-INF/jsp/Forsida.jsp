@@ -810,7 +810,7 @@
                               <%--generate a row in the table--%>
                               <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
                               <tr>
-                                 <th>Fæst gefins</th>
+                                 <th>Gefins</th>
                                  <th>Lýsing</th>
                                  <th>Afhendingartími</th>
                                  <th>Flokkur</th>

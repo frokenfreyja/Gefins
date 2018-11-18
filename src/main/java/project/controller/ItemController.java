@@ -99,6 +99,9 @@ public class ItemController {
         String userName = (String) httpSession.getAttribute("loggedInUsername");
         item.setUserName(userName);
         
+        String location = item.getLocation();
+        item.setLocation(location);
+        
         
         itemService.save(item); 
         model.addAttribute("items", itemService.findAllReverseOrder());
@@ -234,21 +237,21 @@ public class ItemController {
         if(userId==null)
     		return "Innskra";
     	
-        //User user = userService.findOne(userId);  --VILLA
-       
-        //Itemin sem Userinn er að gefa
-        //model.addAttribute("myItems", itemService.findByuserName(user.getUserName()));
         model.addAttribute("myItems", itemService.findByuserName(userName));
-       
-        //Itemin sem Userinn er að bíða eftir
-        //model.addAttribute("itemsIWant", itemService.findByusers(user.getUserName()));
+
         model.addAttribute("itemsIWant", itemService.findByusers(userName));
     
         return "Mittsvaedi";
     }
     
+    /**
+     * Eyða auglýsingu - GET
+     * @param model
+     * @param httpSession
+     * @return
+     */
     @RequestMapping(value = "/mittsvaedi/{id}", method = RequestMethod.GET)
-    public String getMittSvaediEyda(Model model, HttpSession httpSession){
+    public String getRemoveAd(Model model, HttpSession httpSession){
     	
     	Long userId = (Long)httpSession.getAttribute("loggedInUser");
     	System.out.println(userId);
@@ -265,8 +268,13 @@ public class ItemController {
         
     	return "Mittsvaedi";
     }
+    
     /**
-     * Eyða auglýsingu
+     * Eyða auglýsingu - POST
+     * @param item
+     * @param model
+     * @param httpSession
+     * @return
      */
     @RequestMapping(value = "/mittsvaedi/{id}", method = RequestMethod.POST)
     public String removeAd(@ModelAttribute("item") Item item, Model model, HttpSession httpSession) {
@@ -284,12 +292,9 @@ public class ItemController {
         Item theitem = itemService.findOne(itemId);
         
         itemService.delete(theitem);
-        //Itemin sem Userinn er að gefa
-        //model.addAttribute("myItems", itemService.findByuserName(user.getUserName()));
+
         model.addAttribute("myItems", itemService.findByuserName(userName));
-       
-        //Itemin sem Userinn er að bíða eftir
-        //model.addAttribute("itemsIWant", itemService.findByusers(user.getUserName()));
+
         model.addAttribute("itemsIWant", itemService.findByusers(userName));
     	
     	return "redirect:/mittsvaedi/{id}";
@@ -357,8 +362,6 @@ public class ItemController {
 
         //theitem.addUsers(user.getUserName());
 
-        System.out.println("HALLO "+theitem.getUsers().length());
-        System.out.println("Users eftir: "+theitem.getUsers());
         //save-ar itemið með breytingum
         itemService.save(theitem);
 
@@ -400,7 +403,5 @@ public class ItemController {
         
         return "Forsida";
     }
-    
-
     
 }

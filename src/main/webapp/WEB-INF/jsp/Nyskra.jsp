@@ -90,7 +90,7 @@
                      <td>Póstnúmer:</td>
                      <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
                      <td>
-                        <sf:input path="location" type="text" maxlength="3" placeholder="" required="required"/>
+                        <sf:input path="zipcode" type="text" maxlength="3" placeholder="" required="required"/>
                      </td>
                   </tr>
                </table>

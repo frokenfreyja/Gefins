@@ -24,7 +24,7 @@ main {
 }
 
 
-/* Header */
+/* HEADER */
 
 header {
 	position: relative;
@@ -47,45 +47,6 @@ header {
 	font-size: 25px;
 }
 
-
-/* Navigation bar */
-
-.navbar {
-	height: 140px;
-	z-index: 20;
-	box-shadow: none;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
-.nav {
-	list-style: none;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	width: auto;
-	margin: 0;
-	padding: 0;
-	height: 70px;
-	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	background-position: center;
-	background-size: cover;
-	position: fixed;
-	width: 100%;
-}
-
-.nav a {
-	margin: 0 30px;
-	position: relative;
-	color: white;
-	text-decoration: none;
-}
-
-.nav a:hover {
-	color: #05EDFF;
-}
-
 .h-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -94,6 +55,7 @@ header {
 	color: #fffbf9;
 	z-index: 10;
 	position: relative;
+	height: 0px;
 }
 
 .m-title h1 {
@@ -109,57 +71,156 @@ header {
 }
 
 
-/* Nýskráning */
+/* NAVIGATION BAR Í HEADER */
+.navbar {
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 230px;
+}
 
-.row {
+.nav {
+  display: flex;
+  height: 70px;
+	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+	background-position: center;
+	background-size: cover;
+  justify-content: flex-end;
+	align-items: center;
+	position: fixed;
+  width: 100%;
+}
+
+.navbar a {
+  float: right;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  padding: 20px 53px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 25px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px 53px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color:white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #05EDFF;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* EFNI */
+.main {
+	max-width: 2000px;
+	margin: 0 auto;
+}
+
+.main__grid {
+  display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-bottom: 20px;
+	width: 100%;
+}
+
+.main__row {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 20px;
-	margin-top: 20px;
+	width: 100%;
+	justify-content: center;
 }
 
-.col {
+.main__col {
 	padding-right: 10px;
-	padding-bottom: 30px;
+  padding-bottom: 30px;
+  justify-content: center;
+}
+.stillingarTitill {
+  margin-top: 1.3em;
+  margin-bottom: 1em;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
 }
 
-.col1-audur {
-	width: 8%;
+.inntak {
+  font-size: 20px;
 }
 
-.col1-audur {
-	width: 8%;
-}
-
-.col-left {
-	padding-left: 42em;
-	width: 80%;
-}
-
-.nyauglysing,
-.nyskraningar {
-	margin-top: 1.3em;
-	margin-bottom: 1em;
-	font-size: 3em;
-	font-weight: bold;
-}
-
-.nyskrabutton {
+.editbutton {
 	background-color: black;
 	color: white;
-	padding: 15px 32px;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+	cursor: pointer;
+	border-radius: 3px;
+	border-color: black;
+  font-weight: bold;
+  width: 100%;
+}
+.eydabutton {
+	background-color: black;
+	color: white;
+	padding: 10px 20px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 20px;
-	margin: 40px 2px;
 	cursor: pointer;
 	border-radius: 3px;
 	border-color: black;
-	font-weight: bold;
+  font-weight: bold;
+  width: 100%;
 }
 
-.nyskrabutton:hover {
+.editbutton:hover{
+	background-color: #05EDFF;
+	color: black;
+	border-color: #05EDFF;
+}
+.eydabutton:hover {
 	background-color: #05EDFF;
 	color: black;
 	border-color: #05EDFF;
@@ -177,6 +238,7 @@ header {
   font-size: 20px;
   color: red;
 }
+
 
 
 /* FÓTUR */
@@ -240,5 +302,10 @@ header {
 	font-size: 16px;
 	text-align: center;
 	justify-content: center;
+}
+.errorMessage {
+  padding-top: 17px;
+  font-size: 20px;
+  color: red;
 }
 
