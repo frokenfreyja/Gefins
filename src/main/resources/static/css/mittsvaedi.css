@@ -240,6 +240,27 @@ a:active {
 	max-height: 100%;
 }
 
+.eydabutton {
+	background-color: black;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 3px;
+	border-color: black;
+	font-weight: bold;
+}
+
+.eydabutton:hover {
+	background-color: #05EDFF;
+	color: black;
+	border-color: #05EDFF;
+}
+
 
 /* FÓTUR */
 

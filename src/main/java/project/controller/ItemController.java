@@ -247,6 +247,54 @@ public class ItemController {
         return "Mittsvaedi";
     }
     
+    @RequestMapping(value = "/mittsvaedi/{id}", method = RequestMethod.GET)
+    public String getMittSvaediEyda(Model model, HttpSession httpSession){
+    	
+    	Long userId = (Long)httpSession.getAttribute("loggedInUser");
+    	System.out.println(userId);
+    	
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
+        System.out.println("Username: "+userName);
+        
+        if(userId==null)
+    		return "Innskra";
+        
+        model.addAttribute("myItems", itemService.findByuserName(userName));
+        
+        model.addAttribute("itemsIWant", itemService.findByusers(userName));
+        
+    	return "Mittsvaedi";
+    }
+    /**
+     * Eyða auglýsingu
+     */
+    @RequestMapping(value = "/mittsvaedi/{id}", method = RequestMethod.POST)
+    public String removeAd(@ModelAttribute("item") Item item, Model model, HttpSession httpSession) {
+
+        Long userId = (Long)httpSession.getAttribute("loggedInUser");
+        System.out.println("UserID: "+userId);
+        
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
+        System.out.println("Username: "+userName);
+        
+        Long itemId = item.getId();
+        
+        System.out.println("ItemID: "+item.getId());
+        
+        Item theitem = itemService.findOne(itemId);
+        
+        itemService.delete(theitem);
+        //Itemin sem Userinn er að gefa
+        //model.addAttribute("myItems", itemService.findByuserName(user.getUserName()));
+        model.addAttribute("myItems", itemService.findByuserName(userName));
+       
+        //Itemin sem Userinn er að bíða eftir
+        //model.addAttribute("itemsIWant", itemService.findByusers(user.getUserName()));
+        model.addAttribute("itemsIWant", itemService.findByusers(userName));
+    	
+    	return "redirect:/mittsvaedi/{id}";
+    }
+    
     /**
      * Skoða item nánar
      * @param model
@@ -279,38 +327,6 @@ public class ItemController {
     }
     
     
-    
-    
-    /*
-    @RequestMapping(value = "/nyauglysing", method = RequestMethod.POST)
-    public String formViewItem(@ModelAttribute("item") Item item, Model model, HttpServletRequest httpServletRequest) throws IOException{
-        
-        MultipartFile imagefile = item.getMynd();
-        String fileName;
-        
-    	imagefile.getInputStream();
-    	
-    	if (item.getMynd()==null) throw new NullPointerException("unable to fetch"+imagefile);
-    	String rootDirectory = httpServletRequest.getSession().getServletContext().getRealPath("/");
-    	if(item.getMynd() != null && !item.getMynd().isEmpty())
-    		try {
-    			File path = new File(rootDirectory + "resources/images/"+imagefile.getOriginalFilename());
-    			imagefile.transferTo(path);
-
-    			fileName = imagefile.getOriginalFilename();
-    			item.setMyndName(fileName);
-    			
-    		} catch (IllegalStateException | IOException e) {
-    			e.printStackTrace();
-    		}   	
-        itemService.save(item); 
-        model.addAttribute("items", itemService.findAllReverseOrder());
-        model.addAttribute("item", new Item());
-
-        return "ForsidaLoggedIn";
-    }
-    */
-    
     /**
      * Fara í röð fyrir hlut
      */
@@ -335,9 +351,6 @@ public class ItemController {
         
         Item theitem = itemService.findOne(itemId);
         System.out.println("Users fyrir: "+theitem.getUsers());
-        
-        List<User> users = userService.findByItemId(itemId);
-        System.out.println("USERS: "+users.indexOf(0));
         
         //bætir username við users
         theitem.setUsers(userName);

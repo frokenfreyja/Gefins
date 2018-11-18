@@ -66,6 +66,13 @@
                                       <td>
                                          <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${myitem.myndName}"/></div>
                                       </td>
+                                      <td>
+                                       <sf:form method="POST" modelAttribute="item" action="/mittsvaedi/${myitem.id}">
+                                          <div class="submit">
+                                             <input type="submit" class="eydabutton" VALUE="Eyða"/>
+                                          </div>
+                                       </sf:form>
+                                      </td>
                                    </tr>
                                 </c:forEach>
                              </table>
