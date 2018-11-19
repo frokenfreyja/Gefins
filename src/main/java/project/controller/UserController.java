@@ -193,6 +193,13 @@ public class UserController {
        return "Settings";
     }
 	
+	/**
+	 * Eyða aðgangi - POST
+	 * @param user
+	 * @param model
+	 * @param httpSession
+	 * @return
+	 */
     @RequestMapping(value = "/settings/{id}", method = RequestMethod.POST)
     public String deleteAccountPost(@ModelAttribute("user") User user, Model model, HttpSession httpSession) {
     	
