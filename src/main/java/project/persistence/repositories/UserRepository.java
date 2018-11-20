@@ -32,4 +32,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByItemId(Long id);
 
+    User removeByUserName(String userName);
 }

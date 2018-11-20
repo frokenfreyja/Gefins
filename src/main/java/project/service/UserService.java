@@ -54,4 +54,7 @@ public interface UserService {
      * @return
      */
     List<User> findByItemId(Long id);
+    
+    User removeByUserName(String userName);
+
 }

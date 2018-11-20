@@ -69,7 +69,11 @@ public class Item {
 	public Long getId() {
 		return id;
 	}
-
+    
+	public void remove(String userName) {
+		remove(userName);
+	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}

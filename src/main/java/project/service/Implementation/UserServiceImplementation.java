@@ -71,5 +71,11 @@ public class UserServiceImplementation implements UserService {
     public List<User> findByItemId(Long id) {
     	return repository.findByItemId(id);
     }
+
+
+    @Override
+    public User removeByUserName(String userName) {
+    	return repository.removeByUserName(userName);
+    }
 }
 

@@ -119,6 +119,8 @@ public class ItemController {
     @RequestMapping(value = "/forsida", method = RequestMethod.GET)
     public String prufaViewGet(Model model, HttpSession httpSession){
 
+    	httpSession.removeAttribute("zip");
+    	httpSession.removeAttribute("tag");
         //model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
         
@@ -132,8 +134,10 @@ public class ItemController {
      * @return
      */
     @RequestMapping(value = "/forsidaloggedin", method = RequestMethod.GET)
-    public String prufaViewGet2(Model model){
+    public String prufaViewGet2(Model model, HttpSession httpSession){
 
+    	httpSession.removeAttribute("zip");
+    	httpSession.removeAttribute("tag");
         //model.addAttribute("item",new Item());
         model.addAttribute("items",itemService.findAllReverseOrder());
 
@@ -141,82 +145,169 @@ public class ItemController {
     }
     
 
-    /**
+    /*
      * Birtir listann af Item á forsíðunni eftir flokkum
-     * @param value
-     * @param model
-     * @return
      */
-    @RequestMapping(value = "sortflokkar" , method = RequestMethod. GET)
-    public String selectTag(@RequestParam("flokkar") String value, Model model) 
+    /*@RequestMapping(value = "sortflokkar" , method = RequestMethod. GET)
+    public String selectTag(@RequestParam("flokkar") String value, Model model, Item item) 
     {
-     
-        System.out.println(value);
+
+       if (value.equals("Allir")) {
+    	  model.addAttribute("item",new Item());
+    	  model.addAttribute("items",itemService.findAllReverseOrder());
+       }
+       else {
     	model.addAttribute("item",new Item());
         model.addAttribute("items", itemService.findByTag(value));
-        
+       }
       
       return "Forsida";
-    }
+    }*/
     
-
-    /**
-     * Birtir listann af Item á forsíðunni eftir póstnúmeri
-     * @param value
-     * @param model
-     * @return
+    
+	/*
+     * Sækir valið póstnúmer á forsíðunni og sendir í sorter
      */
     @RequestMapping(value = "sortzip" , method = RequestMethod. GET)
-    public String selectZip(@RequestParam("zip") String value, Model model) 
+    public String selectZip(@RequestParam("zip") String Value, Integer zipcode, HttpSession httpSession, Model model, Item item) 
     {
-     
-        System.out.println(value);
-        int zipcode = Integer.parseInt(value);	
-    	model.addAttribute("item",new Item());
-        model.addAttribute("items", itemService.findByZipcode(zipcode));
-        
+    	System.out.println(Value);
+       
+    	httpSession.setAttribute("zip", Value);
+    	httpSession.setAttribute("zippath", zipcode);
+
+        if (Value.equals("100")) {
+        	httpSession.removeAttribute("zip");
+        }
       
+        return "redirect:sorter";
+    }
+    
+    /*
+     * Sækir valinn flokk á forsíðunni og sendir í sorter 
+     */
+    @RequestMapping(value = "sortflokkar" , method = RequestMethod. GET)
+    public String selectTag(@RequestParam("flokkar") String Value, HttpSession httpSession, Model model, Item item) 
+    {
+    
+    	System.out.println(Value);
+    httpSession.setAttribute("tag", Value);
+
+    if (Value.equals("Allir")) {
+    	httpSession.removeAttribute("tag");
+    }
+      
+      return "redirect:sorter";
+    }
+    
+    /*
+     * Birtir listann af Item eftir póstnúmeri og/eða flokki
+     */
+    @RequestMapping(value = "sorter" , method = RequestMethod. GET)
+    public String sortZipTag(HttpSession httpSession, Model model, Item item) 
+    {
+    	
+    String tag =(String)httpSession.getAttribute("tag");
+    String zip =(String)httpSession.getAttribute("zip");
+    String zippath =(String)httpSession.getAttribute("zippath");
+
+    
+    if( (zip != null) && ( tag == null)){
+          int zipcode = Integer.parseInt(zip);		
+          Integer zipc = item.getZipcode();
+          System.out.println(zipc);
+	      model.addAttribute("items", itemService.findByZipcode(zipcode));
+	    }
+	else if((tag != null) && (zip == null)) {
+      model.addAttribute("items", itemService.findByTag(tag));
+    }
+	else if((tag != null) && (zip != null)) {
+      int zipcode = Integer.parseInt(zip);		
+	  model.addAttribute("items", itemService.findByZipcodeAndTag(zipcode, tag));
+
+	}
+	else {
+		model.addAttribute("item",new Item());
+        model.addAttribute("items",itemService.findAllReverseOrder());
+	}
+       
       return "Forsida";
     }
     
     
-    /**
-     * Birtir listann af Item á forsíðunni eftir flokkum
-     * @param value
-     * @param model
-     * @return
+    
+
+	/*
+     * Sækir valið póstnúmer á logged in forsíðunni og sendir í sorter
      */
-    @RequestMapping(value = "sortflokkarloggedin" , method = RequestMethod. GET)
-    public String selectTagLoggedIn(@RequestParam("flokkar") String value, Model model) 
+    @RequestMapping(value = "sortziploggedin" , method = RequestMethod. GET)
+    public String selectZipLogged(@RequestParam("zip") String Value, HttpSession httpSession, Model model, Item item) 
     {
-     
-        System.out.println(value);
-    	model.addAttribute("item",new Item());
-        model.addAttribute("items", itemService.findByTag(value));
-        
+    	System.out.println(Value);
+       
+    	httpSession.setAttribute("zip", Value);
+
+        if (Value.equals("100")) {
+        	httpSession.removeAttribute("zip");
+        }
       
-      return "ForsidaLoggedIn";
+        return "redirect:sorterloggedin";
     }
     
 
-    /**
-     * Birtir listann af Item á forsíðunni eftir póstnúmeri
-     * @param value
-     * @param model
-     * @return
+	/*
+     * Sækir valinn flokk á logged in forsíðunni og sendir í sorter
      */
-    @RequestMapping(value = "sortziploggedin" , method = RequestMethod. GET)
-    public String selectZipLoggedIn(@RequestParam("zip") String value, Model model) 
+    @RequestMapping(value = "sortflokkarloggedin" , method = RequestMethod. GET)
+    public String selectTagLogged(@RequestParam("flokkar") String Value, HttpSession httpSession, Model model, Item item) 
     {
-     
-        System.out.println(value);
-        int zipcode = Integer.parseInt(value);	
-    	model.addAttribute("item",new Item());
-        model.addAttribute("items", itemService.findByZipcode(zipcode));
-        
+    
+    	System.out.println(Value);
+    httpSession.setAttribute("tag", Value);
+
+    if (Value.equals("Allir")) {
+    	httpSession.removeAttribute("tag");
+    }
       
+      return "redirect:sorterloggedin";
+    }
+    
+    /*
+     * Birtir listann af Item eftir póstnúmeri og/eða flokki
+     */
+    @RequestMapping(value = "sorterloggedin" , method = RequestMethod. GET)
+    public String sortZipTagLogged(HttpSession httpSession, Model model, Item item) 
+    {
+    	
+    String tag =(String)httpSession.getAttribute("tag");
+    String zip =(String)httpSession.getAttribute("zip");
+    
+    if( (zip != null) && ( tag == null)){
+          int zipcode = Integer.parseInt(zip);	
+	      model.addAttribute("items", itemService.findByZipcode(zipcode));
+	    }
+	else if((tag != null) && (zip == null)) {
+      model.addAttribute("items", itemService.findByTag(tag));
+    }
+	else if((tag != null) && (zip != null)) {
+      int zipcode = Integer.parseInt(zip);		
+	  model.addAttribute("items", itemService.findByZipcodeAndTag(zipcode, tag));
+
+	}
+	else {
+		model.addAttribute("item",new Item());
+        model.addAttribute("items",itemService.findAllReverseOrder());
+	}
+       
       return "ForsidaLoggedIn";
     }
+    
+    
+    
+    
+    
+
+   
     
     
     /**
@@ -338,6 +429,13 @@ public class ItemController {
     @RequestMapping(value = "/skodaitemloggedin/{id}", method = RequestMethod.POST)
     public String enterQueue(@ModelAttribute("item") Item item, Model model, HttpSession httpSession) {
 
+    	 Item skodaNanarItem = itemService.findOne(item.getId());
+    	
+    	 httpSession.setAttribute("idRod", skodaNanarItem);
+
+         
+         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+         
         Long userId = (Long)httpSession.getAttribute("loggedInUser");
         System.out.println("UserID: "+userId);
         
@@ -359,23 +457,29 @@ public class ItemController {
         
         //bætir username við users
         theitem.setUsers(userName);
+        httpSession.setAttribute("theitem", theitem);
 
         //theitem.addUsers(user.getUserName());
 
         //save-ar itemið með breytingum
         itemService.save(theitem);
 
-        return "redirect:/skodaitemloggedin/{id}";
+        return "SkodaItemIRod";
     }
     
     
     /**
      * Fara úr röð fyrir hlut
      */
-    @RequestMapping(value = "/skodaitem/leavequeue", method = RequestMethod.POST)
+    @RequestMapping(value = "/skodaitemirod", method = RequestMethod.POST)
     public String leaveQueue(@ModelAttribute("item") Item item, Model model, HttpSession httpSession){
+    	 
+    	 Item itemId = (Item)httpSession.getAttribute("idRod");
          
-       Long userId = (Long)httpSession.getAttribute("loggedInUser");
+         model.addAttribute("skodaitem", itemService.findOne(itemId.getId()));
+         System.out.println(itemId);
+        
+       /*Long userId = (Long)httpSession.getAttribute("loggedInUser");
        if(userId==null)
             return "Innskra";
         
@@ -387,12 +491,40 @@ public class ItemController {
        //theitem.removeUsers(user.getUserName());
 
        //savear itemið með breitingum
-       itemService.save(theitem);
+       itemService.save(theitem);*/
 
+      /*  Long itemId = item.getId();
+        
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
+        
+        Item theitem = itemService.findOne(itemId);
+       
+        
+        //eyðir username úr users
+       // theitem.remove(userName);
 
+        //theitem.addUsers(user.getUserName());
+
+        //save-ar itemið með breytingum
+        itemService.save(theitem);*/
        return "SkodaItemLoggedIn";
     }
     
+    /*
+     * Skoða eitt Item sem eigandi Items
+     */
+    @RequestMapping(value = "/skodaitemeigandi", method = RequestMethod.GET)
+    public String seeItemAsOwner(Model model, Item item, HttpSession httpSession) {
+    	
+       
+    	Item itemId = (Item)httpSession.getAttribute("idRod");
+        
+        model.addAttribute("skodaitem", itemService.findOne(itemId.getId()));
+    	
+        // Return the view
+    
+       return "SkodaItemEigandi";
+    }
     /*
      * Leitar af auglýsingum sem innihalda leitarorð í heiti(itemName) og lýsingu(description) í lista af items
      */

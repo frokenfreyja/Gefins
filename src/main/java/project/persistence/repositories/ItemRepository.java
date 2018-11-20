@@ -41,4 +41,10 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
   	
     List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description);
 
+    List<Item> findByZipcodeAndTag(Integer zipcode, String tag);
+    
+    Item findOneByZipcode(Integer zipcode);
+
+    
 }
+

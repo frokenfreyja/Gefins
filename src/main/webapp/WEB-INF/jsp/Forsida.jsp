@@ -46,11 +46,47 @@
          <div class="grid">
             <div class="row">
                <div class="col col3-left">
+               <div class="searchfield">
+        <form object="${items}" id="leitalista" action="searchlisti" method="get">
+            <table class="search">
+                <tr>
+                    <td class="leiticon">
+                        <i class="fa fa-search"></i>
+                    </td>
+                    <td>
+                        <input type="text" class="leitfield" value="${search}" name="leita" placeholder=" Setjið inn leitarorð.." onChange="this.form.submit()" />
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <c:choose>
+            <c:when test="${not empty items}">
+                <c:forEach items="${items}" var="leit">
+                    <tr>
+                     
+                    </tr>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+
+       </div>
+       <div class="hreinsa">
+       <form modelAttribute="item" action="hreinsa">
+       <input type="submit" class="hreinsabtn" VALUE="Hreinsa"/>        
+       </form>
+       </div>
                   <div class="text">
                      <p class="text_fyrirsogn">Staðsetning</p>
-                     <form id="leitazip" action="sortzip">                    
+                     <form modelAttribute="item" id="leitazip" action="sortzip">                    
                      
-                           <div class="flokkar-tree">
+                     <div class="flokkar-tree">
+                               <label class="flokkar-tree-item layer1">
+                                   <input class="flokkar-tree-cb" type="checkbox" value="100" name="zip" onChange="this.form.submit()">
+                                   <span class="flokkar-tree-label">Allt landið</span>
+                               </label>    
                                <label class="flokkar-tree-item layer1">
                                    <input class="flokkar-tree-cb" type="checkbox">
                                    <span class="flokkar-tree-label">Höfuðborgarsvæðið</span>
@@ -280,7 +316,7 @@
                                    <div class="flokkar-tree-branches">
                            
                                        <label class="flokkar-tree-item layer2">
-                                           <input class="flokkar-tree-cb" value="400" name="zip" type="checkbox" onChange="this.form.submit()">
+                                           <input path="zipcode" class="flokkar-tree-cb" value="400" name="zip" type="checkbox" onChange="this.form.submit()">
                                            <span class="flokkar-tree-label">400 - Ísafjörður</span>
                                        </label>
                            
@@ -758,48 +794,78 @@
                            </form> 
 
                      <p class="text_fyrirsogn">Flokkar</p>
-                     <form id="leitaradio" action="sortflokkar">       					
-                           <input type="radio" name="flokkar" value="Húsgögn" onChange="this.form.submit()"> Húsgögn<br>
-                            <input type="radio" name="flokkar" value="Fatnaður" onChange="this.form.submit()"> Fatnaður<br>
-                            <input type="radio" name="flokkar" value="Barnavörur" onChange="this.form.submit()"> Barnavörur <br>
-                            <input type="radio" name="flokkar" value="Raftæki" onChange="this.form.submit()"> Raftæki<br>
-                            <input type="radio" name="flokkar" value="Verkfæri" onChange="this.form.submit()"> Verkfæri<br>
-                            <input type="radio" name="flokkar" value="Dýr" onChange="this.form.submit()"> Dýr <br> 										  					
-                            <input type="radio" name="flokkar" value="Farartæki" onChange="this.form.submit()"> Farartæki <br>
-                            <input type="radio" name="flokkar" value="Matur" onChange="this.form.submit()"> Matur<br>
-                            <input type="radio" name="flokkar" value="Annað" onChange="this.form.submit()"> Annað <br> 														  
+                     <form id="leitaradio" action="sortflokkar" name="formflokkar"> 
+                            <label class="flokkar-tree-item layer1">                          					
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Allir" onChange="this.form.submit()">
+                            <span class="flokkar-tree-label">Allir flokkar</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1"> 														                              
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Húsgögn" onChange="this.form.submit()" /> 
+                            <span class="flokkar-tree-label">Húsgögn</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Fatnaður" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Fatnaður</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Barnavörur" onChange="this.form.submit()">
+                            <span class="flokkar-tree-label">Barnavörur</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Raftæki" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Raftæki</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Verkfæri" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Verkfæri</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Dýr" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Dýr</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">									  					
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Farartæki" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Farartæki</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Matur" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Matur</span>
+                            </label><br> 
+                            <label class="flokkar-tree-item layer1">
+                            <input class="flokkar-tree-cb" type="checkbox" name="flokkar" value="Annað" onChange="this.form.submit()"> 
+                            <span class="flokkar-tree-label">Annað</span>
+                            </label>
                          </form>
-
                   </div>
                </div>
                <div class="col col9-right">
                   <div class="listi">
-                        <div class="searchfield">
-                                <form object="${items}" id="leitalista" action="searchlisti" method="get">
-                                    <table class="search">
-                                        <tr>
-                                            <td class="leiticon">
-                                                <i class="fa fa-search"></i>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="leitfield" value="${search}" name="leita" placeholder=" Setjið inn leitarorð.." onChange="this.form.submit()" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
-                                <c:choose>
-                                    <c:when test="${not empty items}">
-                                        <c:forEach items="${items}" var="leit">
-                                            <tr>
-                                             
-                                            </tr>
-                                        </c:forEach>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <h3>Leitin skilaði engum niðurstöðum</h3>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
+                  <div class="listileitaeftir">
+                  <c:choose>
+                        <%--If the model has an attribute with the name `items`--%>
+                        <c:when test="${not empty zippid}">
+                           <%--Create a table for the Items--%>
+                           <table class="leitzip">
+                              <%--For each Item, that is in the list that was passed in the model--%>
+                              <%--generate a row in the table--%>
+                              <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
+                              <tr>
+                                 <th>Leitað eftir: </th>
+                                 
+                           
+                               
+                                    
+                                    <td>${zippid.zipcode}</td>
+                                  
+                                 </tr>
+                              
+                           </table>
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                         </c:choose>
+                      </div>
+                        
                      <p class="auglysing">Auglýsingar</p>
                      <c:choose>
                         <%--If the model has an attribute with the name `items`--%>
@@ -811,7 +877,6 @@
                               <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
                               <tr>
                                  <th>Gefins</th>
-                                 <th>Lýsing</th>
                                  <th>Afhendingartími</th>
                                  <th>Flokkur</th>
                                  <th>Mynd</th>
@@ -821,7 +886,6 @@
                                     <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                     <%--it in the singular item var, and then just a dot followed by the attribute name--%>
                                     <td><a href="/skodaitem/${skodaitem.id}">${skodaitem.itemName}</a></td>
-                                    <td>${skodaitem.description}</td>
                                     <td>${skodaitem.pickupTime}</td>
                                     <td>${skodaitem.tag}</td>
                                     <td>

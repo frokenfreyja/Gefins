@@ -55,6 +55,8 @@ public interface ItemService {
   	List<Item> findByZipcode(Integer zipcode);
   	
     List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description);
+ 
+    List<Item> findByZipcodeAndTag(Integer zipcode, String tag);
 
-
+    Item findOneByZipcode(Integer zipcode);
 }
