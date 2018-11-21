@@ -88,7 +88,7 @@
                   </c:choose>
                   <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png"/>${skodaitem.userName}</div>
                   
-                  <sf:form method="POST" modelAttribute="item" action="/skodaitemirod">
+                  <sf:form method="POST" modelAttribute="item" action="/skodaitemirod/${skodaitem.id}">
                   <div class="submit">
                      <input type="submit" class="rodbutton" VALUE="Fara úr röð"/>
                   </div>

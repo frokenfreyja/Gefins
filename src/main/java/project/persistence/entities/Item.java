@@ -23,6 +23,7 @@ public class Item {
     private Long id;
 
     private String userName;
+    private String acceptedUser;
     private String pickupTime;
     private String description;
     private String location;
@@ -44,7 +45,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(Long id, String userName, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
+    public Item(Long id, String userName, String acceptedUser, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
     		String generalLocation, String phone, String itemName, String email, String users, int zipcode,
     		String tag, String authorized) {
     	
@@ -63,6 +64,7 @@ public class Item {
         this.tag = tag;
         this.authorized = authorized;
         this.myndName = myndName;
+        this.acceptedUser = acceptedUser;
       
     }
 
@@ -82,6 +84,14 @@ public class Item {
 	}
 	public void setMyndName(String myndName) {
 		this.myndName = myndName;
+	}
+	
+	
+	public String getAcceptedUser() {
+		return acceptedUser;
+	}
+	public void setAcceptedUser(String acceptedUser) {
+		this.acceptedUser = acceptedUser;
 	}
 	
 	public String getUserName() {

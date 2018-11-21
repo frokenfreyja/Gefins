@@ -59,7 +59,7 @@
                                    <tr class="rows">
                                       <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                       <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                      <td><a href="/skodaitemloggedin/${myitem.id}">${myitem.itemName}</a></td>
+                                      <td><a href="/skodaitemeigandi/${myitem.id}">${myitem.itemName}</a></td>
                                       <td>${myitem.description}</td>
                                       <td>${myitem.pickupTime}</td>
                                       <td>${myitem.tag}</td>
@@ -95,7 +95,7 @@
                                     <tr class="rows">
                                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                       <td><a href="/skodaitemloggedin/${itemwant.id}">${itemwant.itemName}</a></td>
+                                       <td><a href="/skodaitemirod/${itemwant.id}">${itemwant.itemName}</a></td>
                                        <td>${itemwant.description}</td>
                                        <td>${itemwant.pickupTime}</td>
                                        <td>${itemwant.tag}</td>

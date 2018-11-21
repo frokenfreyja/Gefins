@@ -172,10 +172,17 @@ header {
   padding-bottom: 30px;
   justify-content: center;
 }
-.stillingarTitill {
+.acceptedTitill {
   margin-top: 1.3em;
   margin-bottom: 1em;
   font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+}
+.acceptedUndirtitill {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1em;
   font-weight: bold;
   text-align: center;
 }

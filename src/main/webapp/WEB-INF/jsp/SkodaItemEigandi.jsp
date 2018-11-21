@@ -11,7 +11,7 @@
       <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Old+Standard+TT:400,700|Oswald:400,600|Vidaloka" rel="stylesheet">
       <title>Skoða nánar</title>
       <link rel="stylesheet" type="text/css" href="
-      <c:url value="/css/skodaitemloggedin.css"/>
+      <c:url value="/css/skodaitemeigandi.css"/>
       "/>
       <!- <link rel="stylesheet" type="text/css" href="
       <c:url value="/css/grid.css"/>
@@ -87,10 +87,10 @@
                      </c:otherwise>
                   </c:choose>
                   <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png"/>${skodaitem.userName}</div>
-                  
+               
                   <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
                   <div class="submit">
-                     <input type="submit" class="rodbutton" VALUE="Fara í röð"/>
+                     <input type="submit" class="rodbutton" VALUE="Samþykkja gefanda"/>
                   </div>
                </sf:form>
                </div>
