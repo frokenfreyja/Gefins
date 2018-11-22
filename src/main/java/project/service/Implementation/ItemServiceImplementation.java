@@ -3,6 +3,7 @@ package project.service.Implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.persistence.entities.Item;
+import project.persistence.entities.User;
 import project.persistence.repositories.ItemRepository;
 import project.service.ItemService;
 
@@ -69,8 +70,8 @@ public class ItemServiceImplementation implements ItemService {
     }
     
     @Override
-    public List<Item> findByusers(String name) {
-      	return repository.findByusers(name);
+    public List<Item> findByusers(User user) {
+      	return repository.findByusers(user);
     }
     
     @Override

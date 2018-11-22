@@ -3,6 +3,7 @@ package project.persistence.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import project.persistence.entities.Item;
+import project.persistence.entities.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +34,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
   	List<Item> findByuserName(String userName);
 
-  	List<Item> findByusers(String name);
+  	List<Item> findByusers(User user);
   	
   	List<Item> findByTag(String tag);
   	

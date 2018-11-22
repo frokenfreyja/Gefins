@@ -151,10 +151,11 @@ public class ItemController {
     public String getMittSvaedi(Model model, HttpSession httpSession){
     	
         String userName = (String) httpSession.getAttribute("loggedInUsername");
+        User user = userService.findByuserName(userName);
     	
         model.addAttribute("myItems", itemService.findByuserName(userName));
 
-        model.addAttribute("itemsIWant", itemService.findByusers(userName));
+        model.addAttribute("itemsIWant", itemService.findByusers(user));
     
         return "Mittsvaedi";
     }
@@ -174,12 +175,15 @@ public class ItemController {
         String userName = (String) httpSession.getAttribute("loggedInUsername");
         System.out.println("Username: "+userName);
         
+        User user = userService.findByuserName(userName);
+    	
+        
         if(userId==null)
     		return "Innskra";
         
         model.addAttribute("myItems", itemService.findByuserName(userName));
         
-        model.addAttribute("itemsIWant", itemService.findByusers(userName));
+        model.addAttribute("itemsIWant", itemService.findByusers(user));
         
     	return "Mittsvaedi";
     }
@@ -200,6 +204,8 @@ public class ItemController {
         String userName = (String) httpSession.getAttribute("loggedInUsername");
         System.out.println("Username: "+userName);
         
+        User user = userService.findByuserName(userName);
+        
         Long itemId = item.getId();
         
         System.out.println("ItemID: "+item.getId());
@@ -210,7 +216,7 @@ public class ItemController {
 
         model.addAttribute("myItems", itemService.findByuserName(userName));
 
-        model.addAttribute("itemsIWant", itemService.findByusers(userName));
+        model.addAttribute("itemsIWant", itemService.findByusers(user));
     	
     	return "redirect:/mittsvaedi/{id}";
     }
@@ -262,10 +268,16 @@ public class ItemController {
      * Skoða eitt Item sem eigandi Items
      */
     @RequestMapping(value = "/skodaitemeigandi/{id}", method = RequestMethod.GET)
-    public String seeItemAsOwner(Model model, Item item) {
+    public String seeItemAsOwner(Model model, Item item, HttpSession httpSession) {
+    	
+        Long userId = (Long)httpSession.getAttribute("loggedInUser");
+        
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
+
 
         Item skodaNanarItem = itemService.findOne(item.getId());
-       
+        
+        model.addAttribute("usersNames", skodaNanarItem.getUsersNames());
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
     	
         // Return the view
@@ -308,9 +320,10 @@ public class ItemController {
         System.out.println("ItemID: "+item.getId());
         
         Item theitem = itemService.findOne(itemId);
+        User user = userService.findByuserName(userName);
        
         //bætir username við users
-        theitem.addUsers(userName);
+        theitem.addUsers(user);
         System.out.println("Users fyrir "+theitem.getItemName()+": "+theitem.getUsers());
 
         //theitem.addUsers(user.getUserName());
@@ -337,10 +350,11 @@ public class ItemController {
        //User user = userService.findOne(userId);
 
        Item theitem = itemService.findOne(item.getId());
+       User user = userService.findByuserName(userName);
        //deletar username frá users
        
        // Eyða username úr users
-       theitem.removeUsers(userName);
+       theitem.removeUsers(user);
        
        //savear itemið með breitingum
        itemService.save(theitem);
@@ -362,10 +376,11 @@ public class ItemController {
         //deletar username frá users
         
         
-        List<String> usersInQueue = theitem.getUsers();
+        List<User> usersInQueue = theitem.getUsers();
         System.out.println("usersInQueue: "+usersInQueue);
         
-        theitem.setAcceptedUser(usersInQueue.get(0));
+        //theitem.setAcceptedUser(usersInQueue.get(0));
+        theitem.setAcceptedUser(usersInQueue.get(0).getUserName());
         System.out.println("acceptedUser: "+theitem.getAcceptedUser());
 
         //savear itemið með breytingum

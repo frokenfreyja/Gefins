@@ -3,62 +3,59 @@ html {
 	font-size: 16px;
 	line-height: 1.5;
 }
-
-*,
-*:before,
-*:after {
+*, *:before, *:after {
 	box-sizing: inherit;
 	padding: 0;
 	margin: 0;
 }
-
 body {
 	margin: auto;
 	overflow-x: hidden;
 	font-family: 'Open Sans', sans-serif;
 }
-
 main {
 	margin: 0 auto;
 	overflow-x: hidden;
 }
-
-
-/* Header */
-
+/* HEADER */
 header {
 	position: relative;
 	z-index: 2;
 }
-
 .header-container {
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	position: relative;
 }
-
 .header-bg {
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	height: 400px;
+	height: 500px;
 	background-position: center;
 	background-size: cover;
 	position: relative;
 	color: white;
 	font-size: 25px;
 }
-
-
-/* Navigation bar */
-
-.navbar {
-	height: 140px;
-	z-index: 20;
-	box-shadow: none;
-	width: 100%;
+.h-wrapper {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fffbf9;
+	z-index: 10;
+	position: relative;
 }
-
+.m-title h1 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 600;
+	letter-spacing: 10px;
+	font-size: 120px;
+}
+.m-title h1 a {
+	text-decoration: none;
+	color: #05EDFF;
+}
+/* NAVIGATION BAR */
 .nav {
 	list-style: none;
 	display: flex;
@@ -74,77 +71,81 @@ header {
 	position: fixed;
 	width: 100%;
 }
-
 .nav a {
 	margin: 0 30px;
 	position: relative;
 	color: white;
 	text-decoration: none;
 }
-
 .nav a:hover {
 	color: #05EDFF;
 }
-
-.h-wrapper {
+.navbar {
+	height: 120px;
+	z-index: 20;
+	box-shadow: none;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	color: #fffbf9;
-	z-index: 10;
-	position: relative;
 }
-
-.m-title h1 {
-	font-family: 'Oswald', sans-serif;
-	font-weight: 600;
-	letter-spacing: 10px;
-	font-size: 120px;
-}
-
-.m-title h1 a {
-	text-decoration: none;
-	color: #05EDFF;
-}
-
-
-/* Nýskráning */
-
+/* SÍÐAN SETT UPP Í GRID */
 .row {
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
-
 .col {
 	padding-right: 10px;
 	padding-bottom: 30px;
 }
-
-.col1-audur {
+.col1-empty {
 	width: 8%;
 }
-
-.col1-audur {
-	width: 8%;
-}
-
 .col-left {
 	padding-left: 42em;
 	width: 80%;
 }
-
-.nyauglysing,
-.nyskraningar {
+/* NÝSKRÁNING */
+.createuser {
 	margin-top: 1.3em;
 	margin-bottom: 1em;
 	font-size: 3em;
 	font-weight: bold;
 }
-
-.nyskrabutton {
+.create td {
+	padding: 15px 15px 15px 0;
+	text-align: left;
+	font-weight: bold;
+	font-size: 20px;
+}
+.loginbox {
+	width: 200px;
+	font-size: 20px;
+}
+input[type=text] {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+input[type=text]:focus {
+	outline: none !important;
+	border:1px #5a5a5a;
+	box-shadow: 0 0 10px #5a5a5a;
+}
+.errorMessage {
+	padding-top: 17px;
+	font-size: 20px;
+	color: red;
+}
+.submit {
+	float: right;
+	padding-top: 2em;
+	padding-right: 40em;
+	margin-bottom: 3em;
+}
+.createbutton {
 	background-color: black;
 	color: white;
 	padding: 15px 32px;
@@ -158,29 +159,12 @@ header {
 	border-color: black;
 	font-weight: bold;
 }
-
-.nyskrabutton:hover {
+.createbutton:hover {
 	background-color: #05EDFF;
 	color: black;
 	border-color: #05EDFF;
 }
-
-.tafla td {
-	padding: 15px 15px 15px 0;
-	text-align: left;
-	font-weight: bold;
-	font-size: 20px;
-}
-
-.errorMessage {
-  padding-top: 17px;
-  font-size: 20px;
-  color: red;
-}
-
-
 /* FÓTUR */
-
 .footer {
 	width: 100%;
 	margin-top: 20px;
@@ -189,26 +173,22 @@ header {
 	background-size: cover;
 	position: relative;
 }
-
 .footer__grid {
 	max-width: 1200px;
 	padding-top: 10px;
 	padding-bottom: 60px;
 	margin: 0 auto;
 }
-
 .footer__row {
 	display: flex;
 	margin-right: -10px;
 	margin-left: -10px;
 }
-
 .footer__col {
 	width: 25%;
 	padding-right: 10px;
 	padding-left: 10px;
 }
-
 .footer__links {
 	margin-top: 20px;
 	display: flex;
@@ -216,7 +196,6 @@ header {
 	list-style: none;
 	flex-direction: column;
 }
-
 .footer__link {
 	font-family: "Open Sans", helvetica, sans-serif;
 	font-size: 24px;
@@ -227,11 +206,9 @@ header {
 	transition-duration: 300ms;
 	transition-property: color;
 }
-
 .footer__link:hover {
 	color: #05EDFF;
 }
-
 .footer__credit {
 	color: white;
 	padding-bottom: 60px;
@@ -241,4 +218,3 @@ header {
 	text-align: center;
 	justify-content: center;
 }
-

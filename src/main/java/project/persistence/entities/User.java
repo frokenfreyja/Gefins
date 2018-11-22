@@ -22,13 +22,14 @@ public class User {
     private int stars;
     private String generalLocation;
     private Long itemId;
+    //private int starsnumber;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public User() {
     }
     public User(String userName, String password, String phone, String email,
-            String location, int zipcode/*, int stars, String generalLocation*/, Long itemId) {
+            String location, int zipcode, int stars /*String generalLocation*/, Long itemId) {
         
         this.userName = userName;
         this.password = password;
@@ -108,6 +109,20 @@ public class User {
     public void setGeneralLocation(int zipcode) {
         this.generalLocation = getGL(zipcode);
     }
+    
+    /*
+    public void rate(int stars) {
+    	this.starsnumber++;
+    	this.stars+=stars;
+    	
+    }
+    
+    public double getratings() {
+    	if(this.starsnumber>=5)
+    	return this.stars/this.starsnumber;
+    	return 6;
+    }
+    */
 
 }
 

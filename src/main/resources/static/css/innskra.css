@@ -1,53 +1,44 @@
+/* SETJUM BOX-SIZING: BORDER-BOX Á ALLT */
 html {
   box-sizing: border-box;
   font-size: 16px;
   line-height: 1.5;
  }
-
 *, *:before, *:after {
   box-sizing: inherit;
   padding: 0;
   margin: 0; }
-
 body {
-  max-width: 2200px;
   margin: auto;
   overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
 }
-
 main {
-  max-width: 2200px;
   margin: 0 auto;
   overflow-x: hidden;
 }
-
+/* HEADER */
 header {
   position: relative;
   z-index: 2;
 }
-
 .header-bar {
   background: linear-gradient(to right, rgba(127, 114, 94, 0.41) 0%, rgba(128, 116, 99, 0.07) 36%, rgba(128, 116, 98, 0.33) 65%, rgb(91, 113, 106) 100%) !important;
 }
-
 .header-bg {
   background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-  height: 400px;
+  height: 500px;
   background-position: center;
   background-size: cover;
   position: relative;
   color: white;
   font-size: 25px;
 }
-
-
 .header-container {
   width: 100%;
-  height: 400px;
+  height: 500px;
   position: relative;
 }
-
 .h-wrapper {
   display: flex;
   flex-direction: column;
@@ -56,7 +47,6 @@ header {
   color: #fffbf9;
   z-index: 10;
   position: relative;
-/*  top: 11%;*/
 }
 .m-title h1 {
   font-family: 'Oswald', sans-serif;
@@ -68,15 +58,15 @@ header {
   text-decoration: none;
   color: #05EDFF;
 }
+/* NAVIGATION BAR INNSKRÁ */
 .navbar {
-  height: 140px;
+  height: 120px;
   z-index: 20;
   box-shadow: none;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-
 .nav {
   list-style: none;
   display: flex;
@@ -86,13 +76,12 @@ header {
   margin: 0;
   padding: 0;
   height: 70px;
-	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	background-position: center;
-	background-size: cover;
+    background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+    background-position: center;
+    background-size: cover;
   position: fixed;
   width: 100%;
 }
-
 .nav a {
   margin: 0 30px;
   position: relative;
@@ -102,7 +91,7 @@ header {
 .nav a:hover {
   color:  #05EDFF;
 }
-
+/* SÍÐAN SETT UPP Í GRID */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -111,40 +100,51 @@ header {
 }
 .col {
   padding-right: 10px;
-  padding-left: 45em;
+  padding-left: 52em;
 }
   .col-left {
     width: 80%;
   }
-
-  .text {
-      margin-left: 1em;
-      margin-top: 2em;
-      font-size: 2em;
-    }
-
-  .text_leitaeftir {
-    font-size: 1.5em;
-  }
-
-  .text_trengja {
-    font-size: 1.5em;
-  }
-
-  .nyauglysing {
+/* INNSKRÁNING */
+  .login {
     margin-top: 1.3em;
     margin-bottom: 1em;
     font-size: 3em;
     font-weight: bold;
   }
-  
+  .logintable td {
+    padding: 20px 20px 20px 0;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .loginbox {
+    width: 200px;
+    font-size: 20px;
+  }
+  input[type=text] {
+      width: 100%;
+      padding: 10px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+ }
+  input[type=text]:focus {
+      outline: none !important;
+      border:1px #5a5a5a;
+      box-shadow: 0 0 10px #5a5a5a;
+ }
+  .errorMessage {
+    padding-top: 20px;
+    font-size: 20px;
+    color: red;
+  }
   .submit {
     float: right;
     padding-top: 2.5em;
-    padding-right: 12em;
+    padding-right: 22em;
+    margin-bottom: 3em;
   }
-
-.innskrabutton {
+.loginbutton {
   background-color: black;
   border-radius: 3px;
   color: white;
@@ -158,41 +158,11 @@ header {
   border-color: black;
   font-weight: bold;
 }
-.innskrabutton:hover {
+.loginbutton:hover {
   background-color:#05EDFF;
   color: black;
   border-color: #05EDFF;
 }
-
-.tafla td {
-  padding: 20px 20px 20px 0;
-  text-align: left;
-  font-size: 20px;
-  font-weight: bold;
-}
-.errorMessage {
-  padding-top: 20px;
-  font-size: 20px;
-  color: red;
-}
-
-table.formtable {
-    border: 1px black solid;
-}
-
-.formtable td {
-    padding: 15px;
-    text-align: left;
-}
-
-table.formtable tr:nth-child(even) {
-    background-color: antiquewhite;
-}
-
-table.formtable tr:nth-child(odd) {
-    background-color: azure;
-}
-
 /* FÓTUR */
 .footer {
   width: 100%;
@@ -208,19 +178,16 @@ table.formtable tr:nth-child(odd) {
     padding-bottom: 60px;
     margin: 0 auto;
   }
-
   .footer__row {
     display: flex;
     margin-right: -10px;
     margin-left: -10px;
   }
-
   .footer__col {
     width: 25%;
     padding-right: 10px;
     padding-left: 10px;
   }
-
   .footer__links {
     margin-top: 20px;
     display: flex;
@@ -228,7 +195,6 @@ table.formtable tr:nth-child(odd) {
     list-style: none;
     flex-direction: column;
   }
-
   .footer__link {
     font-family: "Open Sans", helvetica, sans-serif;
     font-size: 24px;
@@ -239,11 +205,9 @@ table.formtable tr:nth-child(odd) {
     transition-duration: 300ms;
     transition-property: color;
   }
-
   .footer__link:hover {
     color: #05EDFF;
   }
-
   .footer__credit {
     color: white;
     padding-bottom: 60px;

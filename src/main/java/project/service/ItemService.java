@@ -1,6 +1,7 @@
 package project.service;
 
 import project.persistence.entities.Item;
+import project.persistence.entities.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +49,7 @@ public interface ItemService {
     //ItemService
   	List<Item> findByuserName(String userName);
      
-    List<Item> findByusers(String name);
+    List<Item> findByusers(User user);
     
   	List<Item> findByTag(String tag);
   	

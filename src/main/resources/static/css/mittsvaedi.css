@@ -33,13 +33,13 @@ header {
 
 .header-container {
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	position: relative;
 }
 
 .header-bg {
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	height: 400px;
+	height: 500px;
 	background-position: center;
 	background-size: cover;
 	position: relative;
@@ -208,21 +208,21 @@ table.formtable tr:nth-child(odd) {
 	text-decoration: none;
 }
 
-a:link {
+.rows a:link {
 	text-decoration: none;
 	color: black;
 }
 
-a:visited {
+.rows a:visited {
 	text-decoration: none;
 }
 
-a:hover {
+.rows a:hover {
 	text-decoration: none;
 	color: pink;
 }
 
-a:active {
+.rows a:active {
 	text-decoration: underline;
 }
 

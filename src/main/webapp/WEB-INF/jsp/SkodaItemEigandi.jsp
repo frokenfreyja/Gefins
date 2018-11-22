@@ -82,7 +82,7 @@
                               <tr>
                                  <td class="titill">Í röð:</td>
                                  <td class="efni">
-                                 <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status"> 
+                                 <c:forEach items="${usersNames}" var="queueUser" varStatus="status"> 
                                     ${status.index+1}. ${queueUser} <br>
                                  </c:forEach>
                               </td>

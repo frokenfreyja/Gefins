@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +24,7 @@ public class Item {
     private Long id;
 
     private String userName;
+    private Long userId;
     private String acceptedUser;
     private String pickupTime;
     private String description;
@@ -31,29 +33,28 @@ public class Item {
     private String phone;
     private String itemName;
     private String email;
-    private int zipcode;
+    private Integer zipcode;
     private String tag;
     private String authorized;
     @Transient
     private MultipartFile mynd;
     private String myndName;
-    
-    @ElementCollection
-    @CollectionTable(name="username")
-    @Column(name="USERS_NAMES")    
-    private List<String> users;
-    
+   
+    @OneToMany
+    private List<User> users;
+
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public Item() {
     }
 
-    public Item(Long id, String userName, String acceptedUser, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
-    		String generalLocation, String phone, String itemName, String email, int zipcode,List<String> users,
-    		String tag, String authorized) {
+    public Item(Long id, String userName, Long userId, String acceptedUser, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
+    		String generalLocation, String phone, String itemName, String email, Integer zipcode,List<User> users,
+    		String tag, String authorized, List<String> usersNames) {
     	
     	this.id = id;
+    	this.userId = userId;
         this.userName = userName;
         this.pickupTime = pickupTime;
         this.description = description;
@@ -83,6 +84,14 @@ public class Item {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	
 	public String getMyndName() {
 		return myndName;
 	}
@@ -114,16 +123,25 @@ public class Item {
 		this.pickupTime = pickupTime;
 	}
 	
-	public List<String> getUsers() {
-		return users;
+	public List<User> getUsers() {
+		return this.users;
 	}
 	
-	public void addUsers(String user) {
+	public List<String> getUsersNames() {
+		List<String> a = new ArrayList<>();
+		for(int i=0; i<this.users.size(); i++) {
+			a.add(this.users.get(i).getUserName());
+		}
+		return a;
+	
+	}
+	
+	public void addUsers(User user) {
 		this.users.add(user);
 		
 	}
 
-	public void removeUsers(String user) {
+	public void removeUsers(User user) {
 		
 		this.users.remove(user);
 		
@@ -185,11 +203,11 @@ public class Item {
 		this.email = email;
 	}
 
-	public int getZipcode() {
+	public Integer getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipcode(int zipcode) {
+	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
 
@@ -208,13 +226,4 @@ public class Item {
 	public void setAuthorized(String authorized) {
 		this.authorized = authorized;
 	}
-	
-
-	/*// This is for easier debug.
-    @Override
-    public String toString() {
-        return String.format(
-                "Postit Note[heiti=%s, lysing=%s, aftimi%s]",
-                );
-    }*/
 }
