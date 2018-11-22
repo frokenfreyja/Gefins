@@ -98,4 +98,29 @@ public class ItemServiceImplementation implements ItemService {
            return repository.findByZipcodeAndTag(zipcode, tag);
      	    }
     
+    
+    @Override
+    public List<Item> findByZipcodeAndTagReverseOrder(Integer zipcode, String tag) {
+        List<Item> items = repository.findByZipcodeAndTag(zipcode, tag);
+        // Reverse the list
+        Collections.reverse(items);
+        return items;
+    }
+    
+    @Override
+    public List<Item> findByZipcodeReverseOrder(Integer zipcode) {
+        List<Item> items = repository.findByZipcode(zipcode);
+        // Reverse the list
+        Collections.reverse(items);
+        return items;
+    }
+    
+    @Override
+    public List<Item> findByTagReverseOrder(String tag) {
+        List<Item> items = repository.findByTag(tag);
+        // Reverse the list
+        Collections.reverse(items);
+        return items;
+    }
+    
 }

@@ -59,4 +59,8 @@ public interface ItemService {
     List<Item> findByZipcodeAndTag(Integer zipcode, String tag);
 
     Item findOneByZipcode(Integer zipcode);
+    
+    List<Item> findByZipcodeAndTagReverseOrder(Integer zipcode, String tag);
+    List<Item> findByZipcodeReverseOrder(Integer zipcode);
+    List<Item> findByTagReverseOrder(String tag);
 }

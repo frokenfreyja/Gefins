@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html class="grid" lang="is">
    <head>
@@ -95,52 +96,6 @@
 
             <div class="main__col">
                 <h2>Upplýsingar um gefandann</h2>
-             <sf:form method="POST" modelAttribute="user" action="/settings">
-                <table class="tafla">
-                   <tr>
-                      <td> Notendanafn:</td>
-                      <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                      <td>
-                         <sf:input class="inntak" path="userName" type="text" placeholder="" required="required"/>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>Lykilorð:</td>
-                      <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                      <td>
-                         <sf:input class="inntak" path="password" type="text" placeholder="" required="required"/>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>Netfang:</td>
-                      <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                      <td>
-                         <sf:input class="inntak" path="email" type="text" placeholder="" required="required"/>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>Símanúmer:</td>
-                      <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                      <td>
-                         <sf:input class="inntak" path="phone" type="text" maxlength="7" placeholder="" required="required"/>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>Heimilisfang:</td>
-                      <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                      <td>
-                         <sf:input class="inntak" path="location" type="text" placeholder="" required="required"/>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>Póstnúmer:</td>
-                      <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                      <td>
-                         <sf:input class="inntak" path="zipcode" type="text" maxlength="3" placeholder="" required="required"/>
-                      </td>
-                   </tr>
-                </table>
-             </sf:form>
           </div>
           </div>
           </div>

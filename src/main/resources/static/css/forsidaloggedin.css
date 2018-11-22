@@ -1,11 +1,9 @@
 /* setjum box-sizing: border-box; á allt */
-
 html {
 	box-sizing: border-box;
 	font-size: 16px;
 	line-height: 1.5;
 }
-
 *,
 *:before,
 *:after {
@@ -13,31 +11,25 @@ html {
 	padding: 0;
 	margin: 0;
 }
-
 body {
 	margin: auto;
 	overflow-x: hidden;
 	font-family: 'Open Sans', sans-serif;
 }
-
 main {
 	margin: 0 auto;
 	overflow-x: hidden;
 }
-
-
 /* Header */
 header {
 	position: relative;
 	z-index: 2;
 }
-
 .header-container {
 	width: 100%;
 	height: 900px;
 	position: relative;
 }
-
 .header-bg {
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
 	height: 900px;
@@ -56,7 +48,6 @@ header {
 	z-index: 10;
 	position: relative;
 }
-
 .m-title h1 {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 600;
@@ -65,19 +56,16 @@ header {
 	margin-top: 0px;
 	color: #05EDFF;
 }
-
 .undertitle {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 600;
 	font-size: 50px;
 	color: #05EDFF;
 }
-
 .header-btn {
 	position: relative;
 	top: 80px;
 }
-
 .header-btn a {
 	display: inline-block;
 	position: absolute;
@@ -85,7 +73,6 @@ header {
 	width: 100%;
 	height: 100%;
 }
-
 .btn {
 	color: black;
 	font-family: 'Oswald', sans-serif;
@@ -102,323 +89,292 @@ header {
 	letter-spacing: 1px;
 	transition: all 0.1s ease;
 }
-
 .btn:hover {
 	color: white;
 	background: black!important;
 }
-
 /* NAVIGATION BAR Í HEADER */
 .navbar {
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 230px;
+overflow: hidden;
+font-family: Arial, Helvetica, sans-serif;
+height: 230px;
 }
-
 .nav {
-  display: flex;
-  height: 70px;
+display: flex;
+height: 70px;
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
 	background-position: center;
 	background-size: cover;
-  justify-content: flex-end;
-  align-items: center;
-  position: fixed;
-  width: 100%;
+justify-content: flex-end;
+align-items: center;
+position: fixed;
+width: 100%;
 }
-
 .navbar a {
-  float: right;
-  font-size: 25px;
-  color: white;
-  text-align: center;
-  padding: 20px 53px;
-  text-decoration: none;
+float: right;
+font-size: 25px;
+color: white;
+text-align: center;
+padding: 20px 53px;
+text-decoration: none;
 }
-
 .dropdown {
-  float: left;
-  overflow: hidden;
+float: left;
+overflow: hidden;
 }
-
 .dropdown .dropbtn {
-  font-size: 25px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 20px 53px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+font-size: 25px;
+border: none;
+outline: none;
+color: white;
+padding: 20px 53px;
+background-color: inherit;
+font-family: inherit;
+margin: 0;
 }
-
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.2);
+background-color: rgba(255, 255, 255, 0.2);
 }
-
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+display: none;
+position: absolute;
+background-color: rgba(255, 255, 255, 0.2);
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
 }
-
 .dropdown-content a {
-  float: none;
-  color:white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+float: none;
+color:white;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
 }
-
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #05EDFF;
+background-color: rgba(255, 255, 255, 0.2);
+color: #05EDFF;
 }
-
 .dropdown:hover .dropdown-content {
-  display: block;
+display: block;
 }
-
-/* LEITA EFTIR STAÐSETNINGU */
-.flokkar-tree {
-  padding: 0 20px;
-    margin-bottom: 2em;
-  }
-    .flokkar-tree label {
-        cursor: pointer;
-        display: block;
-    }
-.layer2, .layer3 {
-    margin-left: 20px;
-}
-.flokkar-tree-cb {
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
-.flokkar-tree-label {
-  vertical-align: 2px;
-    font-family: sans-serif;
-    color: #5a5a5a;
-}
-.flokkar-tree-cb:checked + .flokkar-tree-label {
-    font-weight: bold;
-    color: #05EDFF;
-}
-.flokkar-tree-branches {
-  display: none;
-}
-.flokkar-tree-cb:checked + .flokkar-tree-label + .flokkar-tree-branches {
-  display: block;
-}
-.flokkar-tree-label::before {
-  content: '';
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  vertical-align: -2px;
-  margin-right: 6px;
-}
-
-#leitaradio {
-  padding-left: 20px;
-}
-
-/* FORSÍÐAN - SEARCH */
-.searchfield {
-	margin-top: 6em;
-	margin-left: 1em;
-	width: 53%;
-	float: left;
-	height: 100px;
-	display: inline-block;
-}
-table.search tr td {
-	text-align: left;
-	font-size: 1.5em;
-	font-weight: bold;
-}
-.leiticon {
-	padding-right: 0.5em;
-}
-.leitfield {
-	height: 60px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	font-size: 20px;
-	padding-left: 5px;
-}
-input[type=text] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	box-sizing: border-box;
-}
-
-input[type=text]:focus {
-	outline: none !important;
-	border:1px #5a5a5a;
-	box-shadow: 0 0 10px #5a5a5a;
-}
-
-.hreinsabtn {
-	background-color: black;
-	color: white;
-	padding: 15px 22px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 20px;
-	cursor: pointer;
-	border-radius: 3px;
-	border-color: black;
-	font-weight: bold;
-	height: 60px;
-	margin-top: 4px;
-}
-
-.hreinsabtn:hover {
-	background-color: #05EDFF;
-	color: black;
-	border-color: #05EDFF;
-	outline: none !important;
-	border:1px #5a5a5a;
-	box-shadow: 0 0 10px #5a5a5a;
-}
-.hreinsa {
-	margin-left: 12.2%;
-	height: 100px;
-	width: 20%;
-	position: absolute;
-	padding-top: 6.37em;
-}
-
-/* FORSÍÐAN - AUGLÝSINGALISTI */
+/* FORSÍÐAN SETT UPP Í GRID */
 .row {
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
-
 .col {
 	padding-right: 10px;
 	padding-left: 10px;
 }
-
 .col3-left {
-	width: 25%;
+	width: 22%;
 	padding-left: 3em;
 }
-
 .col9-right {
-	width: 75%;
+	width: 78%;
 	display: flex;
+	flex-direction: column;
 }
-
+/* FORSÍÐAN - SEARCH */
+.searchfield {
+	 margin-top: 4em;
+	 margin-left: 3em;
+	 width: 53%;
+	 float: left;
+	 height: 100px;
+	 display: inline-block;
+}
+table.search tr td {
+	 text-align: left;
+	 font-size: 1.2em;
+	 font-weight: bold;
+}
+.searchicon {
+	 padding-right: 0.5em;
+}
+.searcher {
+	 height: 60px;
+	 border: 1px solid #ccc;
+	 border-radius: 4px;
+	 font-size: 20px;
+}
+input[type=text] {
+	 width: 100%;
+	 padding: 10px 20px;
+	 margin: 8px 0;
+	 box-sizing: border-box;
+}
+input[type=text]:focus {
+	 outline: none !important;
+	 border:1px #5a5a5a;
+	 box-shadow: 0 0 10px #5a5a5a;
+}
+.clearbtn {
+	 background-color: black;
+	 color: white;
+	 padding: 15px 22px;
+	 text-align: center;
+	 text-decoration: none;
+	 font-size: 20px;
+	 cursor: pointer;
+	 border-radius: 3px;
+	 border-color: black;
+	 font-weight: bold;
+	 height: 60px;
+	 margin-top: 4px;
+}
+.clearbtn:hover {
+	 background-color: #05EDFF;
+	 color: black;
+	 border-color: #05EDFF;
+	 outline: none !important;
+	 border:1px #5a5a5a;
+	 box-shadow: 0 0 10px #5a5a5a;
+}
+.clear {
+	 margin-left: 12.2%;
+	 height: 100px;
+	 width: 20%;
+	 position: absolute;
+	 padding-top: 4.36em;
+}
+/* LEITA EFTIR STAÐSETNINGU OG FLOKKI */
 .text {
-	margin-left: 1em;
-	margin-top: 12em;
-	font-size: 1.5em;
+	 margin-top: 8em;
+	 font-size: 1.5em;
 }
-
-.text_fyrirsogn {
-	font-size: 1.7em;
-  margin-bottom: 0.5em;
-  margin-left: 1.2em;
+.text_title {
+	 font-size: 1.7em;
+	 margin-bottom: 0.5em;
+	 margin-top: 1.5em;
+	 margin-left: 1.1em;
 }
-
-.listi {
-	width: 100%;
-	margin-top: 3em;
-	font-size: 1.5em;
+.sortlist {
+	 width: 100%;
+	 margin-left: 1.3em;
+	 margin-bottom: 1em;
+	 color: #05EDFF;
 }
-
-.auglysing {
-	font-size: 1.7em;
-	padding: 15px 15px 15px 30px;
-	font-weight: bold;
+.category-tree {
+	 padding: 0 20px;
+	 margin-bottom: 1em;
 }
-
-.nyauglysing {
-	margin-top: 1.3em;
-	margin-bottom: 1em;
-	font-size: 3em;
+.category-tree label {
+	 cursor: pointer;
+	 display: block;
 }
-
-table.formtable {
-	width: 95%;
-	border-spacing: 1em;
-	border-collapse: separate;
-	padding-bottom: 3em;
-	margin-left: 1em;
+.layer2, .layer3 {
+	 margin-left: 20px;
 }
-
+.category-tree-cb {
+	 visibility: hidden;
+	 width: 0;
+	 height: 0;
+}
+.category-tree-label {
+	 vertical-align: 2px;
+	 font-family: sans-serif;
+	 color: #5a5a5a;
+}
+.category-tree-cb:checked + .category-tree-label {
+	 font-weight: bold;
+	 color: #05EDFF;
+}
+.category-tree-branches {
+	 display: none;
+}
+.category-tree-cb:checked + .category-tree-label + .category-tree-branches {
+	 display: block;
+}
+.category-tree-label::before {
+	 content: '';
+	 display: inline-block;
+	 height: 16px;
+	 width: 16px;
+	 vertical-align: -2px;
+	 margin-right: 6px;
+}
+table.lookfor td {
+	 padding-left: 0.5em;
+}
+table.lookfor td:nth-child(odd) {
+	 font-size: 1.1em;
+	 font-weight: bold;
+}
+table.adverttable {
+	 width: 90%;
+	 border-spacing: 1em;
+	 border-collapse: separate;
+	 padding-bottom: 3em;
+	 margin-left: 1em;
+}
+#sorttags {
+	 padding-left: 20px;
+	 margin-bottom: 1em;
+}
+/* FORSÍÐAN - AUGLÝSINGALISTI */
+.advertlist {
+	 width: 100%;
+	 margin-top: 2em;
+	 font-size: 1.5em;
+}
+.advert {
+	 font-size: 1.7em;
+	 margin-bottom: 0.6em;
+	 padding: 10px 15px 15px 30px;
+	 font-weight: bold;
+}
 .rows {
-	box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+	 box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
-
-.formtable td {
-	padding: 15px;
-	text-align: left;
+.list h3 {
+	 padding-left: 1em;
 }
-
-.formtable th {
-	padding: 15px;
-	text-align: left;
+.adverttable td {
+	 padding: 15px;
+	 text-align: left;
 }
-
-table.formtable tr:nth-child(even) {
-	background-color: white;
+.adverttable th {
+	 padding: 15px;
+	 text-align: left;
 }
-
-table.formtable tr:nth-child(odd) {
-	background-color: white;
-	text-decoration: none;
+table.adverttable tr:nth-child(even) {
+	 background-color: white;
 }
-
-a:link {
-	text-decoration: none;
-	color: black;
+table.adverttable tr:nth-child(odd) {
+	 background-color: white;
+	 text-decoration: none;
 }
-
-a:visited {
-	text-decoration: none;
+.rows td a:link {
+	 text-decoration: none;
+	 color: black;
 }
-
-a:hover {
-	text-decoration: none;
-	color: pink;
+.rows td a:visited {
+	 text-decoration: none;
+	 color: black;
 }
-
-a:active {
-	text-decoration: underline;
+.rows td a:hover {
+	 text-decoration: none;
+	 color: #05EDFF;
 }
-
+.rows td a:active {
+	 text-decoration: underline;
+}
 .img {
-	width: 150px;
-	height: 150px;
-
-	display: flex;
-  justify-content: center;
-  align-items: center;
+	 width: 150px;
+	 height: 150px;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
 }
-
 .img img {
-	max-width: 100%;
-	max-height: 100%;
+	 max-width: 100%;
+	 max-height: 100%;
 }
-
-.augHeiti:hover {
-	cursor: pointer;
-}
-
-
 /* FÓTUR */
-
 .footer {
 	width: 100%;
 	margin-top: 20px;
@@ -427,26 +383,22 @@ a:active {
 	background-size: cover;
 	position: relative;
 }
-
 .footer__grid {
 	max-width: 1200px;
 	padding-top: 10px;
 	padding-bottom: 60px;
 	margin: 0 auto;
 }
-
 .footer__row {
 	display: flex;
 	margin-right: -10px;
 	margin-left: -10px;
 }
-
 .footer__col {
 	width: 25%;
 	padding-right: 10px;
 	padding-left: 10px;
 }
-
 .footer__links {
 	margin-top: 20px;
 	display: flex;
@@ -454,7 +406,6 @@ a:active {
 	list-style: none;
 	flex-direction: column;
 }
-
 .footer__link {
 	font-family: "Open Sans", helvetica, sans-serif;
 	font-size: 24px;
@@ -465,11 +416,9 @@ a:active {
 	transition-duration: 300ms;
 	transition-property: color;
 }
-
 .footer__link:hover {
 	color: #05EDFF;
 }
-
 .footer__credit {
 	color: white;
 	padding-bottom: 60px;

@@ -163,6 +163,8 @@ public class UserController {
         theuser.setPhone(user.getPhone());
         theuser.setLocation(user.getLocation());
         theuser.setZipcode(user.getZipcode());
+        
+        httpSession.setAttribute("loggedInUsername", theuser.getUserName());
        
         userService.save(theuser);
         

@@ -95,7 +95,16 @@
                                     <tr class="rows">
                                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
                                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-                                       <td><a href="/skodaitemirod/${itemwant.id}">${itemwant.itemName}</a></td>
+                                       <td>
+                                             <c:choose>
+                                                <c:when test="${loggedInUsername == itemwant.acceptedUser}">
+                                                      <a href="/skodaitemaccepted/${itemwant.id}">${itemwant.itemName}</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                      <a href="/skodaitemirod/${itemwant.id}">${itemwant.itemName}</a>
+                                                </c:otherwise>      
+                                             </c:choose>
+                                       </td>
                                        <td>${itemwant.description}</td>
                                        <td>${itemwant.pickupTime}</td>
                                        <td>${itemwant.tag}</td>

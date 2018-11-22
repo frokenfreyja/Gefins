@@ -79,6 +79,14 @@
                                  <td class="titill">Fjöldi í röð: </td>
                                  <td class="efni">${fn:length(skodaitem.users)}</td>
                               </tr>
+                              <tr>
+                                 <td class="titill">Í röð:</td>
+                                 <td class="efni">
+                                 <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status"> 
+                                    ${status.index+1}. ${queueUser} <br>
+                                 </c:forEach>
+                              </td>
+                              </tr>
                         </table>
                      </c:when>
                      <%--If all tests are false, then do this--%>

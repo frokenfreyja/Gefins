@@ -31,13 +31,17 @@ public class Item {
     private String phone;
     private String itemName;
     private String email;
-    private String users;
     private int zipcode;
     private String tag;
     private String authorized;
     @Transient
     private MultipartFile mynd;
     private String myndName;
+    
+    @ElementCollection
+    @CollectionTable(name="username")
+    @Column(name="USERS_NAMES")    
+    private List<String> users;
     
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -46,7 +50,7 @@ public class Item {
     }
 
     public Item(Long id, String userName, String acceptedUser, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
-    		String generalLocation, String phone, String itemName, String email, String users, int zipcode,
+    		String generalLocation, String phone, String itemName, String email, int zipcode,List<String> users,
     		String tag, String authorized) {
     	
     	this.id = id;
@@ -59,12 +63,12 @@ public class Item {
         this.phone = phone;
         this.itemName = itemName;
         this.email = email;
-        this.users = users;
         this.zipcode = zipcode;
         this.tag = tag;
         this.authorized = authorized;
         this.myndName = myndName;
         this.acceptedUser = acceptedUser;
+        this.users = users;
       
     }
 
@@ -108,6 +112,21 @@ public class Item {
 
 	public void setPickupTime(String pickupTime) {
 		this.pickupTime = pickupTime;
+	}
+	
+	public List<String> getUsers() {
+		return users;
+	}
+	
+	public void addUsers(String user) {
+		this.users.add(user);
+		
+	}
+
+	public void removeUsers(String user) {
+		
+		this.users.remove(user);
+		
 	}
 
 	public String getDescription() {
@@ -164,14 +183,6 @@ public class Item {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getUsers() {
-		return users;
-	}
-
-	public void setUsers(String users) {
-		this.users = users;
 	}
 
 	public int getZipcode() {
