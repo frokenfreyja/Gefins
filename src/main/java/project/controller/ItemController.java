@@ -571,6 +571,7 @@ public class ItemController {
 
         model.addAttribute("skodaitem", itemService.findOne(theitem.getId()));
         
+        
         return "Ratings";
     }
     
@@ -581,15 +582,24 @@ public class ItemController {
          * if(giverRate == true) 
          * 	
          */
-    	
-        Item skodaNanarItem = itemService.findOne(item.getId());
-        System.out.println(item.getAcceptedUser());
-        //user.setUserName(skodaNanarItem.getAcceptedUser());
-        System.out.println(user.getUserName());
-        System.out.println(user.getUserReview());
-        System.out.println(user.getStars());
 
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
         
+        Item skodaNanarItem = itemService.findOne(item.getId());
+        
+        System.out.println(user);
+        System.out.println(user.getStars());
+        int stjornur = user.getStars();
+        
+        if(skodaNanarItem.getUserName() == userName) {
+        	User user3 = userService.findByuserName(skodaNanarItem.getAcceptedUser());
+        	user3.rate(stjornur);
+        }
+        else {
+        	User user3 = userService.findByuserName(skodaNanarItem.getUserName());
+        	user3.rate(stjornur);
+        }
+
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
         model.addAttribute("items", itemService.findAllReverseOrder());
 
