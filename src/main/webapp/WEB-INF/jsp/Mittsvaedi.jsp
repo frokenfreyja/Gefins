@@ -112,37 +112,31 @@
                                     </c:choose>
                                 </div>
                     </main>
-                    
                     <footer class="footer">
-                        <div class="footer__grid">
-                            <div class="footer__row">
-                                <div class="footer__col">
-                                    <ul class="footer__links">
-                                        <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
-                                        <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>
-                                    </ul>
-                                </div>
-                                <div class="footer__col">
-                                    <ul class="footer__links">
-                                        <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
-                                        <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>
-                                    </ul>
-                                </div>
-                                <div class="footer__col">
-                                    <ul class="footer__links">
-                                        <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
-                                        <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>
-                                    </ul>
-                                </div>
-                                <div class="footer__col">
-                                    <ul class="footer__links">
-                                        <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
-                                        <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>
-                                    </ul>
+                            <div class="footer__grid">
+                                <div class="footer__row">
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>                                    </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/hofundar">Höfundar</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <p class="footer__credit">© 2018 GEFINS</p>
-                    </footer>
+                            <p class="footer__credit">© 2018 GEFINS</p>
+                        </footer>
                 </body>
                 </html>

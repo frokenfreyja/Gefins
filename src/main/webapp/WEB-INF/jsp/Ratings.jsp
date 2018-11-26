@@ -9,8 +9,8 @@
                         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
                         <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
                         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Old+Standard+TT:400,700|Oswald:400,600|Vidaloka" rel="stylesheet">
-                        <title>Skoða nánar</title>
-                        <link rel="stylesheet" type="text/css" href="<c:url value=" /css/skodaitemaccepted.css "/>"/>
+                        <title>Stjörnugjöf</title>
+                        <link rel="stylesheet" type="text/css" href="<c:url value=" /css/ratings.css "/>"/>
                     </head>
                     <body>
                         <header>
@@ -41,7 +41,7 @@
                         <main class="main">
                             <div class="main__grid">
                                 <div class="main__row">
-                                    <h1 class="acceptedTitill">Þú hefur verið merktur sem þiggjandi vöru</h1>
+                                    <h1 class="acceptedTitill">Stjörnugjöf</h1>
                                 </div>
                                 <div class="main__row">
                                     <div class="extra__col">
@@ -140,30 +140,30 @@
                             </div>
                         </main>
                         <footer class="footer">
-                                <div class="footer__grid">
-                                    <div class="footer__row">
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>                                    </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/hofundar">Höfundar</a></li>
-                                            </ul>
-                                        </div>
+                            <div class="footer__grid">
+                                <div class="footer__row">
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>                                    </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/hofundar">Höfundar</a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <p class="footer__credit">© 2018 GEFINS</p>
-                            </footer>
+                            </div>
+                            <p class="footer__credit">© 2018 GEFINS</p>
+                        </footer>
                     </body>
                     </html>

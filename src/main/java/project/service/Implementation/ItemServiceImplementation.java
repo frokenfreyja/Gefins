@@ -55,32 +55,37 @@ public class ItemServiceImplementation implements ItemService {
         return repository.findOne(id);
     }
     
-    @Override
     public void changeName(String userName, String newName) {
-    	List<Item> items = findByuserName(userName);
-    	for(int i=0; i<items.size(); i++){
-    		items.get(i).setUserName(newName);
-    	}
-    	items = findByusers(userName);
-    	for(int i=0; i<items.size(); i++){
-    		items.get(i).getUsers().set(items.get(i).getUsers().indexOf(userName), newName);
-    	}
-    		
+        List<Item> items = findByuserName(userName);
+        for(int i=0; i<items.size(); i++){
+            items.get(i).setUserName(newName);
+            
+        }
+        items = findByusers(userName);
+        for(int i=0; i<items.size(); i++){
+            items.get(i).getUsers().set(items.get(i).getUsers().indexOf(userName), newName);
+            
+            if(items.get(i).getAcceptedUser().equals(userName))
+                items.get(i).setAcceptedUser(newName);
+        }
+            
     }
     
-    @Override
     public void deleteUserLinks(String userName) {
-		
-		List<Item> items = findByuserName(userName);
-		for(int i=0; i<items.size(); i++){
-    		delete(items.get(i));
-    	}
-		
-		items = findByusers(userName);
-    	for(int i=0; i<items.size(); i++){
-    		items.get(i).getUsers().remove(userName);
-    	}
-	}
+        
+        List<Item> items = findByuserName(userName);
+        for(int i=0; i<items.size(); i++){
+            delete(items.get(i));
+        }
+        
+        items = findByusers(userName);
+        for(int i=0; i<items.size(); i++){
+            items.get(i).getUsers().remove(userName);
+            
+            if(items.get(i).getAcceptedUser().equals(userName))
+                items.get(i).setAcceptedUser("");
+        }
+    }
   
     @Override
     public List<Item> findByItemName(String itemName) {

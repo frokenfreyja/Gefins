@@ -1,0 +1,277 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.5;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: auto;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+main {
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+/* HEADER */
+header {
+  position: relative;
+  z-index: 2;
+}
+.header-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+.header-bg {
+  background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-size: 25px;
+}
+.h-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fffbf9;
+  z-index: 10;
+  position: relative;
+  height: 0px;
+}
+.m-title h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  letter-spacing: 10px;
+  font-size: 120px;
+}
+.m-title h1 a {
+  text-decoration: none;
+  color: #05EDFF;
+}
+/* NAVIGATION BAR Í HEADER */
+.navbar {
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 230px;
+}
+.nav {
+  display: flex;
+  height: 70px;
+  background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+  background-position: center;
+  background-size: cover;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+}
+.navbar a {
+  float: right;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  padding: 20px 53px;
+  text-decoration: none;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown .dropbtn {
+  font-size: 25px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px 53px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color:white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #05EDFF;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* VALIÐ ITEM BIRT FYRIR SAMÞYKKTAN NOTANDA */
+.main {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+.main__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.main__row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.extra__col {
+  width: 25%;
+}
+.main__col {
+  padding-right: 2.5em;
+  padding-bottom: 30px;
+  justify-content: center;
+  width: 25%;
+}
+.acceptedTitill {
+  margin-top: 1.6em;
+  margin-bottom: 1em;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+}
+.acceptedUndirtitill {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+.submit {
+  padding-top: 2em;
+}
+.img {
+  padding-left: 6.5em;
+}
+.queuebutton {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  border-color: black;
+  font-weight: bold;
+  width: 100%;
+}
+.rodbutton:hover {
+  background-color: #05EDFF;
+  color: black;
+  border-color: #05EDFF;
+}
+table.oneitemtable td {
+  padding: 20px 15px 15px 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.userinfo {
+  padding-left: 1em;
+  padding-bottom: 1em;
+  font-weight: bold;
+  font-size: 2em;
+}
+.myitem {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.theitem {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+table.giverinfotable {
+  padding-left: 1em;
+}
+table.giverinfotable td {
+  padding: 15px 15px 15px 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.errorMessage {
+  padding-top: 17px;
+  font-size: 20px;
+  color: red;
+}
+/* FÓTUR */
+.footer {
+  width: 100%;
+  margin-top: 20px;
+  background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.footer__grid {
+  max-width: 1200px;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+}
+.footer__row {
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+.footer__col {
+  width: 25%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.footer__links {
+  margin-top: 20px;
+  display: flex;
+  height: 100%;
+  list-style: none;
+  flex-direction: column;
+}
+.footer__link {
+  font-family: "Open Sans", helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 1.8;
+  color: white;
+  text-decoration: none;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  transition-property: color;
+}
+.footer__link:hover {
+  color: #05EDFF;
+}
+.footer__credit {
+  color: white;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  font-family: "Open Sans", helvetica, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+}

@@ -544,5 +544,43 @@ public class ItemController {
       return "Forsida";
     }
     
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String prufaViewGet(){
+    	
+    	return "redirect:/forsida";
+    }
+    
+    @RequestMapping(value = "/ratings", method = RequestMethod.GET)
+    public String itemRatings(Model model, Item item) {
+    	
+    	
+        System.out.println("username: "+item.getUserName());
+        
+    	model.addAttribute("item",new Item());
+        model.addAttribute("items",itemService.findAllReverseOrder());
+     
+        
+        
+        return "Ratings";
+    }
+    
+    @RequestMapping(value = "/ratings", method = RequestMethod.POST)
+    public String formRatings(@ModelAttribute("item") Item item, Model model, HttpServletRequest httpServletRequest, HttpSession httpSession) {
+        
+
+        String userName = (String) httpSession.getAttribute("loggedInUsername");
+        item.setUserName(userName);
+        
+        String location = item.getLocation();
+        item.setLocation(location);
+       
+        
+        itemService.save(item); 
+        model.addAttribute("items", itemService.findAllReverseOrder());
+        model.addAttribute("item", new Item());
+
+        return "ForsidaLoggedIn";
+    }
+    
     
 }
