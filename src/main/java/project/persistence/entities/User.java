@@ -1,5 +1,7 @@
 package project.persistence.entities;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 /**
  * The class for the Form itself.
@@ -18,10 +20,14 @@ public class User {
     private String phone;
     private String email;
     private String location;
-    private int zipcode;
+    private Integer zipcode;
     private int stars;
     private String generalLocation;
     private Long itemId;
+	private int notify;    
+    private int starsnumber;
+    
+        
     //private int starsnumber;
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -29,7 +35,7 @@ public class User {
     public User() {
     }
     public User(String userName, String password, String phone, String email,
-            String location, int zipcode, int stars /*String generalLocation*/, Long itemId) {
+            String location, Integer zipcode, int stars /*String generalLocation*/) {
         
         this.userName = userName;
         this.password = password;
@@ -39,7 +45,8 @@ public class User {
         this.zipcode = zipcode;
         this.stars = stars;
         this.generalLocation = getGL(this.zipcode);
-        this.itemId = itemId;
+        this.notify = 0;
+        this.starsnumber = 0;
     }
     
     public String getGL(int zipcode) {
@@ -51,13 +58,6 @@ public class User {
     }
     public void setId(Long id) {
         this.id = id;
-    }
-    
-    public Long getItemId() {
-    	return itemId;
-    }
-    public void setItemId(Long itemId) {
-    	this.itemId = itemId;
     }
     
     public String getUserName() {
@@ -84,16 +84,17 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+	
     public String getLocation() {
         return location;
     }
     public void setLocation(String location) {
         this.location = location;
     }
-    public int getZipcode() {
+    public Integer getZipcode() {
         return zipcode;
     }
-    public void setZipcode(int zipcode) {
+    public void setZipcode(Integer zipcode) {
         this.zipcode = zipcode;
     }
     public int getStars() {
@@ -110,7 +111,14 @@ public class User {
         this.generalLocation = getGL(zipcode);
     }
     
-    /*
+	public int getStarsnumber() {
+		return starsnumber;
+	}
+	public void setStarsnumber(int starsnumber) {
+		this.starsnumber = starsnumber;
+	}
+    
+    
     public void rate(int stars) {
     	this.starsnumber++;
     	this.stars+=stars;
@@ -122,7 +130,18 @@ public class User {
     	return this.stars/this.starsnumber;
     	return 6;
     }
-    */
+	public int getNotify() {
+		return notify;
+	}
+	public void setNotify(int notify) {
+		this.notify = notify;
+	}
+	public void addToNotify() {
+		this.notify++;
+	}
+	public void subtractFromNotify() {
+		this.notify--;
+	}
 
 }
 

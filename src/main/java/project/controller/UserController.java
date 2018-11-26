@@ -1,5 +1,7 @@
 package project.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import project.persistence.entities.Item;
 import project.persistence.entities.User;
 import project.service.ItemService;
 import project.service.UserService;
@@ -35,7 +39,7 @@ public class UserController {
     public String nyskra(Model model){
     	
     	model.addAttribute("user", new User());
-    	 
+
         return "Nyskra";
     }
     
@@ -157,6 +161,7 @@ public class UserController {
     		return "Settings";
     	} 
             
+    	itemService.changeName(userName,user.getUserName());
     	theuser.setUserName(user.getUserName());     
     	theuser.setPassword(user.getPassword());      
     	theuser.setEmail(user.getEmail());
@@ -188,6 +193,7 @@ public class UserController {
     	if(userId==null)
     		return "Innskra";
     	
+    	
        User user = this.userService.findByuserName(userName);
 
        model.addAttribute("user", user);
@@ -209,7 +215,13 @@ public class UserController {
         String userName = (String) httpSession.getAttribute("loggedInUsername");     
     	
         User theuser = userService.findByuserName(userName);
+        Item item = new Item();
         
+        if(userName == item.getAcceptedUser()) 
+        	userName="";
+        	item.setAcceptedUser("");
+        	
+        itemService.deleteUserLinks(userName);
         userService.delete(theuser);
         
         model.addAttribute("items",itemService.findAllReverseOrder());

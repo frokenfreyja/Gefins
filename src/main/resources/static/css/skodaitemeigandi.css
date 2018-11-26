@@ -3,157 +3,131 @@ html {
 	font-size: 16px;
 	line-height: 1.5;
 }
-
-*,
-*:before,
-*:after {
+*, *:before, *:after {
 	box-sizing: inherit;
 	padding: 0;
 	margin: 0;
 }
-
 body {
 	margin: auto;
 	overflow-x: hidden;
 	font-family: 'Open Sans', sans-serif;
 }
-
 main {
 	margin: 0 auto;
 	overflow-x: hidden;
 }
-
-
 /* Header */
-
 header {
 	position: relative;
 	z-index: 2;
 }
-
 .header-container {
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	position: relative;
 }
-
 .header-bg {
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	height: 400px;
+	height: 500px;
 	background-position: center;
 	background-size: cover;
 	position: relative;
 	color: white;
 	font-size: 25px;
 }
-
-.h-wrapper {
+.m-title {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: #fffbf9;
-	z-index: 10;
-	position: relative;
-	height: 0px;
+	padding-top: 1em;
 }
-
 .m-title h1 {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 600;
 	letter-spacing: 10px;
 	font-size: 120px;
 }
-
 .m-title h1 a {
 	text-decoration: none;
 	color: #05EDFF;
 }
-
-
 /* NAVIGATION BAR Í HEADER */
 .navbar {
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 230px;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 130px;
+	z-index: 20;
+	box-shadow: none;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
-
 .nav {
-  display: flex;
-  height: 70px;
+	list-style: none;
+	display: flex;
+	height: 70px;
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
 	background-position: center;
 	background-size: cover;
-  justify-content: flex-end;
+	justify-content: flex-end;
 	align-items: center;
 	position: fixed;
-  width: 100%;
+	width: 100%;
 }
-
 .navbar a {
-  float: right;
-  font-size: 25px;
-  color: white;
-  text-align: center;
-  padding: 20px 53px;
-  text-decoration: none;
+	float: right;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	padding: 20px 53px;
+	text-decoration: none;
 }
-
 .dropdown {
-  float: left;
-  overflow: hidden;
+	float: left;
+	overflow: hidden;
 }
-
 .dropdown .dropbtn {
-  font-size: 25px;    
-  border: none;
-  outline: none;
-  color: white;
-  padding: 20px 53px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+	font-size: 25px;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 20px 53px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
 }
-
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.2);
 }
-
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.2);
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
 }
-
 .dropdown-content a {
-  float: none;
-  color:white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+	float: none;
+	color:white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
-
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #05EDFF;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #05EDFF;
 }
-
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
-
-
-/*   EFNI  */
-
+/* VALIÐ ITEM BIRT FYRIR EIGANDA ITEMS */
 .main {
 	max-width: 2000px;
 	margin: 0 auto;
 }
-
 .main__grid {
 	display: flex;
 	flex-wrap: wrap;
@@ -161,7 +135,6 @@ header {
 	padding-bottom: 20px;
 	width: 100%;
 }
-
 .main__row {
 	display: flex;
 	margin-top: 40px;
@@ -171,40 +144,33 @@ header {
 	flex-wrap: wrap;
 	width: 100%;
 }
-
 .main__col {
 	width: 25%;
 	padding-top: 80px;
-	padding-right: 10px;
+	padding-right: 30px;
 	padding-bottom: 20px;
-	padding-left: 60px;
 }
-
-table.itemtafla tr th {
+table.oneitemtable th {
 	font-size: 2em;
 	margin-top: 2em;
 	text-align: left;
 }
-
-.titill {
+.title {
 	padding-top: 1em;
 	text-align: left;
 	font-size: 1.5em;
 	padding-right: 1em;
 }
-
-.efni {
+.info {
 	padding-top: 1em;
 	text-align: left;
 	font-size: 1.5em;
 }
-
 .submit {
 	padding-top: 5px;
 	padding-bottom: 2em;
 }
-
-.rodbutton {
+.queuebutton {
 	width: 100%;
 	background-color: black;
 	color: white;
@@ -219,39 +185,32 @@ table.itemtafla tr th {
 	border-color: black;
 	font-weight: bold;
 }
-
-.rodbutton:hover {
+.queuebutton:hover {
 	background-color: #05EDFF;
 	color: black;
 	border-color: #05EDFF;
 }
-
 .img {
 	width: 100%;
 	height: 100%;
-
 	display: flex;
-  justify-content: center;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 .userImg {
 	padding-top: 40px;
 	font-size: 20px;
 	padding-right: 20px;
-
-	width: 27%;
+	width: 30%;
 	display: flex;
 	justify-content: space-between;
-  align-items: center;
+	align-items: center;
 }
-
 .img img {
 	max-width: 100%;
 	max-height: 100%;
 }
-
 /* FÓTUR */
-
 .footer {
 	width: 100%;
 	margin-top: 20px;
@@ -260,26 +219,22 @@ table.itemtafla tr th {
 	background-size: cover;
 	position: relative;
 }
-
 .footer__grid {
 	max-width: 1200px;
 	padding-top: 10px;
 	padding-bottom: 60px;
 	margin: 0 auto;
 }
-
 .footer__row {
 	display: flex;
 	margin-right: -10px;
 	margin-left: -10px;
 }
-
 .footer__col {
 	width: 25%;
 	padding-right: 10px;
 	padding-left: 10px;
 }
-
 .footer__links {
 	margin-top: 20px;
 	display: flex;
@@ -287,7 +242,6 @@ table.itemtafla tr th {
 	list-style: none;
 	flex-direction: column;
 }
-
 .footer__link {
 	font-family: "Open Sans", helvetica, sans-serif;
 	font-size: 24px;
@@ -298,11 +252,9 @@ table.itemtafla tr th {
 	transition-duration: 300ms;
 	transition-property: color;
 }
-
 .footer__link:hover {
 	color: #05EDFF;
 }
-
 .footer__credit {
 	color: white;
 	padding-bottom: 60px;

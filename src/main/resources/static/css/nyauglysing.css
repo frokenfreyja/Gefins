@@ -128,18 +128,13 @@ header {
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
-.col {
-	padding-right: 10px;
-	padding-left: 10px;
+.col-extra {
+	width: 22%;
 }
-.col1-empty {
-	width: 23%;
-}
-.col2-form {
+.col-main {
 	display: flex;
 	flex-direction: column;
-	width: 70%;
-			margin-left: 4em;
+	width: 61%;
 }
 /* FORM FYRIR NÝJA AUGLÝSINGU */
 .newadvert {
@@ -154,6 +149,14 @@ header {
 }
 .checkcategories {
 	font-size: 20px;
+	background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 320px;
+	font-size: 20px;
+	outline: none !important;
+	outline-color: white !important;
 }
 .imgbutton {
 	padding: 5px 10px 5px 10px;
@@ -169,9 +172,8 @@ header {
 	border-color: #05EDFF;
 }
 .submit {
-	float: right;
 	padding-top: 3em;
-	padding-right: 33em;
+	padding-bottom: 3em;
 }
 .formbutton {
 	background-color: black;
@@ -186,6 +188,7 @@ header {
 	border-radius: 3px;
 	border-color: black;
 	font-weight: bold;
+	width: 100%;
 }
 .formbutton:hover {
 	background-color: #05EDFF;
@@ -202,16 +205,16 @@ table.newadvertise tr td:nth-child(3) {
 	padding-left: 4em;
 }
 textarea[type=text] {
-		 width: 100%;
-		 padding-top: 16px;
-		 padding-left: 17px;
-		 margin: 8px 0;
-		 box-sizing: border-box;
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 17px;
+	margin: 8px 0;
+	box-sizing: border-box;
 }
 textarea[type=text]:focus {
-		 outline: none !important;
-		 border:1px #5a5a5a;
-		 box-shadow: 0 0 10px #5a5a5a;
+	outline: none !important;
+	border:1px #5a5a5a;
+	box-shadow: 0 0 10px #5a5a5a;
 }
 /* FÓTUR */
 .footer {

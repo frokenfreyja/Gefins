@@ -40,6 +40,8 @@ public interface ItemService {
      */
     Item findOne(Long id);
 
+    void changeName(String userName, String newName);
+    void deleteUserLinks(String userName);
 
     List<Item> findByItemName(String itemName);
     
@@ -49,13 +51,13 @@ public interface ItemService {
     //ItemService
   	List<Item> findByuserName(String userName);
      
-    List<Item> findByusers(User user);
+    List<Item> findByusers(String user);
     
   	List<Item> findByTag(String tag);
   	
   	List<Item> findByZipcode(Integer zipcode);
   	
-    List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description);
+    List<Item> findByItemNameContainsIgnoreCaseOrDescriptionContainsIgnoreCase(String itemname, String description);
  
     List<Item> findByZipcodeAndTag(Integer zipcode, String tag);
 

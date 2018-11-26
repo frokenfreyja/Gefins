@@ -34,13 +34,13 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
   	List<Item> findByuserName(String userName);
 
-  	List<Item> findByusers(User user);
+  	List<Item> findByusers(String user);
   	
   	List<Item> findByTag(String tag);
   	
   	List<Item> findByZipcode(Integer zipcode);
   	
-    List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description);
+    List<Item> findByItemNameContainsIgnoreCaseOrDescriptionContainsIgnoreCase(String itemname, String description);
 
     List<Item> findByZipcodeAndTag(Integer zipcode, String tag);
     

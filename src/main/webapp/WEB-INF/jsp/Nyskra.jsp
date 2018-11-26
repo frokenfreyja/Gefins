@@ -12,6 +12,7 @@
                     <title>Nyskra</title>
                     <link rel="stylesheet" type="text/css" href="<c:url value=" /css/nyskra.css "/>"/>
                 </head>
+                
                 <script>
                     function myFunction() {
                         var x = document.getElementById("Demo");
@@ -23,6 +24,7 @@
                     }
                 </script>
                 <body>
+                
                     <header>
                         <div class="header-container">
                             <div class="header-bg">
@@ -32,77 +34,82 @@
                                         <a href="/innskra">Innskrá</a>
                                     </div>
                                 </div>
-                                <div class="h-wrapper">
-                                    <div class="m-title">
-                                        <h1><a href="/forsida">GEFINS</a></h1>
-                                    </div>
+                                <div class="m-title">
+                                    <h1><a href="/forsida">GEFINS</a></h1>
                                 </div>
                             </div>
                         </div>
                     </header>
+                    
                     <main>
                         <div class="grid">
                             <div class="row">
-                                <div class="col col1-empty">
+                                <div class="col col-extra">
                                 </div>
-                                <div class="col col-left">
-                                    <p class="createuser">Nýskráning</p>
-                                    <sf:form method="POST" modelAttribute="user" action="/nyskra">
-                                        <table class="create">
-                                            <tr>
-                                                <td> Notendanafn:</td>
-                                                <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                                                    <td>
-                                                        <sf:input path="userName" type="text" class="createbox" placeholder="" required="required" />
-                                                    </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lykilorð:</td>
-                                                <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                                                    <td>
-                                                        <sf:input path="password" type="text" class="createbox" placeholder="" required="required" />
-                                                    </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Netfang:</td>
-                                                <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                                                    <td>
-                                                        <sf:input path="email" type="text" class="createbox" placeholder="" required="required" />
-                                                    </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Símanúmer:</td>
-                                                <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                                                    <td>
-                                                        <sf:input path="phone" type="text" maxlength="7" class="createbox" placeholder="" required="required" />
-                                                    </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Heimilisfang:</td>
-                                                <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                                                    <td>
-                                                        <sf:input path="location" type="text" class="createbox" placeholder="" required="required" />
-                                                    </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Póstnúmer:</td>
-                                                <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
-                                                    <td>
-                                                        <sf:input path="zipcode" type="text" maxlength="3" class="createbox" placeholder="" required="required" />
-                                                    </td>
-                                            </tr>
-                                        </table>
-                                        <div class="errorMessage">
-                                            <c:if test="${not empty nyskraError}">
-                                                ${nyskraError}
-                                            </c:if>
-                                        </div>
-                                        <div class="submit">
-                                            <input type="submit" class="createbutton" VALUE="Nýskrá" />
-                                        </div>
-                                    </sf:form>
+                                <div class="col col-main">
+                                    <%-- Form til þess að skrá nýjan notanda--%>
+                                        <p class="createuser">Nýskráning</p>
+                                        <sf:form method="POST" modelAttribute="user" action="/nyskra">
+                                            <table class="create">
+                                                <tr>
+                                                    <td> Notendanafn:</td>
+                                                    <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:input path="userName" type="text" class="createbox" placeholder="" required="required" />
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lykilorð:</td>
+                                                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:input path="password" type="text" class="createbox" placeholder="" required="required" />
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Netfang:</td>
+                                                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:input path="email" type="text" class="createbox" placeholder="" required="required" />
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Símanúmer:</td>
+                                                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:input path="phone" type="text" maxlength="7" class="createbox" placeholder="" required="required" />
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Heimilisfang:</td>
+                                                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:input path="location" type="text" class="createbox" placeholder="" required="required" />
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Póstnúmer:</td>
+                                                    <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:input path="zipcode" type="text" maxlength="3" class="createbox" placeholder="" required="required" />
+                                                        </td>
+                                                </tr>
+                                            </table>
+                                            <div class="errorMessage">
+                                                <c:if test="${not empty nyskraError}">
+                                                    ${nyskraError}
+                                                </c:if>
+                                            </div>
+                                            <div class="submit">
+                                                <input type="submit" class="createbutton" VALUE="Nýskrá" />
+                                            </div>
+                                        </sf:form>
                                 </div>
+                                <div class="col col-extra">
+                                </div>
+                            </div>
+                        </div>
                     </main>
+                    
                     <footer class="footer">
                         <div class="footer__grid">
                             <div class="footer__row">

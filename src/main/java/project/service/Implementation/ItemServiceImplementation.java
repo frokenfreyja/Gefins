@@ -32,6 +32,7 @@ public class ItemServiceImplementation implements ItemService {
     public void delete(Item item) {
         repository.delete(item);
     }
+    
 
     @Override
     public List<Item> findAll() {
@@ -53,6 +54,33 @@ public class ItemServiceImplementation implements ItemService {
     public Item findOne(Long id) {
         return repository.findOne(id);
     }
+    
+    @Override
+    public void changeName(String userName, String newName) {
+    	List<Item> items = findByuserName(userName);
+    	for(int i=0; i<items.size(); i++){
+    		items.get(i).setUserName(newName);
+    	}
+    	items = findByusers(userName);
+    	for(int i=0; i<items.size(); i++){
+    		items.get(i).getUsers().set(items.get(i).getUsers().indexOf(userName), newName);
+    	}
+    		
+    }
+    
+    @Override
+    public void deleteUserLinks(String userName) {
+		
+		List<Item> items = findByuserName(userName);
+		for(int i=0; i<items.size(); i++){
+    		delete(items.get(i));
+    	}
+		
+		items = findByusers(userName);
+    	for(int i=0; i<items.size(); i++){
+    		items.get(i).getUsers().remove(userName);
+    	}
+	}
   
     @Override
     public List<Item> findByItemName(String itemName) {
@@ -70,7 +98,7 @@ public class ItemServiceImplementation implements ItemService {
     }
     
     @Override
-    public List<Item> findByusers(User user) {
+    public List<Item> findByusers(String user) {
       	return repository.findByusers(user);
     }
     
@@ -90,8 +118,8 @@ public class ItemServiceImplementation implements ItemService {
     }
     
     @Override
-    public List<Item> findByItemNameContainsOrDescriptionContains(String itemname, String description) {
-        return repository.findByItemNameContainsOrDescriptionContains(itemname, description);
+    public List<Item> findByItemNameContainsIgnoreCaseOrDescriptionContainsIgnoreCase(String itemname, String description) {
+        return repository.findByItemNameContainsIgnoreCaseOrDescriptionContainsIgnoreCase(itemname, description);
     }
     
     @Override    

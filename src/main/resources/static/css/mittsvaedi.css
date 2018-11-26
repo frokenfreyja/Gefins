@@ -3,40 +3,30 @@ html {
 	font-size: 16px;
 	line-height: 1.5;
 }
-
-*,
-*:before,
-*:after {
+*, *:before, *:after {
 	box-sizing: inherit;
 	padding: 0;
 	margin: 0;
 }
-
 body {
 	margin: auto;
 	overflow-x: hidden;
 	font-family: 'Open Sans', sans-serif;
 }
-
 main {
 	margin: 0 auto;
 	overflow-x: hidden;
 }
-
-
 /* Header */
-
 header {
 	position: relative;
 	z-index: 2;
 }
-
 .header-container {
 	width: 100%;
 	height: 500px;
 	position: relative;
 }
-
 .header-bg {
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
 	height: 500px;
@@ -46,7 +36,6 @@ header {
 	color: white;
 	font-size: 25px;
 }
-
 .h-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -57,101 +46,86 @@ header {
 	position: relative;
 	height: 0px;
 }
-
 .m-title h1 {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 600;
 	letter-spacing: 10px;
 	font-size: 120px;
 }
-
 .m-title h1 a {
 	text-decoration: none;
 	color: #05EDFF;
 }
-
-
 /* NAVIGATION BAR Í HEADER */
 .navbar {
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 230px;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 230px;
 }
-
 .nav {
-  display: flex;
-  height: 70px;
+	display: flex;
+	height: 70px;
 	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
 	background-position: center;
 	background-size: cover;
-  justify-content: flex-end;
+	justify-content: flex-end;
 	align-items: center;
 	position: fixed;
-  width: 100%;
+	width: 100%;
 }
-
 .navbar a {
-  float: right;
-  font-size: 25px;
-  color: white;
-  text-align: center;
-  padding: 20px 53px;
-  text-decoration: none;
+	float: right;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	padding: 20px 53px;
+	text-decoration: none;
 }
-
 .dropdown {
-  float: left;
-  overflow: hidden;
+	float: left;
+	overflow: hidden;
 }
-
 .dropdown .dropbtn {
-  font-size: 25px;    
-  border: none;
-  outline: none;
-  color: white;
-  padding: 20px 53px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+	font-size: 25px;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 20px 53px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
 }
-
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.2);
 }
-
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.2);
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
 }
-
 .dropdown-content a {
-  float: none;
-  color:white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+	float: none;
+	color:white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
 }
-
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #05EDFF;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: #05EDFF;
 }
-
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
-
-/* EFNI */
+/* AUGLÝSINGAR NOTANDA OG AUGLÝSINGAR Í RÖÐ */
 .main {
 	max-width: 2000px;
 	margin: 0 auto;
 }
-
 .main__grid {
 	display: flex;
 	flex-wrap: wrap;
@@ -159,14 +133,12 @@ header {
 	padding-bottom: 20px;
 	width: 100%;
 }
-
 .main__row {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
 }
-
 .main__col {
 	width: 50%;
 	padding-top: 80px;
@@ -174,73 +146,60 @@ header {
 	padding-bottom: 20px;
 	padding-left: 60px;
 }
-.titill {
+.title {
 	margin-top: 60px;
 }
-
 table.formtable {
 	width: 95%;
 	border-spacing: 1em;
 	border-collapse: separate;
 	padding-bottom: 3em;
 }
-
 .rows {
 	box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
-
 .formtable td {
 	padding: 15px;
+	padding-left: 30px;
 	text-align: left;
 }
-
 .formtable th {
 	padding: 15px;
 	text-align: left;
 }
-
 table.formtable tr:nth-child(even) {
 	background-color: white;
 }
-
 table.formtable tr:nth-child(odd) {
 	background-color: white;
 	text-decoration: none;
 }
-
 .rows a:link {
 	text-decoration: none;
 	color: black;
 }
-
 .rows a:visited {
 	text-decoration: none;
 }
-
 .rows a:hover {
 	text-decoration: none;
 	color: pink;
 }
-
 .rows a:active {
 	text-decoration: underline;
 }
-
 .img {
 	width: 150px;
 	height: 150px;
-	
 	display: flex;
-  justify-content: center;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
 }
-
 .img img {
 	max-width: 100%;
 	max-height: 100%;
 }
-
-.eydabutton {
+.deletebutton {
 	background-color: black;
 	color: white;
 	padding: 10px 25px;
@@ -254,16 +213,29 @@ table.formtable tr:nth-child(odd) {
 	border-color: black;
 	font-weight: bold;
 }
-
 .eydabutton:hover {
 	background-color: #05EDFF;
 	color: black;
 	border-color: #05EDFF;
 }
 
+.notifyImg {
+	width: 25px;
+	height: 25px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
+.notifyImg img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.afterDot {
+	padding-left: 12px;
+}
 /* FÓTUR */
-
 .footer {
 	width: 100%;
 	margin-top: 20px;
@@ -272,26 +244,22 @@ table.formtable tr:nth-child(odd) {
 	background-size: cover;
 	position: relative;
 }
-
 .footer__grid {
 	max-width: 1200px;
 	padding-top: 10px;
 	padding-bottom: 60px;
 	margin: 0 auto;
 }
-
 .footer__row {
 	display: flex;
 	margin-right: -10px;
 	margin-left: -10px;
 }
-
 .footer__col {
 	width: 25%;
 	padding-right: 10px;
 	padding-left: 10px;
 }
-
 .footer__links {
 	margin-top: 20px;
 	display: flex;
@@ -299,7 +267,6 @@ table.formtable tr:nth-child(odd) {
 	list-style: none;
 	flex-direction: column;
 }
-
 .footer__link {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
@@ -310,11 +277,9 @@ table.formtable tr:nth-child(odd) {
 	transition-duration: 300ms;
 	transition-property: color;
 }
-
 .footer__link:hover {
 	color: #05EDFF;
 }
-
 .footer__credit {
 	color: white;
 	padding-bottom: 60px;

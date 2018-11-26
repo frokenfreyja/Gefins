@@ -39,14 +39,11 @@ header {
 	color: white;
 	font-size: 25px;
 }
-.h-wrapper {
+.m-title {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: #fffbf9;
-	z-index: 10;
-	position: relative;
 }
 .m-title h1 {
 	font-family: 'Oswald', sans-serif;
@@ -57,10 +54,20 @@ header {
 	color: #05EDFF;
 }
 .undertitle {
-	font-family: 'Oswald', sans-serif;
-	font-weight: 600;
-	font-size: 50px;
-	color: #05EDFF;
+			font-family: 'Oswald', sans-serif;
+			font-weight: 600;
+			font-size: 50px;
+			color: #05EDFF;
+			display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+	 align-items: center;
+}
+.newadvert {
+	display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 .header-btn {
 	position: relative;
@@ -181,8 +188,8 @@ display: block;
 /* FORSÍÐAN - SEARCH */
 .searchfield {
 	 margin-top: 4em;
-	 margin-left: 3em;
-	 width: 53%;
+	 margin-left: 2.5em;
+	 width: 55%;
 	 float: left;
 	 height: 100px;
 	 display: inline-block;
@@ -243,7 +250,7 @@ input[type=text]:focus {
 }
 /* LEITA EFTIR STAÐSETNINGU OG FLOKKI */
 .text {
-	 margin-top: 8em;
+	 margin-top: 11em;
 	 font-size: 1.5em;
 }
 .text_title {
@@ -324,7 +331,7 @@ table.adverttable {
 .advert {
 	 font-size: 1.7em;
 	 margin-bottom: 0.6em;
-	 padding: 10px 15px 15px 30px;
+	 padding: 10px 15px 15px 500px;
 	 font-weight: bold;
 }
 .rows {
@@ -335,10 +342,12 @@ table.adverttable {
 }
 .adverttable td {
 	 padding: 15px;
+	 padding-left: 60px;
 	 text-align: left;
 }
 .adverttable th {
 	 padding: 15px;
+	 padding-left: 60px;
 	 text-align: left;
 }
 table.adverttable tr:nth-child(even) {
@@ -364,67 +373,83 @@ table.adverttable tr:nth-child(odd) {
 	 text-decoration: underline;
 }
 .img {
-	 width: 150px;
-	 height: 150px;
+	 width: 200px;
+	 height: 200px;
 	 display: flex;
 	 justify-content: center;
 	 align-items: center;
 }
+.notifyImg {
+	width: 30px;
+	height: 30px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .img img {
 	 max-width: 100%;
 	 max-height: 100%;
 }
+.notifyImg img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.afterDot {
+	padding-left: 20px;
+}
 /* FÓTUR */
 .footer {
-	width: 100%;
-	margin-top: 20px;
-	background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-	background-position: center;
-	background-size: cover;
-	position: relative;
+	 width: 100%;
+	 margin-top: 20px;
+	 background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+	 background-position: center;
+	 background-size: cover;
+	 position: relative;
 }
 .footer__grid {
-	max-width: 1200px;
-	padding-top: 10px;
-	padding-bottom: 60px;
-	margin: 0 auto;
+	 max-width: 1200px;
+	 padding-top: 10px;
+	 padding-bottom: 60px;
+	 margin: 0 auto;
 }
 .footer__row {
-	display: flex;
-	margin-right: -10px;
-	margin-left: -10px;
+	 display: flex;
+	 margin-right: -10px;
+	 margin-left: -10px;
 }
 .footer__col {
-	width: 25%;
-	padding-right: 10px;
-	padding-left: 10px;
+	 width: 25%;
+	 padding-right: 10px;
+	 padding-left: 10px;
 }
 .footer__links {
-	margin-top: 20px;
-	display: flex;
-	height: 100%;
-	list-style: none;
-	flex-direction: column;
+	 margin-top: 20px;
+	 display: flex;
+	 height: 100%;
+	 list-style: none;
+	 flex-direction: column;
 }
 .footer__link {
-	font-family: "Open Sans", helvetica, sans-serif;
-	font-size: 24px;
-	line-height: 1.8;
-	color: white !important;
-	text-decoration: none;
-	transition-timing-function: ease-in-out;
-	transition-duration: 300ms;
-	transition-property: color;
+	 font-family: "Open Sans", helvetica, sans-serif;
+	 font-size: 24px;
+	 line-height: 1.8;
+	 color: white !important;
+	 text-decoration: none;
+	 transition-timing-function: ease-in-out;
+	 transition-duration: 300ms;
+	 transition-property: color;
 }
 .footer__link:hover {
-	color: #05EDFF;
+	 color: #05EDFF;
 }
 .footer__credit {
-	color: white;
-	padding-bottom: 60px;
-	margin: 0 auto;
-	font-family: "Open Sans", helvetica, sans-serif;
-	font-size: 16px;
-	text-align: center;
-	justify-content: center;
+	 color: white;
+	 padding-bottom: 60px;
+	 margin: 0 auto;
+	 font-family: "Open Sans", helvetica, sans-serif;
+	 font-size: 16px;
+	 text-align: center;
+	 justify-content: center;
 }

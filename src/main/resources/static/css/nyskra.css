@@ -35,15 +35,14 @@ header {
 	position: relative;
 	color: white;
 	font-size: 25px;
+	align-items: center;
 }
-.h-wrapper {
+.m-title {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: #fffbf9;
-	z-index: 10;
-	position: relative;
+	padding-top: 1em;
 }
 .m-title h1 {
 	font-family: 'Oswald', sans-serif;
@@ -96,15 +95,13 @@ header {
 	margin-top: 20px;
 }
 .col {
-	padding-right: 10px;
 	padding-bottom: 30px;
 }
-.col1-empty {
-	width: 8%;
+.col-extra {
+	width: 40%;
 }
-.col-left {
-	padding-left: 42em;
-	width: 80%;
+.col-main {
+	width: 20%;
 }
 /* NÝSKRÁNING */
 .createuser {
@@ -114,14 +111,15 @@ header {
 	font-weight: bold;
 }
 .create td {
-	padding: 15px 15px 15px 0;
+	padding: 15px 5px 15px 0;
 	text-align: left;
 	font-weight: bold;
 	font-size: 20px;
 }
-.loginbox {
-	width: 200px;
+.createbox {
+	width: 300px;
 	font-size: 20px;
+	padding-left: 10px;
 }
 input[type=text] {
 	width: 100%;
@@ -140,9 +138,6 @@ input[type=text]:focus {
 	color: red;
 }
 .submit {
-	float: right;
-	padding-top: 2em;
-	padding-right: 40em;
 	margin-bottom: 3em;
 }
 .createbutton {
@@ -158,6 +153,7 @@ input[type=text]:focus {
 	border-radius: 3px;
 	border-color: black;
 	font-weight: bold;
+	width: 100%;
 }
 .createbutton:hover {
 	background-color: #05EDFF;

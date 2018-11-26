@@ -2,6 +2,7 @@ package project.persistence.entities;
 
 import javax.persistence.*;
 import javax.swing.ImageIcon;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -39,9 +40,14 @@ public class Item {
     @Transient
     private MultipartFile mynd;
     private String myndName;
-   
-    @OneToMany
-    private List<User> users;
+
+    
+    @ElementCollection
+    @CollectionTable(
+          name="username"
+    )
+    @Column(name="USERS_NAMES")
+     private List<String> users;
 
     
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -50,8 +56,8 @@ public class Item {
     }
 
     public Item(Long id, String userName, Long userId, String acceptedUser, String pickupTime, String description, MultipartFile mynd, String myndName, String location,
-    		String generalLocation, String phone, String itemName, String email, Integer zipcode,List<User> users,
-    		String tag, String authorized, List<String> usersNames) {
+    		String generalLocation, String phone, String itemName, String email, Integer zipcode,List<String> users, 
+    		String tag, String authorized) {
     	
     	this.id = id;
     	this.userId = userId;
@@ -123,30 +129,19 @@ public class Item {
 		this.pickupTime = pickupTime;
 	}
 	
-	public List<User> getUsers() {
-		return this.users;
+
+	public List<String> getUsers() {
+		return users;
 	}
 	
-	public List<String> getUsersNames() {
-		List<String> a = new ArrayList<>();
-		for(int i=0; i<this.users.size(); i++) {
-			a.add(this.users.get(i).getUserName());
-		}
-		return a;
-	
-	}
-	
-	public void addUsers(User user) {
-		this.users.add(user);
-		
+	public void addUsers(String user) {
+		this.users.add(user);	
 	}
 
-	public void removeUsers(User user) {
-		
-		this.users.remove(user);
-		
+	public void removeUsers(String user) {	
+		this.users.remove(user);	
 	}
-
+	
 	public String getDescription() {
 		return description;
 	}

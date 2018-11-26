@@ -1,415 +1,409 @@
 /* SETJUM BOX-SIZING: BORDER-BOX Á ALLT */
  html {
-     box-sizing: border-box;
-     font-size: 16px;
-     line-height: 1.5;
+   box-sizing: border-box;
+   font-size: 16px;
+   line-height: 1.5;
 }
  *, *:before, *:after {
-     box-sizing: inherit;
-     padding: 0;
-     margin: 0;
+   box-sizing: inherit;
+   padding: 0;
+   margin: 0;
 }
  body {
-     margin: auto;
-     overflow-x: hidden;
-     font-family: 'Open Sans', sans-serif;
+   margin: auto;
+   overflow-x: hidden;
+   font-family: 'Open Sans', sans-serif;
 }
  main {
-     margin: 0 auto;
-     overflow-x: hidden;
+   margin: 0 auto;
+   overflow-x: hidden;
 }
 /* Header */
  header {
-     position: relative;
-     z-index: 2;
+   position: relative;
+   z-index: 2;
 }
  .header-container {
-     width: 100%;
-     height: 900px;
-     position: relative;
+   width: 100%;
+   height: 900px;
+   position: relative;
 }
  .header-bg {
-     background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-     height: 900px;
-     background-position: center;
-     background-size: cover;
-     position: relative;
-     color: white;
-     font-size: 1.5625em;
+   background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+   height: 900px;
+   background-position: center;
+   background-size: cover;
+   position: relative;
+   color: white;
+   font-size: 1.5625em;
 }
 /*Navigation bar forsíða*/
  .navbar {
-     height: 140px;
-     z-index: 20;
-     box-shadow: none;
-     width: 100%;
-     display: flex;
-		 flex-direction: column;
+   height: 140px;
+   z-index: 20;
+   box-shadow: none;
+   width: 100%;
+   display: flex;
+     flex-direction: column;
 }
  .nav {
-     list-style: none;
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-     width: auto;
-     margin: 0;
-     padding: 0;
-     height: 70px;
-     background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-     background-position: center;
-     background-size: cover;
-     position: fixed;
-     width: 100%;
+   list-style: none;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   width: auto;
+   margin: 0;
+   padding: 0;
+   height: 70px;
+   background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+   background-position: center;
+   background-size: cover;
+   position: fixed;
+   width: 100%;
 }
  .nav a {
-     margin: 0 30px;
-     position: relative;
-     color: white;
-     text-decoration: none;
+   margin: 0 30px;
+   position: relative;
+   color: white;
+   text-decoration: none;
 }
  .nav a:hover {
-     color: #05EDFF;
+   color: #05EDFF;
 }
- .h-wrapper {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     color: #fffbf9;
-     z-index: 10;
-     position: relative;
+.m-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1em;
 }
  .m-title h1 {
-     font-family: 'Oswald', sans-serif;
-     font-weight: 600;
-     letter-spacing: 10px;
-     font-size: 180px;
-     margin-top: 90px;
-     color: #05EDFF;
+   font-family: 'Oswald', sans-serif;
+   font-weight: 600;
+   letter-spacing: 10px;
+   font-size: 180px;
+   margin-top: 90px;
+   color: #05EDFF;
 }
  .undertitle {
-     font-family: 'Oswald', sans-serif;
-     font-weight: 600;
-     font-size: 50px;
-     color: #05EDFF;
+   font-family: 'Oswald', sans-serif;
+   font-weight: 600;
+   font-size: 50px;
+   color: #05EDFF;
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
  .header-btn {
-     position: relative;
-     top: 80px;
+   position: relative;
+   top: 80px;
 }
  .header-btn a {
-     display: inline-block;
-     position: absolute;
-     text-align: center;
-     width: 100%;
-     height: 100%;
+   display: inline-block;
+   position: absolute;
+   text-align: center;
+   width: 100%;
+   height: 100%;
 }
  .btn {
-     color: black;
-     font-family: 'Oswald', sans-serif;
-     font-weight: 600;
-     width: 240px;
-     height: 50px;
-     border-radius: 3px;
-     background: #05EDFF;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     cursor: pointer;
-     font-size: 20px;
-     letter-spacing: 1px;
-     transition: all 0.1s ease;
+   color: black;
+   font-family: 'Oswald', sans-serif;
+   font-weight: 600;
+   width: 240px;
+   height: 50px;
+   border-radius: 3px;
+   background: #05EDFF;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   font-size: 20px;
+   letter-spacing: 1px;
+   transition: all 0.1s ease;
 }
  .btn:hover {
-     color: white;
-     background: black!important;
+   color: white;
+   background: black!important;
 }
  .btn-disabled {
-     background: #727f7e !important;
-     width: 100% !important;
-     transition: all 0.3s ease !important;
-     color: #fff;
-     border-radius: 3px;
-     letter-spacing: 1px;
-     margin: 8px auto !important;
-}
- a.gefins {
-     font-size: 4.5em;
-     font-weight: bold;
-     padding-left: 0.5em;
-     padding-top: 0.7em;
-     font-family: 'Roboto Slab', serif;
-     text-decoration: none;
-     color: white;
+   background: #727f7e !important;
+   width: 100% !important;
+   transition: all 0.3s ease !important;
+   color: #fff;
+   border-radius: 3px;
+   letter-spacing: 1px;
+   margin: 8px auto !important;
 }
 /* SÍÐAN SETT UPP Í GRID */
  .row {
-     display: flex;
-     flex-wrap: wrap;
-     margin-bottom: 20px;
-     margin-top: 20px;
+   display: flex;
+   flex-wrap: wrap;
+   margin-bottom: 20px;
+   margin-top: 20px;
 }
  .col {
-     padding-right: 10px;
-     padding-left: 10px;
+   padding-right: 10px;
+   padding-left: 10px;
 }
- .col3-left {
-     width: 22%;
-     padding-left: 2.5em;
+ .col-left {
+   width: 22%;
+   padding-left: 2.5em;
 }
- .col9-right {
-     width: 78%;
-     display: flex;
-     flex-direction: column;
+ .col-right {
+   width: 78%;
+   display: flex;
+   flex-direction: column;
 }
 /* FORSÍÐAN - SEARCH */
  .searchfield {
-     margin-top: 4em;
-     margin-left: 3em;
-     width: 53%;
-     float: left;
-     height: 100px;
-     display: inline-block;
+   margin-top: 4em;
+   margin-left: 2.5em;
+   width: 54%;
+   float: left;
+   height: 100px;
+   display: inline-block;
 }
  table.search tr td {
-     text-align: left;
-     font-size: 1.2em;
-     font-weight: bold;
+   text-align: left;
+   font-size: 1.2em;
+   font-weight: bold;
 }
  .searchicon {
-     padding-right: 0.5em;
+   padding-right: 0.5em;
 }
  .searcher {
-     height: 60px;
-     border: 1px solid #ccc;
-     border-radius: 4px;
-     font-size: 20px;
+   height: 60px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 20px;
 }
  input[type=text] {
-     width: 100%;
-     padding: 10px 20px;
-     margin: 8px 0;
-     box-sizing: border-box;
+   width: 100%;
+   padding: 10px 20px;
+   margin: 8px 0;
+   box-sizing: border-box;
 }
  input[type=text]:focus {
-     outline: none !important;
-     border:1px #5a5a5a;
-     box-shadow: 0 0 10px #5a5a5a;
+   outline: none !important;
+   border:1px #5a5a5a;
+   box-shadow: 0 0 10px #5a5a5a;
 }
  .clearbtn {
-     background-color: black;
-     color: white;
-     padding: 15px 22px;
-     text-align: center;
-     text-decoration: none;
-     font-size: 20px;
-     cursor: pointer;
-     border-radius: 3px;
-     border-color: black;
-     font-weight: bold;
-     height: 60px;
-     margin-top: 4px;
+   background-color: black;
+   color: white;
+   padding: 15px 22px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 20px;
+   cursor: pointer;
+   border-radius: 3px;
+   border-color: black;
+   font-weight: bold;
+   height: 60px;
+   margin-top: 4px;
 }
  .clearbtn:hover {
-     background-color: #05EDFF;
-     color: black;
-     border-color: #05EDFF;
-     outline: none !important;
-     border:1px #5a5a5a;
-     box-shadow: 0 0 10px #5a5a5a;
+   background-color: #05EDFF;
+   color: black;
+   border-color: #05EDFF;
+   outline: none !important;
+   border:1px #5a5a5a;
+   box-shadow: 0 0 10px #5a5a5a;
 }
  .clear {
-     margin-left: 12.2%;
-     height: 100px;
-     width: 20%;
-     position: absolute;
-     padding-top: 4.36em;
+   margin-left: 12.2%;
+   height: 100px;
+   width: 20%;
+   position: absolute;
+   padding-top: 4.36em;
 }
 /* LEITA EFTIR STAÐSETNINGU OG FLOKKI */
  .text {
-     margin-top: 8em;
-     font-size: 1.5em;
+   margin-top: 11em;
+   font-size: 1.5em;
 }
  .text_title {
-     font-size: 1.7em;
-     margin-bottom: 0.5em;
-     margin-top: 1.5em;
-     margin-left: 1.1em;
+   font-size: 1.7em;
+   margin-bottom: 0.5em;
+   margin-top: 1.5em;
+   margin-left: 1.1em;
 }
  .sortlist {
-     width: 100%;
-     margin-left: 1.3em;
-     margin-bottom: 1em;
-     color: #05EDFF;
+   width: 100%;
+   margin-left: 1.3em;
+   margin-bottom: 1em;
+   color: #05EDFF;
 }
  .category-tree {
-     padding: 0 20px;
-     margin-bottom: 1em;
+   padding: 0 20px;
+   margin-bottom: 1em;
 }
  .category-tree label {
-     cursor: pointer;
-     display: block;
+   cursor: pointer;
+   display: block;
 }
  .layer2, .layer3 {
-     margin-left: 20px;
+   margin-left: 20px;
 }
  .category-tree-cb {
-     visibility: hidden;
-     width: 0;
-     height: 0;
+   visibility: hidden;
+   width: 0;
+   height: 0;
 }
  .category-tree-label {
-     vertical-align: 2px;
-     font-family: sans-serif;
-     color: #5a5a5a;
+   vertical-align: 2px;
+   font-family: sans-serif;
+   color: #5a5a5a;
 }
  .category-tree-cb:checked + .category-tree-label {
-     font-weight: bold;
-     color: #05EDFF;
+   font-weight: bold;
+   color: #05EDFF;
 }
  .category-tree-branches {
-     display: none;
+   display: none;
 }
  .category-tree-cb:checked + .category-tree-label + .category-tree-branches {
-     display: block;
+   display: block;
 }
  .category-tree-label::before {
-     content: '';
-     display: inline-block;
-     height: 16px;
-     width: 16px;
-     vertical-align: -2px;
-     margin-right: 6px;
+   content: '';
+   display: inline-block;
+   height: 16px;
+   width: 16px;
+   vertical-align: -2px;
+   margin-right: 6px;
 }
  table.lookfor td {
-     padding-left: 0.5em;
+   padding-left: 0.5em;
 }
  table.lookfor td:nth-child(odd) {
-     font-size: 1.1em;
-     font-weight: bold;
+   font-size: 1.1em;
+   font-weight: bold;
 }
  table.adverttable {
-     width: 90%;
-     border-spacing: 1em;
-     border-collapse: separate;
-     padding-bottom: 3em;
-     margin-left: 1em;
+   width: 90%;
+   border-spacing: 1em;
+   border-collapse: separate;
+   padding-bottom: 3em;
+   margin-left: 1em;
 }
  #sorttags {
-     padding-left: 20px;
-     margin-bottom: 1em;
+   padding-left: 20px;
+   margin-bottom: 1em;
 }
 /* FORSÍÐAN - AUGLÝSINGALISTI */
  .advertlist {
-     width: 100%;
-     margin-top: 2em;
-     font-size: 1.5em;
+   width: 100%;
+   margin-top: 2em;
+   font-size: 1.5em;
 }
  .advert {
-     font-size: 1.7em;
-     margin-bottom: 0.6em;
-     padding: 10px 15px 15px 30px;
-     font-weight: bold;
+   font-size: 1.7em;
+   margin-bottom: 0.6em;
+   padding: 10px 15px 15px 500px;
+   font-weight: bold;
 }
  .rows {
-     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
  .list h3 {
-     padding-left: 1em;
+   padding-left: 1em;
 }
  .adverttable td {
-     padding: 15px;
-     text-align: left;
+   padding: 15px;
+   padding-left: 60px;
+   text-align: left;
 }
  .adverttable th {
-     padding: 15px;
-     text-align: left;
+   padding: 15px;
+   padding-left: 60px;
+   text-align: left;
 }
  table.adverttable tr:nth-child(even) {
-     background-color: white;
+   background-color: white;
 }
  table.adverttable tr:nth-child(odd) {
-     background-color: white;
-     text-decoration: none;
+   background-color: white;
+   text-decoration: none;
 }
  .rows td a:link {
-     text-decoration: none;
-     color: black;
+   text-decoration: none;
+   color: black;
 }
  .rows td a:visited {
-     text-decoration: none;
-     color: black;
+   text-decoration: none;
+   color: black;
 }
  .rows td a:hover {
-     text-decoration: none;
-     color: #05EDFF;
+   text-decoration: none;
+   color: #05EDFF;
 }
  .rows td a:active {
-     text-decoration: underline;
+   text-decoration: underline;
 }
  .img {
-     width: 150px;
-     height: 150px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+   width: 150px;
+   height: 150px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
  .img img {
-     max-width: 100%;
-     max-height: 100%;
+   max-width: 100%;
+   max-height: 100%;
 }
-
 /* FÓTUR */
  .footer {
-     width: 100%;
-     margin-top: 20px;
-     background: transparent url(../images/earth3.jpg) no-repeat fixed center;
-     background-position: center;
-     background-size: cover;
-     position: relative;
+   width: 100%;
+   margin-top: 20px;
+   background: transparent url(../images/earth3.jpg) no-repeat fixed center;
+   background-position: center;
+   background-size: cover;
+   position: relative;
 }
  .footer__grid {
-     max-width: 1200px;
-     padding-top: 10px;
-     padding-bottom: 60px;
-     margin: 0 auto;
+   max-width: 1200px;
+   padding-top: 10px;
+   padding-bottom: 60px;
+   margin: 0 auto;
 }
  .footer__row {
-     display: flex;
-     margin-right: -10px;
-     margin-left: -10px;
+   display: flex;
+   margin-right: -10px;
+   margin-left: -10px;
 }
  .footer__col {
-     width: 25%;
-     padding-right: 10px;
-     padding-left: 10px;
+   width: 25%;
+   padding-right: 10px;
+   padding-left: 10px;
 }
  .footer__links {
-     margin-top: 20px;
-     display: flex;
-     height: 100%;
-     list-style: none;
-     flex-direction: column;
+   margin-top: 20px;
+   display: flex;
+   height: 100%;
+   list-style: none;
+   flex-direction: column;
 }
  .footer__link {
-     font-family: "Open Sans", helvetica, sans-serif;
-     font-size: 24px;
-     line-height: 1.8;
-     color: white !important;
-     text-decoration: none;
-     transition-timing-function: ease-in-out;
-     transition-duration: 300ms;
-     transition-property: color;
+   font-family: "Open Sans", helvetica, sans-serif;
+   font-size: 24px;
+   line-height: 1.8;
+   color: white !important;
+   text-decoration: none;
+   transition-timing-function: ease-in-out;
+   transition-duration: 300ms;
+   transition-property: color;
 }
  .footer__link:hover {
-     color: #05EDFF;
+   color: #05EDFF;
 }
  .footer__credit {
-     color: white;
-     padding-bottom: 60px;
-     margin: 0 auto;
-     font-family: "Open Sans", helvetica, sans-serif;
-     font-size: 16px;
-     text-align: center;
-     justify-content: center;
+   color: white;
+   padding-bottom: 60px;
+   margin: 0 auto;
+   font-family: "Open Sans", helvetica, sans-serif;
+   font-size: 16px;
+   text-align: center;
+   justify-content: center;
 }

@@ -12,7 +12,7 @@
                     <link rel="stylesheet" type="text/css" href="<c:url value=" /css/innskra.css "/>"/>
                 </head>
                 <body>
-                    <header id="s0">
+                    <header>
                         <div class="header-container">
                             <div class="header-bg">
                                 <div class="navbar">
@@ -21,17 +21,19 @@
                                         <a href="/innskra">Innskrá</a>
                                     </div>
                                 </div>
-                                <div class="h-wrapper">
-                                    <div class="m-title">
-                                        <h1><a href="/forsida">GEFINS</a></h1>
-                                    </div>
+                                <div class="m-title">
+                                    <h1><a href="/forsida">GEFINS</a></h1>
                                 </div>
                             </div>
                         </div>
-                        <main>
-                            <div class="grid">
-                                <div class="row">
-                                    <div class="col col-left">
+                    </header>
+                    <main>
+                        <div class="grid">
+                            <div class="row">
+                                <div class="col col-extra">
+                                </div>
+                                <div class="col col-main">
+                                    <%-- Form til þess að skrá sig inn á síðuna--%>
                                         <p class="login">Innskráning</p>
                                         <sf:form method="POST" modelAttribute="user" action="/innskra">
                                             <table class="logintable">
@@ -42,10 +44,10 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                     <td>Lykilorð:</td>
-                                                     <td>
-                                                         <sf:input path="password" type="text" class="loginbox" placeholder="" />
-                                                     </td>
+                                                    <td>Lykilorð:</td>
+                                                    <td>
+                                                        <sf:input path="password" type="text" class="loginbox" placeholder="" />
+                                                    </td>
                                                 </tr>
                                             </table>
                                             <div class="errorMessage">
@@ -57,38 +59,42 @@
                                                 <input type="submit" class="loginbutton" VALUE="Innskrá" />
                                             </div>
                                         </sf:form>
-                                    </div>
-                        </main>
-                        <footer class="footer">
-                            <div class="footer__grid">
-                                <div class="footer__row">
-                                    <div class="footer__col">
-                                        <ul class="footer__links">
-                                            <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
-                                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer__col">
-                                        <ul class="footer__links">
-                                            <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
-                                            <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer__col">
-                                        <ul class="footer__links">
-                                            <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
-                                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer__col">
-                                        <ul class="footer__links">
-                                            <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
-                                            <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>
-                                        </ul>
-                                    </div>
+                                </div>
+                                <div class="col col-extra">
                                 </div>
                             </div>
-                            <p class="footer__credit">© 2018 GEFINS</p>
-                        </footer>
+                        </div>
+                    </main>
+                    <footer class="footer">
+                        <div class="footer__grid">
+                            <div class="footer__row">
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                                        <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/samband">Hafa samband</a></li>
+                                        <li class="li"><a class="footer__link" href="/snidugt">Eitthvað sniðugt</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/umgefins">Meira sniðugt</a></li>
+                                        <li class="li"><a class="footer__link" href="/notkunarskilmalar">Enn þá meira sniðugt</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/samband">Eitthvað töff</a></li>
+                                        <li class="li"><a class="footer__link" href="/snidugt">Meira töff</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="footer__credit">© 2018 GEFINS</p>
+                    </footer>
                 </body>
                 </html>

@@ -19,6 +19,7 @@ public interface UserService {
      */
     void delete(User user);
 
+
     /**
      * Get all {@link User}s
      * @return A list of {@link User}s
