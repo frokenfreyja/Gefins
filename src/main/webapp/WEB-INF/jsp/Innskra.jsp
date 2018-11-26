@@ -46,7 +46,7 @@
                                                 <tr>
                                                     <td>Lykilorð:</td>
                                                     <td>
-                                                        <sf:input path="password" type="text" class="loginbox" placeholder="" />
+                                                        <sf:input path="password" type="password" class="loginbox" placeholder="" />
                                                     </td>
                                                 </tr>
                                             </table>

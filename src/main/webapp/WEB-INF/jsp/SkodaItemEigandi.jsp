@@ -81,6 +81,17 @@
                                                     <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status">
                                                         ${status.index+1}. ${queueUser}
                                                         <br>
+
+                                                        <%--
+                                                        <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status" begin="0" end="0">
+                                                        <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
+                                                        <div class="submit">
+                                                            <input type="submit" class="queuebutton" VALUE="Samþykkja þiggjanda" />
+                                                        </div>
+                                                    </sf:form>
+                                                    </c:forEach>
+                                                    --%>
+
                                                     </c:forEach>
                                                 </td>
                                             </tr>
@@ -99,9 +110,14 @@
                                             </sf:form>
                                             <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandiremove/${skodaitem.id}">
                                             <div class="submit">
-                                               <input type="submit" class="queuebutton" VALUE="Eyða"/>
+                                               <input type="submit" class="queuebutton" VALUE="Eyða" onclick="return confirm('Ertu viss um að þú viljir eyða notanda?');"/>
                                             </div>
                                          </sf:form>
+                                         <sf:form method="POST" modelAttribute="item" action="/ratings/${skodaitem.id}">
+                                         <div class="submit">
+                                            <input type="submit" class="queuebutton" VALUE="Stjörnugjöf"/>
+                                         </div>
+                                      </sf:form>
                                     </div>
                                     <div class="main__col">
                                     </div>

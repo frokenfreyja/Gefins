@@ -38,106 +38,59 @@
                                 </div>
                             </div>
                         </header>
-                        <main class="main">
-                            <div class="main__grid">
-                                <div class="main__row">
-                                    <h1 class="acceptedTitill">Stjörnugjöf</h1>
-                                </div>
-                                <div class="main__row">
-                                    <div class="extra__col">
+                        <main>
+                            <div class="grid">
+                                <div class="row">
+                                    <div class="col col-extra">
                                     </div>
-                                    <div class="main__col">
-                                        <%--Birtir upplýsingar um item sem notandi hefur verið samþykktur sem þiggjandi fyrir--%>
-                                                <c:choose>
-                                                    <c:when test="${not empty skodaitem}">
-                                                        <table class="oneitemtable">
-                                                            <tr>
-                                                                <td>
-                                                                    <h2 class="myitem">Varan mín: </h2></td>
-                                                                <td class="theitem">${skodaitem.itemName}</td>
-                                                            </tr>
-                                                            <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${skodaitem.myndName}" /></div>
-                                    </div>
-                                    <tr>
-                                        <td class="title">Lýsing: </td>
-                                        <td class="info">${skodaitem.description}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="title">Afhendingartími: </td>
-                                        <td class="info">${skodaitem.pickupTime}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="title">Flokkur: </td>
-                                        <td class="info">${skodaitem.tag}</td>
-                                    </tr>
-                                    </table>
-                                    </c:when>
-                                    <%--If all tests are false, then do this--%>
-                                        <c:otherwise>
-                                            <h3>Þessi auglýsing er ekki lengur til</h3>
-                                        </c:otherwise>
-                                        </c:choose>
-                                        <sf:form method="POST" modelAttribute="item" action="/skodaitemirod/${skodaitem.id}">
-                                            <div class="submit">
-                                                <input type="submit" class="queuebutton" VALUE="Hætta við" />
-                                            </div>
-                                        </sf:form>
-                                </div>
-                                <div class="main__col">
-                                
-                                <%--Birtir ítarlegri upplýsingar um gefanda itemsins--%>                                
-                                    <h2 class="userinfo">Upplýsingar um gefandann</h2>
-                                    <c:choose>
-                                        <c:when test="${not empty skodaitem}">
-                                            <table class="giverinfotable">
+                                    <div class="col col-main">
+                                    <%-- Form til þess að skrá nýja auglýsingu--%>                               
+                                        <p class="newrate">Stjörnugjöf</p>
+                                        <c:choose>
+                                            <c:when test="${not empty skodaitem}">
+                                                <table class="newrating">                    
+                                                    <tr>
+                                                        <c:choose>
+                                                            <c:when test="${loggedInUsername == skodaitem.acceptedUser}">
+                                                                <td class="title">Gefandi: </td>
+                                                                <td class="info">${skodaitem.userName}</td>
+                                                            </c:when>
+                                                            <c:when test="${loggedInUsername == skodaitem.userName}">
+                                                                <td class="title">Þiggjandi: </td>
+                                                                <td class="info">${skodaitem.acceptedUser}</td>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </tr>     
+                                                </table>
+                                            </c:when>
+                                            </c:choose>
+                                        <sf:form method="POST" modelAttribute="user" action="/giveRatings/${skodaitem.id}">
+                                            <table class="newrating">
                                                 <tr>
-                                                    <td>Notendanafn: </td>
-                                                    <td>${skodaitem.userName}</td>
+                                                    <td> Umsögn:</td>
+                                                    <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
+                                                        <td>
+                                                            <sf:textarea path="userReview" class="formbox" type="text" placeholder=""/>
+                                                        </td>   
                                                 </tr>
                                                 <tr>
-                                                    <td class="title">Staðsetning: </td>
-                                                    <td class="info">${skodaitem.location}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="title">Póstnúmer: </td>
-                                                    <td class="info">${skodaitem.zipcode}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="title">Símanúmer: </td>
-                                                    <td class="info">${skodaitem.phone}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="title">Stjörnugjöf: </td>
+                                                    <td>Stjörnur:</td>
+                                                    <td>
+                                                        <sf:textarea path="stars" class="formbox" type="text" placeholder="" required="required" />
+                                                    </td>   
                                                 </tr>
                                             </table>
-                                        </c:when>
-                                        <%--If all tests are false, then do this--%>
-                                            <c:otherwise>
-                                                <h3>Engar upplýsingar</h3>
-                                            </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                       <c:when test="${not empty userEmail}">
-                                           <table class="giverinfotable">
-                                                               
-                                               <tr>
-                                                   <td class="title">Netfang: </td>
-                                                   <td class="info">${userEmail}</td>
-                                               </tr>
-                                               
-                                           </table>
-                                       </c:when>
-                                       <%--If all tests are false, then do this--%>
-                                           <c:otherwise>
-                                               <h3>Engar upplýsingar</h3>
-                                           </c:otherwise>
-                                   </c:choose>
-                                    
+                                            <div class="submit">
+                                                <input type="submit" class="formbutton" VALUE="Í lagi" />
+                                            </div>
+                                        </sf:form>
+                                    </div>
+                                    <div class="col col-extra">
+                                    </div>
                                 </div>
-                                <div class="extra__col">
-                                </div>
-                            </div>
-                            </div>
+                                                            </div>                           
                         </main>
                         <footer class="footer">
                             <div class="footer__grid">

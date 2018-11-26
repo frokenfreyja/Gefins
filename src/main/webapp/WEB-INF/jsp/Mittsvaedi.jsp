@@ -63,7 +63,7 @@
                                                         <td>
                                                             <sf:form method="POST" modelAttribute="item" action="/mittsvaedi/${myitem.id}">
                                                                 <div class="submit">
-                                                                    <input type="submit" class="deletebutton" VALUE="Eyða"/>
+                                                                    <input type="submit" class="deletebutton" VALUE="Eyða" onclick="return confirm('Ertu viss um að þú viljir eyða auglýsingunni?');"/>
                                                                 </div>
                                                             </sf:form>
                                                         </td>

@@ -52,7 +52,7 @@
                                 <div class="col col-main">
                                 <%-- Form til þess að skrá nýja auglýsingu--%>                               
                                     <p class="newadvert">Ný auglýsing</p>
-                                    <sf:form method="POST" modelAttribute="item" action="/ratings">
+                                    <sf:form method="POST" modelAttribute="item" action="/nyauglysing" enctype="multipart/form-data">
                                         <table class="newadvertise">
                                             <tr>
                                                 <td> Heiti auglýsingar:</td>

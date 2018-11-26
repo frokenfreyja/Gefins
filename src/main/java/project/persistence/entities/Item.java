@@ -75,8 +75,7 @@ public class Item {
         this.authorized = authorized;
         this.myndName = myndName;
         this.acceptedUser = acceptedUser;
-        this.users = users;
-      
+        this.users = users;  
     }
 
 	public Long getId() {
@@ -105,7 +104,6 @@ public class Item {
 		this.myndName = myndName;
 	}
 	
-	
 	public String getAcceptedUser() {
 		return acceptedUser;
 	}
@@ -120,7 +118,7 @@ public class Item {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
+	
 	public String getPickupTime() {
 		return pickupTime;
 	}

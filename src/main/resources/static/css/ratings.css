@@ -121,106 +121,102 @@ header {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-/* VALIÐ ITEM BIRT FYRIR SAMÞYKKTAN NOTANDA */
-.main {
-  max-width: 2000px;
-  margin: 0 auto;
+/* SÍÐAN SETT UPP Í GRID */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
-.main__grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-bottom: 20px;
-  width: 100%;
+.col-extra {
+	width: 22%;
 }
-.main__row {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+.col-main {
+	display: flex;
+	flex-direction: column;
+	width: 61%;
 }
-.extra__col {
-  width: 25%;
+/* FORM FYRIR NÝJA AUGLÝSINGU */
+.newrate {
+	margin-top: 3em;
+	margin-bottom: 2em;
+	font-size: 2.5em;
+	font-weight: bold;
 }
-.main__col {
-  padding-right: 2.5em;
-  padding-bottom: 30px;
-  justify-content: center;
-  width: 25%;
+.formbox {
+	width: 200px;
+	font-size: 20px;
 }
-.acceptedTitill {
-  margin-top: 1.6em;
-  margin-bottom: 1em;
-  font-size: 3em;
-  font-weight: bold;
-  text-align: center;
+.checkcategories {
+	font-size: 20px;
+	background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 320px;
+	font-size: 20px;
+	outline: none !important;
+	outline-color: white !important;
 }
-.acceptedUndirtitill {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-size: 1em;
-  font-weight: bold;
-  text-align: center;
+.imgbutton {
+	padding: 5px 10px 5px 10px;
+	background-color: #000000;
+	color: white;
+	text-align: center;
+	border-radius: 3px;
+	border-color: black;
+}
+.imgbutton:hover {
+	background-color: #05EDFF;
+	color: black;
+	border-color: #05EDFF;
 }
 .submit {
-  padding-top: 2em;
+	padding-top: 3em;
+	padding-bottom: 3em;
 }
-.img {
-  padding-left: 6.5em;
+.formbutton {
+	background-color: black;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 3px;
+	border-color: black;
+	font-weight: bold;
+	width: 100%;
 }
-.queuebutton {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 3px;
-  border-color: black;
-  font-weight: bold;
-  width: 100%;
+.formbutton:hover {
+	background-color: #05EDFF;
+	color: black;
+	border-color: #05EDFF;
 }
-.rodbutton:hover {
-  background-color: #05EDFF;
-  color: black;
-  border-color: #05EDFF;
+table.newrating tr td {
+	padding: 20px 20px 20px 0;
+	text-align: left;
+	font-size: 1.5em;
+	font-weight: bold;
 }
-table.oneitemtable td {
-  padding: 20px 15px 15px 15px;
-  text-align: left;
-  font-weight: bold;
-  font-size: 1.5em;
+table.newrating tr td:nth-child(3) {
+	padding-left: 4em;
 }
-.userinfo {
-  padding-left: 1em;
-  padding-bottom: 1em;
-  font-weight: bold;
-  font-size: 2em;
+textarea[type=text] {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 17px;
+	margin: 8px 0;
+	box-sizing: border-box;
 }
-.myitem {
-  font-weight: bold;
-  font-size: 1.3em;
+textarea[type=text]:focus {
+	outline: none !important;
+	border:1px #5a5a5a;
+	box-shadow: 0 0 10px #5a5a5a;
 }
-.theitem {
-  font-weight: bold;
-  font-size: 1.5em;
-}
-table.giverinfotable {
-  padding-left: 1em;
-}
-table.giverinfotable td {
-  padding: 15px 15px 15px 15px;
-  text-align: left;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-.errorMessage {
-  padding-top: 17px;
-  font-size: 20px;
-  color: red;
-}
+
 /* FÓTUR */
 .footer {
   width: 100%;

@@ -550,36 +550,83 @@ public class ItemController {
     	return "redirect:/forsida";
     }
     
-    @RequestMapping(value = "/ratings", method = RequestMethod.GET)
+    @RequestMapping(value = "/ratings/{id}", method = RequestMethod.GET)
     public String itemRatings(Model model, Item item) {
-    	
-    	
-        System.out.println("username: "+item.getUserName());
         
-    	model.addAttribute("item",new Item());
-        model.addAttribute("items",itemService.findAllReverseOrder());
-     
-        
+        Item skodaNanarItem = itemService.findOne(item.getId());
+        model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
         
         return "Ratings";
     }
     
-    @RequestMapping(value = "/ratings", method = RequestMethod.POST)
-    public String formRatings(@ModelAttribute("item") Item item, Model model, HttpServletRequest httpServletRequest, HttpSession httpSession) {
+    @RequestMapping(value = "/ratings/{id}", method = RequestMethod.POST)
+    public String formRatings(@ModelAttribute("item") Item item, @ModelAttribute("user") User user, Model model, HttpSession httpSession) {
         
+        /*
+         * if(giverRate == true) 
+         * 	
+         */
 
-        String userName = (String) httpSession.getAttribute("loggedInUsername");
-        item.setUserName(userName);
+        Item theitem = itemService.findOne(item.getId());
         
-        String location = item.getLocation();
-        item.setLocation(location);
-       
+        model.addAttribute("skodaitem", itemService.findOne(theitem.getId()));
         
-        itemService.save(item); 
+        return "Ratings";
+    }
+    
+    @RequestMapping(value = "/giveRatings/{id}", method = RequestMethod.POST)
+    public String giveRatings(@ModelAttribute("item") Item item, @ModelAttribute("user") User user, Model model, HttpSession httpSession) {
+        
+        /*
+         * if(giverRate == true) 
+         * 	
+         */
+    	
+        Item skodaNanarItem = itemService.findOne(item.getId());
+        System.out.println(item.getAcceptedUser());
+        //user.setUserName(skodaNanarItem.getAcceptedUser());
+        System.out.println(user.getUserName());
+        System.out.println(user.getUserReview());
+        System.out.println(user.getStars());
+
+        
+        model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
         model.addAttribute("items", itemService.findAllReverseOrder());
-        model.addAttribute("item", new Item());
 
-        return "ForsidaLoggedIn";
+        
+        return "redirect:/forsidaloggedin";
+    }
+    
+    @RequestMapping(value = "/umgefins", method = RequestMethod.GET)
+    public String umGefins() {
+    	    	     
+        
+        
+        return "UmGefins";
+    }
+    
+    @RequestMapping(value = "/hofundar", method = RequestMethod.GET)
+    public String hofundar() {
+    	
+    	   
+        
+        return "Hofundar";
+    }
+    
+    @RequestMapping(value = "/notkunarskilmalar", method = RequestMethod.GET)
+    public String notkunarskilmalar() {
+    	
+    	   
+        
+        return "Notkunarskilmalar";
+    }
+    
+    @RequestMapping(value = "/hafasamband", method = RequestMethod.GET)
+    public String hafasamband() {
+    	
+    	   
+        
+        return "HafaSamband";
     }
     
     

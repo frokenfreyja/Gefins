@@ -99,7 +99,7 @@
                                     </sf:form>
                                     <sf:form method="POST" modelAttribute="user" action="/settings/${user.id}">
                                         <div class="submit">
-                                            <input type="submit" class="deletebutton" VALUE="Eyða aðgangi"/>
+                                            <input type="submit" class="deletebutton" VALUE="Eyða aðgangi" onclick="return confirm('Ertu viss um að þú viljir eyða aðganginum?');"/>
                                         </div>
                                     </sf:form>
                                 </div>

@@ -26,6 +26,7 @@ public class User {
     private Long itemId;
 	private int notify;    
     private int starsnumber;
+    private String userReview;
     
         
     //private int starsnumber;
@@ -35,7 +36,7 @@ public class User {
     public User() {
     }
     public User(String userName, String password, String phone, String email,
-            String location, Integer zipcode, int stars /*String generalLocation*/) {
+            String location, Integer zipcode, int stars /*String generalLocation*/,String userReview) {
         
         this.userName = userName;
         this.password = password;
@@ -47,6 +48,7 @@ public class User {
         this.generalLocation = getGL(this.zipcode);
         this.notify = 0;
         this.starsnumber = 0;
+        this.userReview = userReview;
     }
     
     public String getGL(int zipcode) {
@@ -141,6 +143,14 @@ public class User {
 	}
 	public void subtractFromNotify() {
 		this.notify--;
+	}
+	
+	public String getUserReview() {
+		return userReview;
+	}
+
+	public void setUserReview(String userReview) {
+		this.userReview = userReview;
 	}
 
 }

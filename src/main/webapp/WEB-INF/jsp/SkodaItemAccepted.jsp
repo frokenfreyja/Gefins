@@ -79,7 +79,7 @@
                                         </c:choose>
                                         <sf:form method="POST" modelAttribute="item" action="/skodaitemirod/${skodaitem.id}">
                                             <div class="submit">
-                                                <input type="submit" class="queuebutton" VALUE="Hætta við" />
+                                                <input type="submit" class="queuebutton" VALUE="Hætta við" onclick="return confirm('Ertu viss um að þú viljir hætta við?');"/>
                                             </div>
                                         </sf:form>
                                 </div>
@@ -132,6 +132,12 @@
                                                <h3>Engar upplýsingar</h3>
                                            </c:otherwise>
                                    </c:choose>
+
+                                   <sf:form method="POST" modelAttribute="item" action="/ratings/${skodaitem.id}">
+                                   <div class="submit">
+                                       <input type="submit" class="queuebutton" VALUE="Stjörnugjöf" />
+                                   </div>
+                               </sf:form>
                                     
                                 </div>
                                 <div class="extra__col">
