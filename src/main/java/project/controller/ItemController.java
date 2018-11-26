@@ -568,7 +568,7 @@ public class ItemController {
          */
 
         Item theitem = itemService.findOne(item.getId());
-        
+
         model.addAttribute("skodaitem", itemService.findOne(theitem.getId()));
         
         return "Ratings";

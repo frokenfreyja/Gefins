@@ -68,17 +68,9 @@
                                             </c:choose>
                                         <sf:form method="POST" modelAttribute="user" action="/giveRatings/${skodaitem.id}">
                                             <table class="newrating">
-                                                <tr>
-                                                    <td> Umsögn:</td>
-                                                    <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
-                                                        <td>
-                                                            <sf:textarea path="userReview" class="formbox" type="text" placeholder=""/>
-                                                        </td>   
-                                                </tr>
-                                                <tr>
                                                     <td>Stjörnur:</td>
                                                     <td>
-                                                        <sf:textarea path="stars" class="formbox" type="text" placeholder="" required="required" />
+                                                        <sf:textarea path="stars" class="formbox" type="text" maxlength="1" placeholder="Stjörnur eru á bilinu 0-5" required="required" />
                                                     </td>   
                                                 </tr>
                                             </table>

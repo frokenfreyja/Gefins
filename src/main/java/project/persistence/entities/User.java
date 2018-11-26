@@ -21,7 +21,7 @@ public class User {
     private String email;
     private String location;
     private Integer zipcode;
-    private int stars;
+    private Integer stars;
     private String generalLocation;
     private Long itemId;
 	private int notify;    
@@ -36,7 +36,7 @@ public class User {
     public User() {
     }
     public User(String userName, String password, String phone, String email,
-            String location, Integer zipcode, int stars /*String generalLocation*/,String userReview) {
+            String location, Integer zipcode, Integer stars /*String generalLocation*/,String userReview) {
         
         this.userName = userName;
         this.password = password;
@@ -99,10 +99,10 @@ public class User {
     public void setZipcode(Integer zipcode) {
         this.zipcode = zipcode;
     }
-    public int getStars() {
+    public Integer getStars() {
         return stars;
     }
-    public void setStars(int stars) {
+    public void setStars(Integer stars) {
         this.stars = stars;
     }
     
