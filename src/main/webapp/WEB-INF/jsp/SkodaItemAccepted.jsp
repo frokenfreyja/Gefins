@@ -108,6 +108,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="title">Stjörnugjöf: </td>
+                                                    <td class="info"><img src="${ownerRating}"/></td>
                                                 </tr>
                                             </table>
                                         </c:when>

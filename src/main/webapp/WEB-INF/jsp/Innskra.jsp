@@ -40,7 +40,7 @@
                                                 <tr>
                                                     <td> Notendanafn:</td>
                                                     <td>
-                                                        <sf:input path="userName" type="text" class="loginbox" placeholder="" />
+                                                        <sf:input path="userName" type="text" class="loginbox" placeholder="" autofocus="autofocus"/>
                                                     </td>
                                                 </tr>
                                                 <tr>

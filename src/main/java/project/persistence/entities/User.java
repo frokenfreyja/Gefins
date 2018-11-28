@@ -128,7 +128,7 @@ public class User {
     }
     
     public int getratings() {
-    	if(this.starsnumber>=4)
+    	if(this.starsnumber>=1)
     	return (int)(Math.round(this.stars*2.0/this.starsnumber));
     	return -1;
     }

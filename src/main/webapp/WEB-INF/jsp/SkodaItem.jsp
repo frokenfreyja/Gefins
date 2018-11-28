@@ -31,6 +31,7 @@
                         </header>
                         <main class="main">
                             <div class="main__grid">
+                                    <h2 class="athuga">Þú þarft að vera innskráður til að fara í röð</h2>
                                 <div class="main__row">
                                     <div class="main__col">
                                     </div>
@@ -72,7 +73,7 @@
                                                 <h3>Engar auglýsingar</h3>
                                             </c:otherwise>
                                             </c:choose>
-                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName}</div>
+                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName}<img src="${ownerRating}"/></div>
                                     </div>
                                     <div class="main__col">
                                     </div>

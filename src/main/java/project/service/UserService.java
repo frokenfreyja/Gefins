@@ -1,5 +1,6 @@
 package project.service;
 
+import project.persistence.entities.Item;
 import project.persistence.entities.User;
 
 import java.util.List;
@@ -57,5 +58,9 @@ public interface UserService {
     List<User> findByItemId(Long id);
     
     User removeByUserName(String userName);
+
+	String getImg(int stars);
+
+	List<String> getImages(Item item);
 
 }

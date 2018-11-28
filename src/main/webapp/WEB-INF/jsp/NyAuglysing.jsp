@@ -58,7 +58,7 @@
                                                 <td> Heiti auglýsingar:</td>
                                                 <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
                                                     <td>
-                                                        <sf:textarea path="itemName" class="formbox" type="text" placeholder="" required="required" />
+                                                        <sf:textarea path="itemName" class="formbox" type="text" placeholder="" required="required" autofocus="autofocus"/>
                                                     </td>
                                                     <td>Afhendingartími:</td>
                                                     <%--the `path` attribute matches the `note` attribute of the Entity that was passed in the model--%>

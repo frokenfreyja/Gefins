@@ -82,14 +82,14 @@
                                                 <td class="userstd">Í röð:</td>
                                                 <td class="userstd">
                                                     <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status">
-                                                        ${status.index+1}. ${queueUser}
+                                                        ${status.index+1}. ${queueUser} <img src="${user[status.index]}"/>
                                                         <br><br>
    </c:forEach>
      </c:when>
                                                                                         <c:otherwise>
                                                                                         </c:otherwise>
                                                                                     </c:choose>
-                                                 
+                                                                    
                                                   
                                              <c:choose>
                                              <c:when test="${not empty skodaitem.users}">
@@ -125,7 +125,7 @@
                                                 <h3>Engar auglýsingar</h3>
                                             </c:otherwise>
                                             </c:choose>
-                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName}</div>
+                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName} <img src="${ownerRating}"/></div>
                                            <c:choose>
                                              <c:when test="${not empty skodaitem.users}">
                                          <sf:form method="POST" modelAttribute="item" action="/ratings/${skodaitem.id}">

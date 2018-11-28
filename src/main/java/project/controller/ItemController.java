@@ -2,6 +2,7 @@ package project.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -160,10 +161,14 @@ public class ItemController {
     public String getMittSvaedi(Model model, HttpSession httpSession){
     	
         String userName = (String) httpSession.getAttribute("loggedInUsername");
+        
+        User ownerUser = userService.findByuserName(userName);
     	
         model.addAttribute("myItems", itemService.findByuserName(userName));
 
         model.addAttribute("itemsIWant", itemService.findByusers(userName));
+        
+        model.addAttribute("ownerRating", userService.getImg(ownerUser.getratings()));
     
         return "Mittsvaedi";
     }
@@ -182,13 +187,11 @@ public class ItemController {
     	
         String userName = (String) httpSession.getAttribute("loggedInUsername");
         System.out.println("Username: "+userName);
-    	
         
         if(userId==null)
     		return "Innskra";
         
         model.addAttribute("myItems", itemService.findByuserName(userName));
-        
         
         model.addAttribute("itemsIWant", itemService.findByusers(userName));
         
@@ -238,8 +241,11 @@ public class ItemController {
     public String skodaItem(Model model, Item item) {
     	
         Item skodaNanarItem = itemService.findOne(item.getId());
+        
+        User ownerUser = userService.findByuserName(skodaNanarItem.getUserName());
        
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        model.addAttribute("ownerRating", userService.getImg(ownerUser.getratings()));
     	
         // Return the view
         return "SkodaItem";
@@ -257,8 +263,11 @@ public class ItemController {
             
         	return "SkodaItemIRod";
         }
+        User ownerUser = userService.findByuserName(skodaNanarItem.getUserName());
+        
        
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        model.addAttribute("ownerRating", userService.getImg(ownerUser.getratings()));
     	
         // Return the view
         return "SkodaItemLoggedIn";
@@ -269,8 +278,11 @@ public class ItemController {
     	
        
         Item skodaNanarItem = itemService.findOne(item.getId());
+        
+        User ownerUser = userService.findByuserName(skodaNanarItem.getUserName());
        
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        model.addAttribute("ownerRating", userService.getImg(ownerUser.getratings()));
     	
         // Return the view
         return "SkodaItemIRod";
@@ -288,7 +300,13 @@ public class ItemController {
 
         Item skodaNanarItem = itemService.findOne(item.getId());
         
+        List<String> a = userService.getImages(skodaNanarItem);
+        
+        User ownerUser = userService.findByuserName(skodaNanarItem.getUserName());
+
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        model.addAttribute("user", a);
+        model.addAttribute("ownerRating", userService.getImg(ownerUser.getratings()));
     	
         // Return the view
        return "SkodaItemEigandi";
@@ -305,6 +323,7 @@ public class ItemController {
         
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        model.addAttribute("ownerRating", userService.getImg(user.getratings()));
     	
         // Return the view
        return "SkodaItemAccepted";
@@ -616,7 +635,7 @@ public class ItemController {
         model.addAttribute("items", itemService.findAllReverseOrder());
 
         
-        return "redirect:/forsidaloggedin";
+        return "redirect:/mittsvaedi";
     }
 
     

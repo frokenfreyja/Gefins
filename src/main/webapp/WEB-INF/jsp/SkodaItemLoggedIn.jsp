@@ -86,7 +86,7 @@
                                                 <h3>Engar auglýsingar</h3>
                                             </c:otherwise>
                                             </c:choose>
-                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName}</div>
+                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName}<img src="${ownerRating}"/></div>
                                             <sf:form method="POST" modelAttribute="item" action="/skodaitemloggedin/${skodaitem.id}">
                                                 <div class="submit">
                                                     <input type="submit" class="queuebutton" VALUE="Fara í röð" />

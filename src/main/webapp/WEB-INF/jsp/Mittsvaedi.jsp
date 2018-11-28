@@ -45,6 +45,7 @@
                                     <%-- og hins vegar yfir þær auglýsingar sem notandi er í röð fyrir --%>
                                         <h1 class="title">Mitt svæði</h1>
                             </div>
+                            <h2>Stjörnurnar mínar: <img src="${ownerRating}"/></h2>
                             <div class="main__row">
                                 <div class="main__col">
                                     <h2>Mínar auglýsingar</h2>

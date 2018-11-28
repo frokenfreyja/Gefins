@@ -107,6 +107,13 @@ header {
 	padding-bottom: 20px;
 	width: 100%;
 }
+.athuga {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	padding-top: 60px;
+}
 .main__row {
 	display: flex;
 	margin-top: 40px;
@@ -118,7 +125,7 @@ header {
 }
 .main__col {
 	width: 25%;
-	padding-top: 80px;
+	padding-top: 40px;
 	padding-right: 10px;
 	padding-bottom: 20px;
 	padding-left: 60px;

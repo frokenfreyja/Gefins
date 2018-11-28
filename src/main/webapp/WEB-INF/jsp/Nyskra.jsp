@@ -55,7 +55,7 @@
                                                     <td> Notendanafn:</td>
                                                     <%--the `path` attribute matches the `name` attribute of the Entity that was passed in the model--%>
                                                         <td>
-                                                            <sf:input path="userName" type="text" class="createbox" placeholder="" required="required" />
+                                                            <sf:input path="userName" type="text" class="createbox" placeholder="" required="required" autofocus="autofocus"/>
                                                         </td>
                                                 </tr>
                                                 <tr>
