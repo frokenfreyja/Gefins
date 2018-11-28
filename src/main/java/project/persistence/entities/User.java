@@ -21,11 +21,11 @@ public class User {
     private String email;
     private String location;
     private Integer zipcode;
-    private Integer stars;
+    private Integer stars=0;
     private String generalLocation;
     private Long itemId;
 	private int notify;    
-    private int starsnumber;
+    private int starsnumber=0;
     private String userReview;
     
         
@@ -127,11 +127,12 @@ public class User {
     	
     }
     
-    public double getratings() {
-    	if(this.starsnumber>=5)
-    	return this.stars/this.starsnumber;
-    	return 6;
+    public int getratings() {
+    	if(this.starsnumber>=4)
+    	return (int)(Math.round(this.stars*2.0/this.starsnumber));
+    	return -1;
     }
+    
 	public int getNotify() {
 		return notify;
 	}

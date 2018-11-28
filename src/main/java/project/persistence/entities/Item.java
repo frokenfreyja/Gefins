@@ -26,7 +26,7 @@ public class Item {
 
     private String userName;
     private Long userId;
-    private String acceptedUser;
+    private String acceptedUser="";
     private String pickupTime;
     private String description;
     private String location;
@@ -36,7 +36,7 @@ public class Item {
     private String email;
     private Integer zipcode;
     private String tag;
-    private String authorized;
+    private String authorized="";
     @Transient
     private MultipartFile mynd;
     private String myndName;

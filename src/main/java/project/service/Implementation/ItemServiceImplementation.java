@@ -43,6 +43,10 @@ public class ItemServiceImplementation implements ItemService {
     public List<Item> findAllReverseOrder() {
         // Get all the Postit notes
         List<Item> items = repository.findAll();
+        
+        for(int i = items.size()-1; i>=0; i--)
+    		if(!items.get(i).getAcceptedUser().equals(""))
+    		items.remove(i);
 
         // Reverse the list
         Collections.reverse(items);
@@ -99,12 +103,25 @@ public class ItemServiceImplementation implements ItemService {
     
     @Override
   	public List<Item> findByuserName(String userName) {
-      	return repository.findByuserName(userName);
+    	List<Item> items = repository.findByuserName(userName);
+    	for(int i = items.size()-1; i>=0; i--) {
+      		String a = items.get(i).getAuthorized();
+			if(!a.equals("") && !a.equals(userName))
+				items.remove(i);
+      	}
+    	
+      	return items;
     }
     
     @Override
     public List<Item> findByusers(String user) {
-      	return repository.findByusers(user);
+    	List<Item> items = repository.findByusers(user);
+    	for(int i = items.size()-1; i>=0; i--) {
+      		String a = items.get(i).getAuthorized();
+			if(!a.equals("") && !a.equals(user))
+				items.remove(i);
+      	}
+      	return items;
     }
     
     @Override
@@ -136,6 +153,9 @@ public class ItemServiceImplementation implements ItemService {
     @Override
     public List<Item> findByZipcodeAndTagReverseOrder(Integer zipcode, String tag) {
         List<Item> items = repository.findByZipcodeAndTag(zipcode, tag);
+        for(int i = items.size()-1; i>=0; i--)
+    		if(!items.get(i).getAcceptedUser().equals(""))
+    		items.remove(i);
         // Reverse the list
         Collections.reverse(items);
         return items;
@@ -144,6 +164,9 @@ public class ItemServiceImplementation implements ItemService {
     @Override
     public List<Item> findByZipcodeReverseOrder(Integer zipcode) {
         List<Item> items = repository.findByZipcode(zipcode);
+        for(int i = items.size()-1; i>=0; i--)
+    		if(!items.get(i).getAcceptedUser().equals(""))
+    		items.remove(i);
         // Reverse the list
         Collections.reverse(items);
         return items;
@@ -152,6 +175,9 @@ public class ItemServiceImplementation implements ItemService {
     @Override
     public List<Item> findByTagReverseOrder(String tag) {
         List<Item> items = repository.findByTag(tag);
+        for(int i = items.size()-1; i>=0; i--)
+    		if(!items.get(i).getAcceptedUser().equals(""))
+    		items.remove(i);
         // Reverse the list
         Collections.reverse(items);
         return items;

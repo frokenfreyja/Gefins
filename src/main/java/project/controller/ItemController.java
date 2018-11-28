@@ -545,7 +545,7 @@ public class ItemController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String prufaViewGet(){
+    public String prufaViewGet() {
     	
     	return "redirect:/forsida";
     }
@@ -574,7 +574,6 @@ public class ItemController {
         
         return "Ratings";
     }
-    
     @RequestMapping(value = "/giveRatings/{id}", method = RequestMethod.POST)
     public String giveRatings(@ModelAttribute("item") Item item, @ModelAttribute("user") User user, Model model, HttpSession httpSession) {
         
@@ -591,21 +590,35 @@ public class ItemController {
         System.out.println(user.getStars());
         int stjornur = user.getStars();
         
-        if(skodaNanarItem.getUserName() == userName) {
+        if(skodaNanarItem.getUserName().equals(userName)) {
         	User user3 = userService.findByuserName(skodaNanarItem.getAcceptedUser());
         	user3.rate(stjornur);
+        	
+        	if(skodaNanarItem.getAuthorized().equals(""))
+        	skodaNanarItem.setAuthorized(user3.getUserName());
+        	else itemService.delete(skodaNanarItem);
+        	
+        	userService.save(user3);
         }
         else {
         	User user3 = userService.findByuserName(skodaNanarItem.getUserName());
         	user3.rate(stjornur);
+        	
+        	if(skodaNanarItem.getAuthorized().equals(""))
+            	skodaNanarItem.setAuthorized(user3.getUserName());
+            	else itemService.delete(skodaNanarItem);
+        	
+        		userService.save(user3);
         }
 
-        model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
+        
+       // model.addAttribute("skodaitem", itemService.findOne(skodaNanarItem.getId()));
         model.addAttribute("items", itemService.findAllReverseOrder());
 
         
         return "redirect:/forsidaloggedin";
     }
+
     
     @RequestMapping(value = "/umgefins", method = RequestMethod.GET)
     public String umGefins() {

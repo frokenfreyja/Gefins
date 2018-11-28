@@ -150,27 +150,103 @@ header {
 	padding-right: 30px;
 	padding-bottom: 20px;
 }
+.right__col {
+	width: 35%;
+	padding-top: 80px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+}
+.extra__col {
+	width: 5%;
+	padding-top: 80px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+}
 table.oneitemtable th {
 	font-size: 2em;
 	margin-top: 2em;
 	text-align: left;
+	padding-bottom: 1em;
+}
+table.oneitemtable td {
+width: 300px;
+vertical-align: top;
 }
 .title {
-	padding-top: 1em;
 	text-align: left;
 	font-size: 1.5em;
 	padding-right: 1em;
+	padding-bottom: 1em;
 }
 .info {
-	padding-top: 1em;
 	text-align: left;
 	font-size: 1.5em;
+	padding-bottom: 1em;
 }
-.submit {
+.userstd {
+	text-align: left;
+	font-size: 1.5em;
+	padding-bottom: 1em;
+	padding-top: 6px;
+}
+.submitchoose {
+	width: 140px;
+	margin-right: 8px;
+	vertical-align: top;
+}
+.submitdelete {
+	width: 140px;
+}
+.submitstar {
 	padding-top: 5px;
 	padding-bottom: 2em;
+	width: 100%;
 }
-.queuebutton {
+.buttons {
+top: 0px;
+}
+.choosebutton {
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 3px;
+	border-color: black;
+	font-weight: bold;
+}
+.choosebutton:hover {
+	background-color: #05EDFF;
+	color: black;
+	border-color: #05EDFF;
+}
+.deletebutton {
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 3px;
+	border-color: black;
+	font-weight: bold;
+	top: 0px;
+}
+.deletebutton:hover {
+	background-color: #05EDFF;
+	color: black;
+	border-color: #05EDFF;
+}
+.starbutton {
 	width: 100%;
 	background-color: black;
 	color: white;
@@ -185,7 +261,7 @@ table.oneitemtable th {
 	border-color: black;
 	font-weight: bold;
 }
-.queuebutton:hover {
+.starbutton:hover {
 	background-color: #05EDFF;
 	color: black;
 	border-color: #05EDFF;
@@ -201,7 +277,7 @@ table.oneitemtable th {
 	padding-top: 40px;
 	font-size: 20px;
 	padding-right: 20px;
-	width: 30%;
+	width: 16%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

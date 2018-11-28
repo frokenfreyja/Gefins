@@ -50,14 +50,14 @@
                                                     <c:when test="${not empty skodaitem}">
                                                         <div class="img"><img src="${pageContext.request.contextPath}/resources/images/${skodaitem.myndName}" /></div>
                                     </div>
-                                    <div class="main__col">
+                                    <div class="right__col">
                                         <table class="oneitemtable">
                                             <tr>
                                                 <th colspan="2">${skodaitem.itemName}</th>
                                             </tr>
                                             <tr>
-                                                <td class="title">Lýsing: </td>
-                                                <td class="info">${skodaitem.description}</td>
+                                                <td class="title" width="50%">Lýsing: </td>
+                                                <td class="info" width="50%">${skodaitem.description}</td>
                                             </tr>
                                             <tr>
                                                 <td class="title">Póstnúmer: </td>
@@ -75,24 +75,47 @@
                                                 <td class="title">Fjöldi í röð: </td>
                                                 <td class="info">${fn:length(skodaitem.users)}</td>
                                             </tr>
+                                            
                                             <tr>
-                                                <td class="title">Í röð:</td>
-                                                <td class="info">
+                                             <c:choose>
+                                             <c:when test="${not empty skodaitem.users}">
+                                                <td class="userstd">Í röð:</td>
+                                                <td class="userstd">
                                                     <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status">
                                                         ${status.index+1}. ${queueUser}
-                                                        <br>
-
-                                                        <%--
-                                                        <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status" begin="0" end="0">
-                                                        <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
-                                                        <div class="submit">
-                                                            <input type="submit" class="queuebutton" VALUE="Samþykkja þiggjanda" />
-                                                        </div>
-                                                    </sf:form>
-                                                    </c:forEach>
-                                                    --%>
-
-                                                    </c:forEach>
+                                                        <br><br>
+   </c:forEach>
+     </c:when>
+                                                                                        <c:otherwise>
+                                                                                        </c:otherwise>
+                                                                                    </c:choose>
+                                                 
+                                                  
+                                             <c:choose>
+                                             <c:when test="${not empty skodaitem.users}">
+                                                                                        
+                                                                                        
+                                                   <td class="buttons">                                      
+                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
+                                                <div class="submitchoose">
+                                                    <input type="submit" class="choosebutton" VALUE="Samþykkja" />
+                                                </div>
+                                            </sf:form>
+                                                
+                                         </td>
+                                            <td class="buttons">    
+                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandiremove/${skodaitem.id}">
+                                            <div class="submitdelete">
+                                               <input type="submit" class="deletebutton" VALUE="Eyða" onclick="return confirm('Ertu viss um að þú viljir eyða notanda?');"/>
+                                            </div>
+                                         </sf:form>
+                                         
+                                                 </td>
+                                            </c:when>
+                                                                                        <c:otherwise>
+                                                                                        </c:otherwise>
+                                                                                    </c:choose>
+                                                                                                                                                                           
                                                 </td>
                                             </tr>
                                         </table>
@@ -103,23 +126,20 @@
                                             </c:otherwise>
                                             </c:choose>
                                             <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName}</div>
-                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
-                                                <div class="submit">
-                                                    <input type="submit" class="queuebutton" VALUE="Samþykkja þiggjanda" />
-                                                </div>
-                                            </sf:form>
-                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandiremove/${skodaitem.id}">
-                                            <div class="submit">
-                                               <input type="submit" class="queuebutton" VALUE="Eyða" onclick="return confirm('Ertu viss um að þú viljir eyða notanda?');"/>
-                                            </div>
-                                         </sf:form>
+                                           <c:choose>
+                                             <c:when test="${not empty skodaitem.users}">
                                          <sf:form method="POST" modelAttribute="item" action="/ratings/${skodaitem.id}">
-                                         <div class="submit">
-                                            <input type="submit" class="queuebutton" VALUE="Stjörnugjöf"/>
+                                         <div class="submitstar">
+                                            <input type="submit" class="starbutton" VALUE="Stjörnugjöf"/>
                                          </div>
                                       </sf:form>
+                                         </c:when>
+                                        <%--If all tests are false, then do this--%>
+                                            <c:otherwise>
+                                            </c:otherwise>
+                                            </c:choose>
                                     </div>
-                                    <div class="main__col">
+                                    <div class="extra__col">
                                     </div>
                                 </div>
                             </div>
