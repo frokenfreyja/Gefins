@@ -10,7 +10,8 @@ Team 26
 ## Ideology 
 There is a market for giving and receiving goods as evidenced by large Facebook groups created for that purpose. Facebook groups are not optimised for the task as the items are not displayed in an organized manner and so the chances of a user finding what they’re looking for are slim.<br/>
 Facebook has no system that keeps control of who is first in line of receiving, if an item has already been picked up or if a user decides not to pick up the item.<br/>
-This web application aims to streamline that process by creating a system optimized for the task. The application is constructed in an organized manner and keeps control of user interaction. Protecting the environment is one of today’s pressing subjects. More and more people are becoming environmentally conscious and this website makes it easier for people to reduce their waste and pollution by giving and reusing.
+This web application aims to streamline that process by creating a system optimized for the task. The application is constructed in an organized manner and keeps control of user interaction. <br/><br/>
+Protecting the environment is one of today’s pressing subjects. More and more people are becoming environmentally conscious and this website makes it easier for people to reduce their waste and pollution by giving and reusing.
 
 ## How do I get this ?
 Your IDE ([IntelliJ](https://www.jetbrains.com/idea/), [Eclipse](https://eclipse.org/), [Spring Tool Suit](https://spring.io/tools)) should be able to clone a project from Github.
