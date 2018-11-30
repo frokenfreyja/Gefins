@@ -18,7 +18,7 @@ Protecting the environment is one of today’s pressing subjects. More and more 
 
 ## About
 The website allows its users to create an account, post ads for free items or browse throught the site's free items. 
-<br/>
+<br/><br/>
 Users can get in queue for items, an ad's owner can accept a user as the receiver of the item in the ad and finally both owner and receiver can rate each other in the form of stars (one to five stars). 
 
 ## How do I get this ?
