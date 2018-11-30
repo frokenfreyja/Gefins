@@ -1,6 +1,7 @@
 # Gefins
 Software project in Software Development I (HBV501G) at University of Iceland. 
 <br/><br/>
+## About
 This web application allows its users to create an account, post ads for free items or browse throught the site's free items. 
 <br/>
 Users can get in queue for items, an ad's owner can accept a user as the receiver of the item in the ad and finally both owner and receiver can rate each other in the form of stars (one to five stars). 
