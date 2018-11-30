@@ -101,30 +101,31 @@
                         </main>
                         
                         <footer class="footer">
-                                <div class="footer__grid">
-                                    <div class="footer__row">
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>                                    </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/hofundar">Höfundar</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                        <div class="footer__grid">
+                            <div class="footer__row">
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/notkunarleidbeiningar">Notkunarleiðbeiningar</a></li>                                   
+                                    </ul>
                                 </div>
-                                <p class="footer__credit">© 2018 GEFINS</p>
-                            </footer>
-                    </body>
-                    </html>
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>     
+                                    </ul>                               
+                                </div>
+                                <div class="footer__col">
+                                    <ul class="footer__links">
+                                        <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>                                    </ul>                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="footer__credit">© 2018 GEFINS</p>
+                    </footer>
+                </body>
+                </html>

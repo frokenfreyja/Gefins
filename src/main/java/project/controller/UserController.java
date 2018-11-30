@@ -31,7 +31,7 @@ public class UserController {
     }
 
     
-    /*
+    /**
      *  Birtir nýskráningarsíðu með 
      *  innskráningarformi í Nyskra.jsp 
      */
@@ -43,7 +43,7 @@ public class UserController {
         return "Nyskra";
     }
     
-    /*
+    /**
      * Vistum user í Database
      */
     @RequestMapping(value = "/nyskra", method = RequestMethod.POST)
@@ -64,8 +64,6 @@ public class UserController {
     
     /**
      * Innskrá - GET
-     * @param model
-     * @return
      */
     @RequestMapping(value = "/innskra", method = RequestMethod.GET)
     public String innskra(Model model){
@@ -78,10 +76,6 @@ public class UserController {
    
     /**
      * Innskrá - POST
-     * @param model
-     * @param httpSession
-     * @param user
-     * @return
      */
 
     @RequestMapping(value = "/innskra", method = RequestMethod.POST)
@@ -101,8 +95,6 @@ public class UserController {
     
     /**
      * Útskrá
-     * @param session
-     * @return
      */
     @RequestMapping(value = "/utskra", method = RequestMethod.GET)
     public String utskra(HttpSession session){
@@ -115,9 +107,6 @@ public class UserController {
     
     /**
      * Settings - GET
-     * @param model
-     * @param httpSession
-     * @return
      */
 	@RequestMapping(value = "/settings", method = RequestMethod.GET)
     public String viewSettings(Model model, HttpSession httpSession) {
@@ -137,10 +126,6 @@ public class UserController {
     
     /**
      * Settings - POST
-     * @param model
-     * @param httpSession
-     * @param user
-     * @return
      */
     @RequestMapping(value = "/settings", method = RequestMethod.POST)
     public String changesSettings(User user, Model model, HttpSession httpSession) {
@@ -180,9 +165,6 @@ public class UserController {
     
     /**
      * Eyða aðgangi - GET
-     * @param model
-     * @param httpSession
-     * @return
      */
 	@RequestMapping(value = "/settings/{id}", method = RequestMethod.GET)
     public String deleteAccount(Model model, HttpSession httpSession) {
@@ -203,10 +185,6 @@ public class UserController {
 	
 	/**
 	 * Eyða aðgangi - POST
-	 * @param user
-	 * @param model
-	 * @param httpSession
-	 * @return
 	 */
     @RequestMapping(value = "/settings/{id}", method = RequestMethod.POST)
     public String deleteAccountPost(@ModelAttribute("user") User user, Model model, HttpSession httpSession) {

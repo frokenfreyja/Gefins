@@ -98,16 +98,25 @@
      margin-top: 20px;
 }
 .col-extra {
-  width: 35%;
+  width: 15%;
 }
  .col-main {
-     width: 30%;
+     width: 70%;
      padding-left: 10em;
      padding-bottom: 2em;
      padding-top: 1em;
 }
 h2 {
   font-size: 2em;
+  padding-top: 1em;
+}
+h3 {
+  font-size: 1.6em;
+  padding-top: 1.5em;
+}
+
+ul {
+  padding-left: 3em;
 }
 
 /* FÓTUR */

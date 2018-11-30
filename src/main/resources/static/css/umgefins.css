@@ -111,6 +111,10 @@ h2 {
   font-size: 2em;
 }
 
+ul {
+  padding-left: 3em;
+}
+
 /* FÓTUR */
  .footer {
      width: 100%;

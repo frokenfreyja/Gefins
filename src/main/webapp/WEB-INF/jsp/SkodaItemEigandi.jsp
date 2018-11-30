@@ -5,6 +5,7 @@
             <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
                 <%@ page contentType="text/html; charset=UTF-8" %>
                     <html class="grid" lang="is">
+
                     <head>
                         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Raleway:400,700" rel="stylesheet">
                         <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
@@ -14,6 +15,7 @@
       <c:url value=" /css/skodaitemeigandi.css "/>"/>
                         <!- <link rel="stylesheet" type="text/css" href="<c:url value="/css/grid.css"/>"/>
                     </head>
+
                     <body>
                         <header>
                             <div class="header-container">
@@ -75,68 +77,74 @@
                                                 <td class="title">Fjöldi í röð: </td>
                                                 <td class="info">${fn:length(skodaitem.users)}</td>
                                             </tr>
-                                            
+
                                             <tr>
-                                             <c:choose>
-                                             <c:when test="${not empty skodaitem.users}">
-                                                <td class="userstd">Í röð:</td>
-                                                <td class="userstd">
-                                                    <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status">
-                                                        ${status.index+1}. ${queueUser} <img src="${user[status.index]}"/>
-                                                        <br><br>
-   </c:forEach>
-     </c:when>
-                                                                                        <c:otherwise>
-                                                                                        </c:otherwise>
-                                                                                    </c:choose>
-                                                                    
-                                                  
-                                             <c:choose>
-                                             <c:when test="${not empty skodaitem.users}">
-                                                                                        
-                                                                                        
-                                                   <td class="buttons">                                      
-                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
-                                                <div class="submitchoose">
-                                                    <input type="submit" class="choosebutton" VALUE="Samþykkja" />
-                                                </div>
-                                            </sf:form>
-                                                
-                                         </td>
-                                            <td class="buttons">    
-                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandiremove/${skodaitem.id}">
-                                            <div class="submitdelete">
-                                               <input type="submit" class="deletebutton" VALUE="Eyða" onclick="return confirm('Ertu viss um að þú viljir eyða notanda?');"/>
-                                            </div>
-                                         </sf:form>
-                                         
-                                                 </td>
-                                            </c:when>
-                                                                                        <c:otherwise>
-                                                                                        </c:otherwise>
-                                                                                    </c:choose>
-                                                                                                                                                                           
+                                                <c:choose>
+                                                    <c:when test="${not empty skodaitem.users}">
+                                                        <td class="userstd">Í röð:</td>
+                                                        <td class="userstd">
+                                                            <c:forEach items="${skodaitem.users}" var="queueUser" varStatus="status">
+                                                                ${status.index+1}. ${queueUser} <img src="${user[status.index]}" />
+                                                                <br>
+                                                                <br>
+                                                            </c:forEach>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                                <c:choose>
+                                                    <c:when test="${not empty skodaitem.users && empty skodaitem.acceptedUser}">
+
+                                                        <td class="buttons">
+                                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandi/${skodaitem.id}">
+                                                                <div class="submitchoose">
+                                                                    <input type="submit" class="choosebutton" VALUE="Samþykkja" />
+                                                                </div>
+                                                            </sf:form>
+
+                                                        </td>
+
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <c:choose>
+                                                    <c:when test="${not empty skodaitem.users}">
+
+                                                        <td class="buttons">
+                                                            <sf:form method="POST" modelAttribute="item" action="/skodaitemeigandiremove/${skodaitem.id}">
+                                                                <div class="submitdelete">
+                                                                    <input type="submit" class="deletebutton" VALUE="Eyða" onclick="return confirm('Ertu viss um að þú viljir eyða notanda?');" />
+                                                                </div>
+                                                            </sf:form>
+
+                                                        </td>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    </c:otherwise>
+                                                </c:choose>
+
                                                 </td>
                                             </tr>
                                         </table>
                                         </c:when>
                                         <%--If all tests are false, then do this--%>
                                             <c:otherwise>
-                                                <h3>Engar auglýsingar</h3>
                                             </c:otherwise>
                                             </c:choose>
-                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName} <img src="${ownerRating}"/></div>
-                                           <c:choose>
-                                             <c:when test="${not empty skodaitem.users}">
-                                         <sf:form method="POST" modelAttribute="item" action="/ratings/${skodaitem.id}">
-                                         <div class="submitstar">
-                                            <input type="submit" class="starbutton" VALUE="Stjörnugjöf"/>
-                                         </div>
-                                      </sf:form>
-                                         </c:when>
-                                        <%--If all tests are false, then do this--%>
-                                            <c:otherwise>
-                                            </c:otherwise>
+                                            <div class="userImg"><img src="${pageContext.request.contextPath}/resources/images/usericon.png" />${skodaitem.userName} <img src="${ownerRating}" /></div>
+                                            <c:choose>
+                                                <c:when test="${not empty skodaitem.users && not empty skodaitem.acceptedUser}">
+                                                    <sf:form method="POST" modelAttribute="item" action="/ratings/${skodaitem.id}">
+                                                        <div class="submitstar">
+                                                            <input type="submit" class="starbutton" VALUE="Stjörnugjöf" />
+                                                        </div>
+                                                    </sf:form>
+                                                </c:when>
+                                                <%--If all tests are false, then do this--%>
+                                                    <c:otherwise>
+                                                    </c:otherwise>
                                             </c:choose>
                                     </div>
                                     <div class="extra__col">
@@ -145,30 +153,33 @@
                             </div>
                         </main>
                         <footer class="footer">
-                                <div class="footer__grid">
-                                    <div class="footer__row">
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>                                    </ul>
-                                        </div>
-                                        <div class="footer__col">
-                                            <ul class="footer__links">
-                                                <li class="li"><a class="footer__link" href="/hofundar">Höfundar</a></li>
-                                            </ul>
-                                        </div>
+                            <div class="footer__grid">
+                                <div class="footer__row">
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/notkunarleidbeiningar">Notkunarleiðbeiningar</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/hafasamband">Hafa samband</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/umgefins">Um Gefins</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer__col">
+                                        <ul class="footer__links">
+                                            <li class="li"><a class="footer__link" href="/notkunarskilmalar">Notkunarskilmálar</a></li>
+                                        </ul>
+                                        </ul>
                                     </div>
                                 </div>
-                                <p class="footer__credit">© 2018 GEFINS</p>
-                            </footer>
+                            </div>
+                            <p class="footer__credit">© 2018 GEFINS</p>
+                        </footer>
                     </body>
+
                     </html>
