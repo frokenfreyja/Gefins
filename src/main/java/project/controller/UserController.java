@@ -173,7 +173,7 @@ public class UserController {
        
         userService.save(theuser);
         
-        model.addAttribute("user", user);
+        model.addAttribute("user", theuser);
        
         return "Settings";
     }
