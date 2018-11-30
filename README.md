@@ -1,7 +1,8 @@
 # Gefins
 Software project in Software Development I (HBV501G) at University of Iceland. 
 
-## Authors
+## Authors 
+Team 26
 - Freyja Sigurgísladóttir, frs24@hi.is
 - Henrietta Þóra Magnúsdóttir, hthm6@hi.is
 - Jökull Jóhannsson, joj38@hi.is
