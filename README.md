@@ -1,5 +1,9 @@
 # Gefins
 Software project in Software Development I (HBV501G) at University of Iceland. 
+<br/><br/>
+This web application allows its users to create an account, post ads for free items or browse throught the site's free items. 
+<br/>
+Users can get in queue for items, an ad's owner can accept a user as the receiver of the item in the ad and finally both owner and receiver can rate each other in the form of stars (one to five stars). 
 
 ## Authors 
 Team 26
@@ -16,17 +20,12 @@ This web application aims to streamline that process by creating a system optimi
 <br/><br/>
 Protecting the environment is one of today’s pressing subjects. More and more people are becoming environmentally conscious and this website makes it easier for people to reduce their waste and pollution by giving and reusing.
 
-## About
-The website allows its users to create an account, post ads for free items or browse throught the site's free items. 
-<br/>
-Users can get in queue for items, an ad's owner can accept a user as the receiver of the item in the ad and finally both owner and receiver can rate each other in the form of stars (one to five stars). 
-
 ## How do I get this ?
 Your IDE ([IntelliJ](https://www.jetbrains.com/idea/), [Eclipse](https://eclipse.org/), [Spring Tool Suit](https://spring.io/tools)) should be able to clone a project from Github.
 It should be easy to find information regarding how to do that for your chosen IDE.
 
 ## How do I run this ?
-To run the project locally you have to have PostgreSQL server running on your computer. If you don't have it already installed on your computer you can download it [here](https://www.postgresql.org/download) 
+To run the project locally you have to have PostgreSQL server running on your computer. If you don't have it already installed on your computer you can download it [here](https://www.postgresql.org/download).
 <br/>
 When download has finished follow the instructions to setup PostgreSQL and create an account. After setup, add the URL to your database and its name and password in the application.properties file in the project.
 <br/>
