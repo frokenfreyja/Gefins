@@ -1,6 +1,6 @@
 # Gefins
 Software project in Software Development I (HBV501G) at University of Iceland. 
-<br/><br/>
+
 ## About
 This web application allows its users to create an account, post ads for free items or browse throught the site's free items. 
 <br/>
