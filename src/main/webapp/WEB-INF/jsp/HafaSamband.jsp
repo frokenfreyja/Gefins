@@ -22,59 +22,59 @@
                         });
                     </script>
                     <c:choose>
-                                                    <c:when test="${not empty loggedInUser}">
-         <header>
-                        <div class="header-containerlogged">
-                            <div class="header-bglogged">
-                                <div class="navbarlogged">
-                                    <div class="navlogged">
-                                        <div class="dropdownlogged">
-                                            <button class="dropbtnlogged">${loggedInUsername}
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                            <div class="dropdown-contentlogged">
-                                                <a href="/mittsvaedi">Mitt svæði</a>
-                                                <a href="/settings">Stillingar</a>
-                                                <a href="/utskra">Útskrá</a>
+                        <c:when test="${not empty loggedInUser}">
+                            <header>
+                                <div class="header-containerlogged">
+                                    <div class="header-bglogged">
+                                        <div class="navbarlogged">
+                                            <div class="navlogged">
+                                                <div class="dropdownlogged">
+                                                    <button class="dropbtnlogged">${loggedInUsername}
+                                                        <i class="fa fa-caret-down"></i>
+                                                    </button>
+                                                    <div class="dropdown-contentlogged">
+                                                        <a href="/mittsvaedi">Mitt svæði</a>
+                                                        <a href="/settings">Stillingar</a>
+                                                        <a href="/utskra">Útskrá</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-titlelogged">
+                                            <h1><a href="/forsida">GEFINS</a></h1>
+                                        </div>
+                                        <div class="undertitlelogged">
+                                            Fyrir jörðina okkar
+                                        </div>
+                                        <div class="newadvertlogged">
+                                            <div class="btnlogged header-btnlogged">
+                                                <span>Setja inn auglýsingu</span>
+                                                <a href="/nyauglysing"></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="m-titlelogged">
-                                        <h1>GEFINS</h1>
-                                    </div>
-                                    <div class="undertitlelogged">
-                                        Fyrir jörðina okkar
-                                    </div>
-                                    <div class="newadvertlogged">
-                                    <div class="btnlogged header-btnlogged">
-                                        <span>Setja inn auglýsingu</span>
-                                        <a href="/nyauglysing"></a>
-                                    </div>
-                                       </div>
-                            </div>
-                        </div>
-                    </header>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                                                                     <header>
-                        <div class="header-container">
-                            <div class="header-bg">
-                                <div class="navbar">
-                                    <div class="nav">
-                                        <a href="/nyskra">Nýskrá</a>
-                                        <a href="/innskra">Innskrá</a>
+                            </header>
+                        </c:when>
+                        <c:otherwise>
+                            <header>
+                                <div class="header-container">
+                                    <div class="header-bg">
+                                        <div class="navbar">
+                                            <div class="nav">
+                                                <a href="/nyskra">Nýskrá</a>
+                                                <a href="/innskra">Innskrá</a>
+                                            </div>
+                                        </div>
+                                        <div class="m-title">
+                                            <h1><a href="/forsida">GEFINS</a></h1>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="m-title">
-                                    <h1><a href="/forsida">GEFINS</a></h1>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-                                                    </c:otherwise>
-                                                </c:choose>
-                   
+                            </header>
+                        </c:otherwise>
+                    </c:choose>
+
                     <main>
                         <div class="grid">
                             <div class="row">

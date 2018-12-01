@@ -120,6 +120,11 @@
 	margin-top: 0px;
 	color: #05EDFF;
 }
+
+.m-titlelogged h1 a {
+    text-decoration: none;
+    color: #05EDFF;
+}
 .undertitlelogged {
 			font-family: 'Oswald', sans-serif;
 			font-weight: 600;
