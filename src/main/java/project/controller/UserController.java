@@ -146,6 +146,8 @@ public class UserController {
     		return "Settings";
     	} 
             
+    	// Finnur öll Item sem User-inn bjó til og breytir userName breytunni í nýja nafnið
+    	// Finnur einnig öll Item sem User-inn var í röð fyrir og breytir gamla nafninu í röðinni í nýja nafnið
     	itemService.changeName(userName,user.getUserName());
     	theuser.setUserName(user.getUserName());     
     	theuser.setPassword(user.getPassword());      
@@ -199,7 +201,9 @@ public class UserController {
         	userName="";
         	item.setAcceptedUser("");
         	
+        // Eyðir öllum Itemum sem User-inn bjó til og eyðir Usernum úr öllum röðum sem hann var í 
         itemService.deleteUserLinks(userName);
+        
         userService.delete(theuser);
         
         model.addAttribute("items",itemService.findAllReverseOrder());
